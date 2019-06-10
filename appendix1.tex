@@ -1,0 +1,166 @@
+\label{AppendixA}
+This is a supplementary document which contains the Answer Set Programming
+ASP Code for the Reasoning Algorithm
+A Worked Out Example
+ASP Code for the Reasoning algorithm:
+Defining domain of variables\\
+k\_val(X) :- has\_k(X,R,Y).\\
+k\_val(Y) :- has\_k(X,R,Y).\\
+Extracting constant nodes from graphical representations\\
+s\_const(X) :- has\_s(X,instance\_of,I).\\
+q\_const(X) :- has\_q(X,instance\_of,I).\\
+k\_class(X) :- has\_k(A,instance\_of,X).\\
+k\_const(X) :- not k\_class(X), k\_val(X).\\
+Extracting constant nodes which has constant parent nodes\\
+from graphical representations of sentence, question and\\
+knowledge\\
+s\_has\_par(X) :- has\_s(P,R,X), s\_const(X), s\_const(P).\\
+q\_has\_par(X) :- has\_q(P,R,X), q\_const(X), q\_const(P).\\
+k\_has\_par(X) :- has\_k(P,R,X), k\_const(X), k\_const(P).\\
+Extracting constant nodes which has constant children nodes\\
+from graphical representations of sentence, question and\\
+knowledge\\
+s\_has\_child(X) :- has\_s(X,R,C), s\_const(X), s\_const(C).\\
+q\_has\_child(X) :- has\_q(X,R,C), q\_const(X), q\_const(C).\\
+k\_has\_child(X) :- has\_k(X,R,C), k\_const(X), k\_const(C).\\ Extracting cross-domain siblings from a knowledge’s\\
+representation\\
+to a sentence’s representation\\
+not\_k\_s\_crossdom\_sib(X,Y) :- has\_k(X,instance\_of,I1),\\
+has\_k(X,instance\_of,I2),\\
+has\_s(Y,instance\_of,I1),\\
+not has\_s(Y,instance\_of,I2),\\
+I1!=I2.\\
+not\_k\_s\_crossdom\_sib(X,Y) :- has\_k(X,instance\_of,I1),  \\
+has\_k(X,instance\_of,I2),\\
+I1!=I2,\\
+not has\_s(Y,instance\_of,I1),\\
+has\_s(Y,instance\_of,I2).\\
+not\_k\_s\_crossdom\_sib(X,Y) :- has\_k(X,instance\_of,I1),\\
+has\_k(X,instance\_of,I2),\\
+I1!=I2,\\
+not has\_s(Y,instance\_of,I1),\\
+not has\_s(Y,instance\_of,I2),\\
+s\_const(Y).\\
+k\_s\_crossdom\_sib(X,Y) :- has\_s(Y,instance\_of,I),\\
+has\_k(X,instance\_of,I),\\
+s\_const(Y),\\
+k\_const(X),\\
+not not\_k\_s\_crossdom\_sib(X,Y).\\
+Extracting cross-domain clones from a knowledge’s representation\\
+to a sentence’s representation\\
+k\_s\_crossdom\_clone(X,Y) :- k\_s\_crossdom\_sib(X,Y),\\
+has\_k(Pj,Rj,X),\\
+has\_s(Pj\_prime,Rj,Y),\\
+k\_s\_crossdom\_clone(Pj,Pj\_prime),\\
+k\_const(Pj),\\
+has\_k(X,Rk,Cj),\\
+has\_s(Y,Rk,Cj\_prime),\\
+k\_s\_crossdom\_sib(Cj,Cj\_prime),\\
+k\_const(Cj).\\
+k\_s\_crossdom\_clone(X,Y) :- k\_s\_crossdom\_sib(X,Y),\\
+not k\_has\_par(X),\\
+has\_k(X,Rk,Cj),has\_s(Y,Rk,Cj\_prime),\\
+k\_s\_crossdom\_sib(Cj,Cj\_prime),\\
+k\_const(Cj).\\
+k\_s\_crossdom\_clone(X,Y) :- k\_s\_crossdom\_sib(X,Y),\\
+has\_k(Pj,Rj,X),\\
+has\_s(Pj\_prime,Rj,Y),\\
+k\_s\_crossdom\_clone(Pj,Pj\_prime),\\
+k\_const(Pj),\\
+not k\_has\_child(X).\\
+k\_s\_crossdom\_clone(X,Y) :- k\_s\_crossdom\_sib(X,Y),\\
+not k\_has\_par(X),\\
+not k\_has\_child(X).\\
+Generating a merged representation of a sentence and a knowledge\\
+has\_m(X,R,Y) :- has\_s(X,R,Y).\\
+k\_covered(X) :- k\_const(X),\\
+s\_const(Y),\\
+k\_s\_crossdom\_clone(X,Y).\\
+k\_not\_all\_covered :- k\_const(X),\\
+not k\_covered(X).\\
+k\_all\_covered :- not k\_not\_all\_covered.\\
+has\_m(X,R,Y) :- has\_s(X,R,Y1),\\
+has\_s(X2,R2,Y),\\
+Y1!=Y,\\
+k\_s\_crossdom\_clone(Y\_k,Y1),\\
+k\_s\_crossdom\_clone(Y\_k,Y),\\
+k\_all\_covered.\\
+has\_m(X,R,Y) :- has\_s(X1,R,Y),\\
+has\_s(X,R2,Y2),\\
+X1!=X,\\
+k\_s\_crossdom\_clone(X\_k,X1),\\
+k\_s\_crossdom\_clone(X\_k,X),\\
+k\_all\_covered.\\
+Extracting constant nodes from graphical representation\\
+has\_const(X) :- has\_m(X,instance\_of,I).\\
+Extracting constant nodes which has constant parent nodes\\
+from a merged representation\\
+m\_has\_par(X) :- has\_m(P,R,X), m\_const(X), m\_const(P).\\
+Extracting constant nodes which has constant children nodes\\
+from a merged representation\\
+m\_has\_child(X) :- has\_m(X,R,C), m\_const(X), m\_const(C).\\
+Extracting cross-domain siblings from a question’s representation\\
+to a merged representation\\
+not\_q\_m\_crossdom\_sib(X,Y) :-\\
+has\_q(X,instance\_of,I1),\\
+has\_q(X,instance\_of,I2),\\
+has\_m(Y,instance\_of,I1),\\
+not has\_m(Y,instance\_of,I2),\\
+I1!=I2, I1!=q, I2!=q.\\
+not\_q\_m\_crossdom\_sib(X,Y) :-\\
+has\_q(X,instance\_of,I1),\\
+has\_q(X,instance\_of,I2),\\
+not has\_m(Y,instance\_of,I1),\\
+has\_m(Y,instance\_of,I2),\\
+I1!=I2, I1!=q, I2!=q.\\
+not\_q\_m\_crossdom\_sib(X,Y) :-\\
+has\_q(X,instance\_of,I1),\\
+has\_q(X,instance\_of,I2),\\
+not has\_m(Y,instance\_of,I1),\\
+not has\_m(Y,instance\_of,I2),\\
+m\_const(Y),\\
+I1!=I2, I1!=q, I2!=q.\\
+q\_m\_crossdom\_sib(X,Y) :-\\
+has\_m(Y,instance\_of,I),\\
+has\_q(X,instance\_of,I),\\
+not not\_q\_m\_crossdom\_sib(X,Y),\\
+m\_const(Y),\\
+q\_const(X).\\
+Extracting cross-domain clones from a question’s representation\\
+to a merged representation\\
+q\_m\_crossdom\_clone(X,Y) :- q\_m\_crossdom\_sib(X,Y),\\
+has\_q(Pj,Rj,X),\\
+has\_m(Pj\_prime,Rj,Y),\\
+q\_m\_crossdom\_clone(Pj,Pj\_prime),\\
+q\_const(Pj),has\_q(X,Rk,Cj),\\
+has\_m(Y,Rk,Cj\_prime),\\
+q\_m\_crossdom\_sib(Cj,Cj\_prime),\\
+q\_const(Cj).\\
+q\_m\_crossdom\_clone(X,Y) :- q\_m\_crossdom\_sib(X,Y),\\
+not q\_has\_par(X),\\
+has\_q(X,Rk,Cj),\\
+has\_m(Y,Rk,Cj\_prime),\\
+q\_m\_crossdom\_sib(Cj,Cj\_prime),\\
+q\_const(Cj).\\
+q\_m\_crossdom\_clone(X,Y) :- q\_m\_crossdom\_sib(X,Y),\\
+has\_q(Pj,Rj,X),\\
+has\_m(Pj\_prime,Rj,Y),\\
+q\_m\_crossdom\_clone(Pj,Pj\_prime),\\
+q\_const(Pj),\\
+not q\_has\_child(X).\\
+q\_m\_crossdom\_clone(X,Y) :- q\_m\_crossdom\_sib(X,Y),\\
+not q\_has\_par(X),\\
+not q\_has\_child(X).\\
+Extracting the answers to the input question\\
+q\_covered(X) :- q\_const(X),\\
+m\_const(Y),\\
+q\_m\_crossdom\_clone(X,Y).\\
+q\_not\_all\_covered :-\\
+not q\_covered(X),\\
+q\_const(X).\\
+q\_all\_covered :- not q\_not\_all\_covered.\\
+ans(Q,X) :- q\_m\_crossdom\_clone(Q,X),\\
+has\_q(Q,instance\_of,q),\\
+q\_all\_covered.\\
+Making answers visible in the terminal\\
+\#show ans/2.\\

@@ -1,0 +1,249 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{RWC{\etalchar{+}}19}
+
+\bibitem[AW72]{article}
+Terry Allen~Winograd.
+\newblock Understanding natural language.
+\newblock {\em Cognitive Psychology}, 3:1--191, 01 1972.
+
+\bibitem[Ben15]{DBLP:conf/maics/Bender15}
+David Bender.
+\newblock Establishing a human baseline for the winograd schema challenge.
+\newblock In {\em Proceedings of the 26th Modern {AI} and Cognitive Science
+  Conference 2015, Greensboro, NC, USA, April 25-26, 2015.}, pages 39--45,
+  2015.
+
+\bibitem[Coh60]{doi:10.1177/001316446002000104}
+Jacob Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock {\em Educational and Psychological Measurement}, 20(1):37--46, 1960.
+
+\bibitem[Cry11]{Coref}
+David Crystal.
+\newblock A dictionary of linguistics and phonetics, sixth edition.
+\newblock {\em The Modern Language Journal}, 76:25--26, 01 2011.
+
+\bibitem[Dav90]{Davis:1990:RCK:83819}
+Ernest Davis.
+\newblock {\em Representations of Commonsense Knowledge}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1990.
+
+\bibitem[Dav16]{DBLP:journals/corr/Davis16}
+Ernest Davis.
+\newblock Winograd schemas and machine translation.
+\newblock {\em CoRR}, abs/1608.01884, 2016.
+
+\bibitem[DM15]{DBLP:journals/cacm/DavisM15}
+Ernest Davis and Gary Marcus.
+\newblock Commonsense reasoning and commonsense knowledge in artificial
+  intelligence.
+\newblock {\em Commun. {ACM}}, 58(9):92--103, 2015.
+
+\bibitem[ECT{\etalchar{+}}18]{DBLP:conf/emnlp/EmamiCTSC18}
+Ali Emami, Noelia De~La Cruz, Adam Trischler, Kaheer Suleman, and Jackie
+  Chi~Kit Cheung.
+\newblock A knowledge hunting framework for common sense reasoning.
+\newblock In {\em Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing, Brussels, Belgium, October 31 - November 4,
+  2018}, pages 1949--1958, 2018.
+
+\bibitem[JA18]{W18-4105}
+Opitz Juri and Frank Anette.
+\newblock Addressing the winograd schema challenge as a sequence ranking task.
+\newblock In {\em Proceedings of the First International Workshop on Language
+  Cognition and Computational Models}, pages 41--52. Association for
+  Computational Linguistics, 2018.
+
+\bibitem[Joa02]{DBLP:conf/kdd/Joachims02}
+Thorsten Joachims.
+\newblock Optimizing search engines using clickthrough data.
+\newblock In {\em Proceedings of the Eighth {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining, July 23-26, 2002,
+  Edmonton, Alberta, Canada}, pages 133--142, 2002.
+
+\bibitem[LDM12]{DBLP:conf/kr/LevesqueDM12}
+Hector~J. Levesque, Ernest Davis, and Leora Morgenstern.
+\newblock The winograd schema challenge.
+\newblock In {\em Principles of Knowledge Representation and Reasoning:
+  Proceedings of the Thirteenth International Conference, {KR} 2012, Rome,
+  Italy, June 10-14, 2012}, 2012.
+
+\bibitem[Len95]{DBLP:journals/cacm/Lenat95}
+Douglas~B. Lenat.
+\newblock {CYC:} {A} large-scale investment in knowledge infrastructure.
+\newblock {\em Commun. {ACM}}, 38(11):32--38, 1995.
+
+\bibitem[LGK77]{articleM}
+J~Landis and Gary G.~Koch.
+\newblock The measurement of observer agreement for categorical data.
+\newblock {\em Biometrics}, 33:159--74, 04 1977.
+
+\bibitem[Lif08]{DBLP:conf/aaai/Lifschitz08}
+Vladimir Lifschitz.
+\newblock What is answer set programming?
+\newblock In {\em Proceedings of the Twenty-Third {AAAI} Conference on
+  Artificial Intelligence, {AAAI} 2008, Chicago, Illinois, USA, July 13-17,
+  2008}, pages 1594--1597, 2008.
+
+\bibitem[LJL{\etalchar{+}}16a]{DBLP:journals/corr/Liu0LWH16}
+Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Si~Wei, and Yu~Hu.
+\newblock Probabilistic reasoning via deep learning: Neural association models.
+\newblock {\em CoRR}, abs/1603.07704, 2016.
+
+\bibitem[LJL{\etalchar{+}}16b]{DBLP:journals/corr/LiuJLZWH16}
+Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Xiaodan Zhu, Si~Wei, and Yu~Hu.
+\newblock Combing context and commonsense knowledge through neural networks for
+  solving winograd schema problems.
+\newblock {\em CoRR}, abs/1611.04146, 2016.
+
+\bibitem[LJL{\etalchar{+}}17]{DBLP:conf/aaaiss/LiuJLZWH17}
+Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Xiaodan Zhu, Si~Wei, and Yu~Hu.
+\newblock Combing context and commonsense knowledge through neural networks for
+  solving winograd schema problems.
+\newblock In {\em 2017 {AAAI} Spring Symposia, Stanford University, Palo Alto,
+  California, USA, March 27-29, 2017}, 2017.
+
+\bibitem[LPC{\etalchar{+}}11]{lee11conllst}
+Heeyoung Lee, Yves Peirsman, Angel Chang, Nathanael Chambers, Mihai Surdeanu,
+  and Dan Jurafsky.
+\newblock Stanford's multi-pass sieve coreference resolution system at the
+  conll-2011 shared task.
+\newblock In {\em Conference on Natural Language Learning (CoNLL) Shared Task},
+  2011.
+
+\bibitem[LS04]{articleC}
+Hugo Liu and Push Singh.
+\newblock Conceptnet—a practical commonsense reasoning tool-kit.
+\newblock {\em BT technology journal}, 22, 06 2004.
+
+\bibitem[McC60]{McCarthy:1960:PCS:889202}
+John McCarthy.
+\newblock Programs with common sense.
+\newblock Technical report, Cambridge, MA, USA, 1960.
+
+\bibitem[MCCD13]{DBLP:journals/corr/abs-1301-3781}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock {\em CoRR}, abs/1301.3781, 2013.
+
+\bibitem[MDJ16]{DBLP:journals/aim/MorgensternDO16}
+Leora Morgenstern, Ernest Davis, and Charles L.~Ortiz Jr.
+\newblock Planning, executing, and evaluating the winograd schema challenge.
+\newblock {\em {AI} Magazine}, 37(1):50--54, 2016.
+
+\bibitem[Mil95]{DBLP:journals/cacm/Miller95}
+George~A. Miller.
+\newblock Wordnet: {A} lexical database for english.
+\newblock {\em Commun. {ACM}}, 38(11):39--41, 1995.
+
+\bibitem[MJ15]{DBLP:conf/aaai/MorgensternO15}
+Leora Morgenstern and Charles L.~Ortiz Jr.
+\newblock The winograd schema challenge: Evaluating progress in commonsense
+  reasoning.
+\newblock In {\em Proceedings of the Twenty-Ninth {AAAI} Conference on
+  Artificial Intelligence, January 25-30, 2015, Austin, Texas, {USA.}}, pages
+  4024--4026, 2015.
+
+\bibitem[MMS{\etalchar{+}}02]{DBLP:journals/ibmsj/McCarthyMSGLMMRSS02}
+John McCarthy, Marvin Minsky, Aaron Sloman, Leiguang Gong, Tessa~A. Lau, Leora
+  Morgenstern, Erik~T. Mueller, Doug Riecken, Moninder Singh, and Push Singh.
+\newblock An architecture of diversity for commonsense reasoning.
+\newblock {\em {IBM} Systems Journal}, 41(3), 2002.
+
+\bibitem[MPC18]{DBLP:conf/aaai/MaPC18}
+Yukun Ma, Haiyun Peng, and Erik Cambria.
+\newblock Targeted aspect-based sentiment analysis via embedding commonsense
+  knowledge into an attentive {LSTM}.
+\newblock In {\em Proceedings of the Thirty-Second {AAAI} Conference on
+  Artificial Intelligence, (AAAI-18), the 30th innovative Applications of
+  Artificial Intelligence (IAAI-18), and the 8th {AAAI} Symposium on
+  Educational Advances in Artificial Intelligence (EAAI-18), New Orleans,
+  Louisiana, USA, February 2-7, 2018}, pages 5876--5883, 2018.
+
+\bibitem[RDG18]{DBLP:conf/aaai/RoychowdhuryDG18}
+Soumali Roychowdhury, Michelangelo Diligenti, and Marco Gori.
+\newblock Image classification using deep learning and prior knowledge.
+\newblock In {\em The Workshops of the The Thirty-Second {AAAI} Conference on
+  Artificial Intelligence, New Orleans, Louisiana, USA, February 2-7, 2018.},
+  pages 336--343, 2018.
+
+\bibitem[RN12]{DBLP:conf/emnlp/RahmanN12}
+Altaf Rahman and Vincent Ng.
+\newblock Resolving complex cases of definite pronouns: The winograd schema
+  challenge.
+\newblock In {\em Proceedings of the 2012 Joint Conference on Empirical Methods
+  in Natural Language Processing and Computational Natural Language Learning,
+  EMNLP-CoNLL 2012, July 12-14, 2012, Jeju Island, Korea}, pages 777--789,
+  2012.
+
+\bibitem[RWC{\etalchar{+}}19]{radford2019language}
+Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
+  Sutskever.
+\newblock Language models are unsupervised multitask learners.
+\newblock \url{https://github.com/openai/gpt-2}, 2019.
+\newblock [Online; accessed 04-03-2019].
+
+\bibitem[SB16]{DBLP:conf/aaai/SharmaB16}
+Arpit Sharma and Chitta Baral.
+\newblock Automatic extraction of events-based conditional commonsense
+  knowledge.
+\newblock In {\em Knowledge Extraction from Text, Papers from the 2016 {AAAI}
+  Workshop, Phoenix, Arizona, USA, February 12, 2016.}, 2016.
+
+\bibitem[SB18]{2018CommonsenseKT}
+Arpit Sharma and Chitta Baral.
+\newblock Commonsense knowledge types identification and reasoning for the
+  winograd schema challenge.
+\newblock
+  \url{https://www.semanticscholar.org/paper/Commonsense-Knowledge-Types-Identification-and-for/1151e8ceafdd292fbf70db5cbca20a805a3ecacb},
+  2018.
+\newblock [Online; accessed 25-02-2019].
+
+\bibitem[Sch72]{SCHANK1972552}
+Roger~C. Schank.
+\newblock Conceptual dependency: A theory of natural language understanding.
+\newblock {\em Cognitive Psychology}, 3(4):552 -- 631, 1972.
+
+\bibitem[Sch14]{DBLP:conf/kr/Schuller14}
+Peter Sch{\"{u}}ller.
+\newblock Tackling winograd schemas by formalizing relevance theory in
+  knowledge graphs.
+\newblock In {\em Principles of Knowledge Representation and Reasoning:
+  Proceedings of the Fourteenth International Conference, {KR} 2014, Vienna,
+  Austria, July 20-24, 2014}, 2014.
+
+\bibitem[SVAB15]{DBLP:conf/ijcai/SharmaVAB15}
+Arpit Sharma, Nguyen~Ha Vo, Somak Aditya, and Chitta Baral.
+\newblock Towards addressing the winograd schema challenge - building and using
+  a semantic parser and a knowledge hunting module.
+\newblock In {\em Proceedings of the Twenty-Fourth International Joint
+  Conference on Artificial Intelligence, {IJCAI} 2015, Buenos Aires, Argentina,
+  July 25-31, 2015}, pages 1319--1325, 2015.
+
+\bibitem[TEC{\etalchar{+}}18]{DBLP:journals/corr/abs-1811-01778}
+Paul Trichelair, Ali Emami, Jackie Chi~Kit Cheung, Adam Trischler, Kaheer
+  Suleman, and Fernando Diaz.
+\newblock On the evaluation of common-sense reasoning in natural language
+  understanding.
+\newblock {\em CoRR}, abs/1811.01778, 2018.
+
+\bibitem[TL18]{DBLP:journals/corr/abs-1806-02847}
+Trieu~H. Trinh and Quoc~V. Le.
+\newblock A simple method for commonsense reasoning.
+\newblock {\em CoRR}, abs/1806.02847, 2018.
+
+\bibitem[VSP{\etalchar{+}}17]{DBLP:conf/nips/VaswaniSPUJGKP17}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In {\em Advances in Neural Information Processing Systems 30: Annual
+  Conference on Neural Information Processing Systems 2017, 4-9 December 2017,
+  Long Beach, CA, {USA}}, pages 6000--6010, 2017.
+
+\bibitem[WS02]{Wilson2002-WILRT}
+Deirdre Wilson and Dan Sperber.
+\newblock Relevance theory.
+\newblock In L.~Horn and G.~Ward, editors, {\em The Handbook of Pragmatics},
+  pages 607--632. Blackwell, 2002.
+
+\end{thebibliography}
