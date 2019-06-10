@@ -1,0 +1,96 @@
+\section{Related Work}
+\label{section:TheDifferentApproaches}
+
+Since the publication of the WSC in 2012 many approaches for solving it have been proposed. For a structured overview, we categorized the existing approaches as follows: The first category are the approaches which employ machine learning and in particular deep learning techniques. 
+The second category covers the approaches which use formalized background knowledge and rules. 
+In this section we will discuss some of the proposed solutions from both categories which had notable contributions as well as approaches which achieved state-of-the-art results.
+
+\begin{comment}
+Main challenge for rule base systems: how to obtain non-domain specific knowledge base; how to reason on top of that; if predefined as Peter's too constraint
+
+Main challenge for ML approaches: not enough reasoning, it's learning statistic, with small changes would fail
+Good approach: knowledge hunting frameworks; maybe recognizing different subsets of sentences
+\end{comment}
+
+\subsection{Machine learning approaches}
+
+The authors of the WSC were skeptical about the usage of learning methods being sufficient to resolve the WSC. Their concern was that these methods do not employ any reasoning which they believe is essential for solving the WSC. 
+Nevertheless, there have been some implementations which rely on these methods and still achieve relatively good results. 
+
+One early contribution towards these approaches is the work by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}. Along with their machine learning framework, an additional dataset was provided. This dataset was constructed by undergraduate students and consists of 943 WSs twin sentences divided into training (70\%) and test (30\%) sets. In the framework, a ranking-based approached was used. In other words, a Ranking Support Vector Machine (SVM) model \cite{DBLP:conf/kdd/Joachims02} is trained given pronoun and the two possible antecedents. The model ranks the antecedents and should assign a higher rank to the correct one. After the training phase, the same model is applied to the instances from the test set. Although the evaluation of the framework on the additional dataset showed that 73\% of the test set was answered correctly, this approach was not tested on the original Winograd dataset.  Nevertheless, the provided additional dataset will later serve for the training and testing of learning models from other proposals. 
+
+More recent proposals employ deep learning techniques. Such as the sequence ranking task suggested by Optiz and Frank \cite{W18-4105}. The problem of choosing one of the possible antecedents for the missing pronoun is translated to a classification task which distinguishes a more preferred solution from a less preferred solution. As a first step, the ambiguous pronoun in the given sentence is substituted with the two possible solutions.  
+For \ref{Ex1} this would result in the following two sentences: 
+
+\begin{itemize}
+	\item [\textbf{S1:}] \textbf{The trophy does not fit into the brown suitcase because \underline{the trophy} is too small.}
+	\item[\textbf{S2:}] \textbf{The trophy does not fit into the brown suitcase because \underline{the suitcase} is too small.}
+\end{itemize} 
+
+After that, a neural model designed by Optiz and Frank \cite{W18-4105}, called a Siamese neural network, is specified. The model compares the two -representations of the input sentences and a ranking function that ranks them. 
+For the training of the network, the additional dataset provided in \cite{DBLP:conf/emnlp/RahmanN12} is used. Since this set is small and in order to prevent the model to memorize the noun phrase candidates, an anonymization technique is used. With this technique, during training the model omits the noun phrase candidates. This forces the model to focus to the rest of the sentence in order to identify a more general meaning. During the evaluation, the test on data which was anonymized had significantly better results than when anonymization was not applied. In contrast to \cite{DBLP:conf/emnlp/RahmanN12}, the model is tested on both the original Winograd dataset and the test set from the additional dataset. The model achieved 56\% accuracy on the Winograd dataset and 63\% accuracy on the additional dataset.
+
+
+The implementation by Liu et al. \cite{DBLP:journals/corr/LiuJLZWH16} which competed and had the best results at the WSC held in 2016 also used deep neural network classifier to predict the answers. In the proposed framework, named Knowledge Enhanced Embeddings (KEE), three commonsense knowledge bases (ConceptNet \cite{articleC}, WordNet \cite{DBLP:journals/cacm/Miller95} and CauseCom \cite{DBLP:journals/corr/Liu0LWH16}) were used to extract commonsense knowledge. The extracted knowledge was then incorporated as knowledge constraint during the word embedding training process. An example of such knowledge constraint is the following semantic similarity inequality: \textit{similarity(happy,glad) $>$ similarity(happy,sad)}. For the training process the skip-gram model \cite{DBLP:journals/corr/abs-1301-3781} was used, which learns to predict the context given a target word. The KEE model was used for feature extraction from the PDP test problems. After feature extraction, two different solvers were employed for extracting the correct answer. The first solver relied on an unsupervised method for calculating the semantic similarity between the extracted embeddings and the antecedent candidates. The second solver used the extracted embeddings for supervised training of a neural network classifier. The experiments were initially conducted only on the PDP set and showed that the two solvers combined achieve 66.7\%. During the WSC, the KEE model was trained on a small Wikipedia text corpus and the second solver was used, achieving 58.3\% accuracy which was the best result at that time. 
+
+
+\begin{comment}
+	In addition to the machine learning approaches, more recently published approaches use deep learning for training unsupervised language models. In contrast to the previous models, these models require large datasets for training.
+\end{comment}
+
+
+The method described by Trinh and Le \cite{DBLP:journals/corr/abs-1806-02847}, uses language models based on neural networks to capture commonsense knowledge. They use unsupervised learning to train neural networks on different large datasets. Based on what was learned during the training phase, the language models are able to assign probabilities to given text. The idea here is to reduce the coreference resolution problem to a decision which relies on probabilities. As a first step, a substitution as in \cite{W18-4105}, explained above, is done on the input sentence with the two possible antecedents. Next, the pre-trained language models assign one of the two different scores, full or partial, to these sentences. The full score is obtained by computing the probability of the substitution on the full sentence while the partial is the probability of the part of the sentence with the special word, conditioned on the substitution in the antecedent. The sentence with the higher probability is assumed to be the one with the correct answer. The conducted experiments showed that the models which assigned partial scoring were the most successful ones. According to the results of the experiments, the language models correctly resolved 70\% of the PDP dataset and 63.7\% of the WSC dataset. 
+While these are very good results for the WSC, compared to the previous state-of-the-art \cite{DBLP:journals/corr/LiuJLZWH16}, this method relies on learning with no inferential reasoning involved. Thanks to available computational power and the access to large datasets this method achieves very good results. At the same time, the training process of the networks is what makes this method very expensive. Moreover, it has been suggested as one possible extension of the WSC to add a requirement for the system to provide explanations of how the answers have been chosen \cite{DBLP:conf/aaai/MorgensternO15}. This would be a challenge for this particular approach and the other machine learning approaches since no explanation for a reasoning process is provided.   %Instead of understunding, which is what the core idea for disambiguing the WSC according to its authors, better formulate, find this requirement in the description of the problem
+
+
+Recently, a similar method which relies on deep learning has been published by Radford et al. \cite{radford2019language}. This method uses an unsupervised learning on a language model which is trained using 1.5 billion parameters and a dataset of 8 million web pages. In order to ensure the quality in the training dataset, a new web scrape was created which scrapes data only from pages with content created and modified by humans, for example blogs. The model, named GPT-2, uses Transformer based architecture \cite{DBLP:conf/nips/VaswaniSPUJGKP17} which is an encoder-decoder structure with self-attention layers. 
+Although this method is controversial because the implementation is not publicly available, the authors claim that their language model outperforms the current state-of-the-art in different NLP tasks (reading comprehension, summarization of text, translation). For solving the WSC, they used the GPT-2 model in the same setting as Trinh and Le \cite{DBLP:journals/corr/abs-1806-02847} and also achieved better results when applying the partial scoring. The reported accuracy of 70.70\% on the WSC corpus is the current state-of-art result. 
+
+
+\subsection{Knowledge-based approaches}
+The authors of the WSC are from the Knowledge Representation and Reasoning area, so it is not surprising that they suggest the use of knowledge-based systems as a possible way of addressing the WSC. At the core of the knowledge-based approaches lies the idea of formulating rules which can be used for resolving the missing pronoun. To be able to apply the rules during a reasoning process, structured background knowledge is required.
+
+
+One of the earliest proposals that rely on this methodology was by Sch{\"u}ller \cite{DBLP:conf/kr/Schuller14} in which Relevance Theory (RT) \cite{Wilson2002-WILRT} is combined with Knowledge Graphs (KG). Inspired by Schank's model for Knowledge Representation \cite{SCHANK1972552}, Sch{\"u}ller proposed a framework for combining nodes of KG and reasoning on the resulting graph. 
+In this framework a KG data structure based on the domains for labeling the nodes and labeling the dependencies in the graph is defined. Additionally two sets of constraints and conditions for the KG structure are defined in order to enforce certain linguistic and structural properties. An example of such condition is that all nodes in the graph are of the same type.  This data structure is then used for representing the input sentence and the background knowledge. 
+The input sentence represented as a KG and a background KG related to it is activated, after which the two are joined in a third KG. Finally, applying concepts from RT during the reasoning process over the third graph, a resulting graph is extracted which represents the correct solution for the input sentence. Sch{\"u}ller \cite{DBLP:conf/kr/Schuller14} presents the evaluation on 4 WSs. The downside of this approach is that the graphs for the input sentence and for the knowledge have been manually constructed which limits the possibility for evaluation and it misses the core point of the challenge. However, the idea to represent the given Winograd sentence as a dependency graph served later as a starting point to other approaches such as \cite{DBLP:conf/ijcai/SharmaVAB15}.
+
+In Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} the authors recognized two different types of commonsense knowledge which are needed in order to resolve the pronoun in the input sentence. 
+71 WSs have been divided into two categories: the first category is called the Direct Causal Events and the second one is called Causal Attribute. Furthermore, a non domain-specific semantic parser is developed, called KParser\footnote{www.kparser.org}. This parser uses different NLP techniques, such as syntactic dependency parsing, sense disambiguation and discourse parsing for preprocessing the input sentence and produces a semantic graph representation of the sentence. In the next step, a set of queries based on the concepts in the sentences and in the question is created, which is later used to search a large corpus of text. The goal of the search is to automatically extract sentences with relevant commonsense knowledge for the input sentence and represent them as a semantic graph. Finally, different reasoning processes\footnote{The difference is in the predicates that extract nodes from the semantic graphs.} are applied to the sentences from the two categories and by comparing the graphs of the input sentence and the extracted sentences, the predicted answer is found. During the evaluation of this approach, 53 sentences were answered with 4 of them answered incorrectly. 
+Although in \cite{DBLP:conf/ijcai/SharmaVAB15}, the focus is on a subset of sentences, the results from the evaluation are promising. This leaves open the possibility to identify more types of commonsense reasoning which would help in the extraction of the background knowledge and the reasoning process.
+
+The work by Sharma and Baral \cite{2018CommonsenseKT} follows this direction. Although this approach is currently under review and still not published, we decided to consider it in more detail because it seems to be a promising knowledge-based approach. In contrast to the two types of reasoning identified by Sharma et. al \cite{DBLP:conf/ijcai/SharmaVAB15}, Sharma and Baral \cite{2018CommonsenseKT} present twelve different knowledge types which capture the entire corpus of the WSC. How these twelve knowledge types were identified and which are they will be explained in the next chapter. Another contribution of the work is the provided reasoning algorithm which will also be explained in the next chapter. \\ Following are \labeltext{\textnormal{the steps}}{Steps} of this approach: 
+\begin{enumerate}
+	\item The given Winograd sentence and question are represented as semantic graphs and encoded as ASP rules.
+	\item The extraction of the background knowledge is the same as in \cite{DBLP:conf/ijcai/SharmaVAB15}. Sentences similar to the input WS are retrieved and the knowledge is extracted in the same graph format as one of the identified knowledge types and encoded in ASP.
+	\item The reasoning algorithm matches the graph from the input sentence with the graph from the background knowledge, which again results in a graph.
+	\item This resulting graph is merged with the graph representation of the question.
+	\item An answer is retrieved by matching the node which represents the ambiguous pronoun from the question graph with the node which represents an entity from the resulting graph.
+\end{enumerate}
+
+The evaluation is done separately for the WS and for the additional dataset from Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}. The knowledge extraction algorithm retrieved relevant knowledge for only 100 WSs, so the reasoning algorithm was evaluated only over those WSs and all of them were answered correctly. 
+For the additional dataset, 138 sentences which are covered by the identified knowledge types were evaluated. The needed background knowledge was encoded manually. In this case, the reasoning algorithm answered correctly 80.45\%, whereas the remaining 19\% were answered wrong because of a parsing error and not a reasoning one. The main drawback of this approach is the missing background knowledge which limits the evaluation part. 
+ 
+  
+A very recent approach, which achieves state-of-the-art results, is a knowledge hunting framework proposed by Emami et al. \cite{DBLP:conf/emnlp/EmamiCTSC18}. The focus here is on solving all the instances without relying on any existing knowledge bases or statistical methods for capturing the commonsense knowledge. To this end they have developed a framework which is divided into four stages.
+\begin{enumerate}
+	\item Using syntactic parsing of the given sentence the antecedent candidates, the verb which connects them as well as the verb phrase which contains the missing pronoun are identified.
+	\item Based on the identified elements from the first step, queries are generated. In addition, a semantic similarity algorithm is developed which filters out elements from the generated query sets based on their relevance to other words.
+	An example of a query set for \ref{Ex1} is the following: \textit{\{"doesn't fit into", "brown", "fit"\}}
+	\item The results from the search engines are processed and only sentences with a structure similar to the input sentence are kept.
+	\item Finally, the retrieved sentences are scored according to a scoring system designed by the authors. The scores are assigned to both possible antecedents and the one with the higher score is assumed to be the correct one.
+\end{enumerate}
+
+ The experiments done during the evaluation of this framework show the a correct answer is given for 119 WSs. Furthermore, the precision, recall and F1 score is calculated and compared with results from previous approaches (\cite{DBLP:conf/aaai/SharmaB16, DBLP:conf/aaaiss/LiuJLZWH17}) and the knowledge-hunting framework outperformed them, achieve a higher F1 score and higher recall. \\
+
+\begin{table}[h!]
+	\centering
+	\input{approaches.tex}
+	\caption{{\label{Table2}}Summary of the analyzed approaches}
+\end{table}
+
+Table \ref{Table2} presents all the previously analyzed approaches. For each approach the size of the evaluation set and the size of correctly answered problems is represented with the number of sentences and the percentage this number represents for the used evaluation dataset. If the evaluation was not provided for any of the datasets, then there is NA for Not Available. In the last column are some remarks for each of the approaches. 
+It can be observed that almost all of the approaches are evaluated on different or on smaller datasets. 
+For the machine learning approaches the main disadvantage is the small number of available problems. 
+In the case of the knowledge based approaches, the general drawback is that the directly the test set is analyzed and based on these observations the models are build. 
+Moreover, none of these approaches achieves an accuracy close to 90\%, which means there is room for improvement for both machine learning and knowledge-based approaches. 

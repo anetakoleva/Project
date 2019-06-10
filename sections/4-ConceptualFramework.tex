@@ -1,0 +1,182 @@
+%\section{Proposed conceptual framework}
+%\label{section:ProposedConceptualFramework}
+
+
+%TODO start my chapther by saying that I want to imrpove it; I want my meta-knowledge to work
+Motivated by the identified flaw in the Reasoning Algorithm explained in Section 3?, we present a different conceptual analysis which focuses on the categorization of the problems from the WSC corpus. Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify different categories of knowledge which are needed in order to answer the questions from the WSs. A detailed comparison between the categories from the previous approaches and our categories will follow in the discussion section. 
+We identified six categories with which all problems from the WSC corpus were categorized. 
+\begin{comment}
+	In Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15}, 71 WSs were categorized into two categories, whereas in \cite{2018CommonsenseKT} all problems from the WSC corpus were categorized into twelve different categories. 
+%Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} we use the KParser for extracting the semantic graph representation of the sentence. Next we are interested into identifying the relevant knowledge which is needed for resolving the ambiguous pronoun. 
+We use the KParser for extracting the graph representation of the input sentence and question. Furthermore, we use the Reasoning Algorithm given in \cite{2018CommonsenseKT} for finding the correct answer with some small modification which will be explained later.
+\end{comment}
+
+
+\section{Commonsense domains}
+For solving the problems from the WSC corpus, different types of commonsense knowledge need to be applied. As discussed before, for a system to be able to do commonsense reasoning, background knowledge from different domains is required. In order to identify these domains of knowledge we approached the WSC corpus inductively and we identified six categories.Two annotators thoroughly analyzed the entire WSC corpus\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
+In a second process, all WSs were annotated with these previously identified categories. The annotation was based on the additional knowledge that is applied in order to answer the question. To decide which sentence belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We will now explain the six categories in more detail. 
+
+
+\paragraph{Physical} To resolve the WSs from this category additional knowledge about some physical feature which is a trait of the ambiguous pronoun is needed.
+ 
+\paragraph{Emotional} This category captures all WSs that include some emotion. In other words, resolving these WSs requires some knowledge about emotions and their characteristics.
+
+\paragraph{Interactions} These WSs are related to abstract forms of interaction between the subject and the object in the sentence. In contrast to the WSs from the \textit{Physical} and \textit{Emotional}categories, resolving these WSs does not include knowledge about emotions or characteristics of physical objects.
+
+\paragraph{Comparison} In this category are all the WSs where the special words are usually antonyms. The comparison is mostly between the subject and the object in the sentence. 
+
+\paragraph{Causal} Although many of the WSs express causality, we categorize here only those for which the causality is expressed more explicitly. These sentences contain linking words such as \textit{so} and \textit{because}.
+
+\paragraph{Multiple knowledge} Lastly, in this category are all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
+
+\begin{table}
+	\input{types.tex} 
+	\caption{{\label{types}}Types of knowledge}
+\end{table}
+
+The annotation of the WSs in some cases was very straightforward and easy to decide. For instance, if we analyze the example for the \textit{Emotions} category in Table \ref{types} the special word can be \textit{vindicated} or \textit{crushed}, which we know both are emotions. In addition, the verb \textit{felt}, which is a past form of the verb \textit{to feel}, is an emotion indicator. To answer the question ``Who was the winner of the competition?", a deeper understanding of both emotions is required. Furthermore, knowledge about which emotions are related to winning is needed. 
+Overall, the reasoning process for answering the questions in this category involves knowledge about emotions. 
+
+In comparison, the annotation of the WSs from the \textit{Interactions} category was challenging. The WSs in this category are about inter-human relationships, often between the subject and the object in the sentence. 
+To solve a WS from this category, applying knowledge about more abstract activities is necessary. Some examples for such activities are: to cooperate, to promise, to convince, to refuse, etc. That is to say, when resolving these WSs there is no reasoning about emotions, comparison or exchange of any physical objects involved.  
+The sentence given as an example from this category in Table \ref{types} is annotated with category \textit{Interactions} because of the special word. \textit{Giving/Receiving} help is an abstract form of interaction between two different entities. This activity cannot be categorized as physical, emotional, causal or as comparison.
+
+Additionally, these categories can be divided further.
+Since in the \textit{Physical} category we have the highest number of WSs, we will analyze this category in more details. The WSs from this category, contain different physical features which characterize the ambiguous pronoun. After carefully analyzing these features we identified five subcategories: \textit{size, height/width, weight, space} and \textit{time}. 
+
+In the \textit{size} subcategory is the WS from Example \ref{Ex1}, which was discussed in the Background section. 
+The activity in the sentence from this WS depends on the physical trait of the pronoun \textit{\underline{it}}.
+\begin{itemize}
+	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into \underline{the brown suitcase} because \underline{it} is too small.}
+\end{itemize}
+This physical trait is also the special word which can be \textit{small} or \textit{large}. For resolving these WSs, knowledge about the characteristics of an object of a certain size is required. For Example \ref{Ex1}, this knowledge should capture that a small object cannot fit into a large one, while a large one can fit small object.
+
+Similar to this subcategory are the \textit{height/width} and the \textit{weight} subcategories. The WSs in these subcategories have a special word which characterize the ambiguous pronoun with certain height, width or weight such as \textit{short/tall}, \textit{wide/narrow}. Since these are all similar traits, we assume that their characterizations can be formalized in a similar way.
+
+
+For solving the WSs from the \textit{space} subcategory, spatial reasoning and in some cases spatial-temporal reasoning is needed. Since the knowledge required for resolving the WSs from this subcategory has to include rules for navigating and understanding time and space, we consider the knowledge needed for this category to be the hardest one for formalization among the subcategories of the \textit{Physical} category.
+For example, consider the following WS:\\
+\textit{Example 3.1} 
+\begin{itemize} 
+	\item[\textbf{S:}] \textbf{Tom threw his schoolbag down to Ray after he reached the [top/bottom] of the stairs.}
+	\item[\textbf{Q:}] \textbf{Who reached the [top/bottom] of the stairs?}
+	\item[\textbf{A:}] \textbf{Tom/Ray.}
+\end{itemize}
+
+The sentence in this example contains information about a specific location in space which can be \textit{top of the stairs} or \textit{bottom of the stairs}. In addition, it states something about an event which happened \textit{after} a certain event. Therefore, answering the question from this example requires applying reasoning about both space and time. Other WSs are simpler, where only knowledge about space is needed. These WSs have a special words such as: \textit{above/bellow, in/out}.
+
+The WSs from the \textit{time} subcategory require temporal reasoning. 
+Formalization of knowledge about change over time and chronology of events is needed for solving these WSs. For annotating these WSs we relied on the context and we identified events which happened at different points in time.
+
+
+Let us consider the following WS which is example from the weight subcategory : \\
+\textit{Example 3.2}
+\begin{itemize} \label{Ex2}
+	\item[\textbf{S:}] \textbf{The man could not lift his son because he was so [weak/heavy].}
+	\item[\textbf{Q:}] \textbf{Who was [weak/heavy]?}
+	\item[\textbf{A:}] \textbf{The man/the son.}
+\end{itemize}
+
+While heavy is a description of the weight of an object/a person, weak on the other hand is a description of the strength. Both special words represent a physical trait of the ambiguous pronoun, but they are not from the same subcategory.
+
+%TODO calculate the random agreement
+
+\paragraph{Evaluation}
+To evaluate the agreement of the annotation 
+%whether the identified categories are appropriate for annotating the WSs,
+we used Cohen's kappa statistic \cite{doi:10.1177/001316446002000104}, which is a measure for an inter-rater agreement. Namely, Cohen's kappa measures the agreement between two annotators regarding the annotation of \textit{N} items with \textit{C} mutually exclusive categories. 
+It is defined as follows: 
+\begin{equation}
+	\kappa = (p_o-p_e)/(1-p_e)
+\end{equation}
+where $p_o$ is the observed accuracy among the annotators and $p_e$ is the expected accuracy when both annotators assign categories randomly. Each of the two annotators analyzed all the problems from the WSC corpus and annotated them with one of the identified six categories. For the calculation of the Cohen's kappa score, we used the sklearn metrics  package\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen\_kappa\_score} that includes an implementation of Cohen's kappa.
+
+\paragraph{Results}
+The calculated Cohen's kappa score for the annotation of the WSs is 0.66. According to the description for relative strength of agreement from Landis and Koch \cite{articleM}, this score is interpreted as substantial agreement. In our case this means, that both annotators largely agree on the annotation of WSs with the provided six categories.
+
+\begin{table}
+	\centering
+	\input{categories.tex}
+	\caption{{\label{kappa}}Annotation results}
+\end{table}
+
+The numbers of WSs in each category, as annotated by the two annotators, is shown in Table \ref{kappa}.  
+From the table we can be observed that both annotators agree on high number of WSs being in the \textit{Physical} category.
+There is also strong agreement for both the \textit{Emotional} and the \textit{Causal} category. 
+However, there is a significant difference of 20 WSs in the annotation for the \textit{Interactions} category. Lastly, from both annotators, around 30 WSs were annotated with the category \textit{Multiple knowledge}. 
+
+
+\section{Semantic representation and ASP encoding}
+As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate WSs that belong to this category. For extracting the semantic graphs we used the KParser\footnote{kparser.org}.
+Two examples of such semantic graphs\footnote{Slightly simplified such that only relevant information is represented.}, are shown in Figure \ref{Graph1} and \ref{Graph2}. 
+
+We can observe that the semantic representations of the sentences are indeed very similar. 
+Figure \ref{Graph1} represents the semantic graph for the sentence:
+
+\begin{itemize}
+	\item[\textbf{S:}] \textbf{The trophy does not fit into the brown suitcase because it is too small.}
+\end{itemize}
+\begin{figure} [h!]
+	\centering
+	\input{graph1.tex}
+	\caption{\label{Graph1}``The trophy doesn't fit into the brown suitcase because it's too small."}
+\end{figure}
+
+
+Figure \ref{Graph2} shows the semantic graph for the sentence:
+
+\begin{itemize}
+	\item[\textbf{S:}] \textbf{The man couldn't lift his son because he was so weak.}
+\end{itemize} 
+
+
+\begin{figure}[h!]
+	\centering
+	\input{graph_weak.tex}
+	\caption{\label{Graph2}``The man couldn't lift his son because he was so weak."}
+\end{figure}
+
+In both representations, the main action (\textit{fit, lift}) is connected with the agent and the recipient of the action as well as with the modifiers of the action. Additionally, the ambiguous pronoun (\textit{it, he}),  associated with a physical trait (\textit{small, weak}), is represented as the cause of the main action. 
+The KParser has an option to show \textit{Coreference}, that is to find the coreferents for the pronouns in the given sentence. However, almost for all of the WS sentences that we analyzed, as coreferent to the ambiguous pronoun was selected the \textit{agent} of the main action, which was not correct. 
+
+We used these semantic graph representations as guidance for encoding the sentences, the questions and the background knowledge with ASP rules. 
+
+The following rules represent the ASP rules for the knowledge obtained from the sentence represented with the semantic graph in Figure \ref{Graph2}. 
+
+\textbf{sent(he, instance\_of, entity)} \\
+\textbf{sent(man, instance\_of, entity)}\\
+\textbf{sent(son, instance\_of, entity)}\\
+\textbf{sent(lift, instance\_of, action\_lift)} \\ 
+\textbf{sent(lift, agent, man)}\\
+\textbf{sent(lift, recipient, son)}\\
+\textbf{sent(weak, trait\_of, he)} \\
+\textbf{not sent(lift, modifier, could)}
+
+The predicate \textbf{sent} is short for \textbf{sentence} which indicates that this is the origin of these facts. Similarly, we use \textbf{know} for predicates from the background knowledge and \textbf{quest} for predicates from the question. 
+In the same way the rules for the other semantic graph are defined. 
+We also formalized the background knowledge. For this purpose we specified two ASP rules which characterized the physical traits from the examples.
+
+\begin{itemize}
+	\item \textbf{know(weak, trait\_of, X) :- know(lift, agent, X), not know(lift, modifier, could)}
+	\item \textbf{know(small, trait\_of, X) :- know(fit, recipient, X), not know(fit, modifier, could)}
+\end{itemize}
+
+Lastly, the ASP encoding of the question for the sentence in Figure \ref{Graph2} is the following: \\
+\textbf{quest(weak, trait\_of, Q) \\
+		quest(Q, instance\_of, entity)}
+
+The predicates in the ASP rules for the question include a variable \textbf{Q} which is a substitution for the question word in the sentence, in this case for \textbf{Who}. 
+
+%TODO change this part, the algorithm will be explained before this section
+Since developing an reasoning algorithm is not a central part of our work, we used the Reasoning Algorithm provided from Sharma and Baral \cite{2018CommonsenseKT} to test the two example sentences from the \textit{Physical} category. The algorithm is accessible online as a supplementary document\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view} for the paper. 
+
+The returned answer for both sentences was the correct answer. When considered the twin sentence with the switched special word, the Reasoning Algorithm again retrieved the correct answer. Furthermore, when the rule describing the background knowledge is removed, there is no answer was retrieved. 
+
+
+
+
+
+
+
+
+
