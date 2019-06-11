@@ -2,20 +2,23 @@
 %\label{section:ProposedConceptualFramework}
 
 
-%TODO start my chapther by saying that I want to imrpove it; I want my meta-knowledge to work
-Motivated by the identified flaw in the Reasoning Algorithm explained in Section 3?, we present a different conceptual analysis which focuses on the categorization of the problems from the WSC corpus. Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify different categories of knowledge which are needed in order to answer the questions from the WSs. A detailed comparison between the categories from the previous approaches and our categories will follow in the discussion section. 
-We identified six categories with which all problems from the WSC corpus were categorized. 
+
+Motivated by the found shortcoming in the usage of the identified knowledge types with the Reasoning Algorithm in the approach by Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. The goal is to identify categories of knowledge which can capture meta-knowledge that is common for more than one WS. The additional knowledge which characterizes these categories will then contribute to the reasoning procedure for extracting the possible correct answer. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the additional knowledge belongs. In this chapter, we first discuss the identified categories. Next, we explore in more details the semantic representation and ASP encoding of WSs from one of the categories. Finally, we discuss in general...
+%TODO add concluding sentence for the chapter
+
+  
 \begin{comment}
-	In Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15}, 71 WSs were categorized into two categories, whereas in \cite{2018CommonsenseKT} all problems from the WSC corpus were categorized into twelve different categories. 
-%Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} we use the KParser for extracting the semantic graph representation of the sentence. Next we are interested into identifying the relevant knowledge which is needed for resolving the ambiguous pronoun. 
+Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify categories of knowledge which are needed in order to answer the questions from the WSs. 
+The identified categories are based on the domains of commonsense knowledge from which the required knowledge is.  
+We identified six categories with which all problems from the WSC corpus were categorized.
+We use the KParser for extracting the semantic graph representation of the sentence. Next we are interested into identifying the relevant knowledge which is needed for resolving the ambiguous pronoun. 
 We use the KParser for extracting the graph representation of the input sentence and question. Furthermore, we use the Reasoning Algorithm given in \cite{2018CommonsenseKT} for finding the correct answer with some small modification which will be explained later.
 \end{comment}
 
 
 \section{Commonsense domains}
-For solving the problems from the WSC corpus, different types of commonsense knowledge need to be applied. As discussed before, for a system to be able to do commonsense reasoning, background knowledge from different domains is required. In order to identify these domains of knowledge we approached the WSC corpus inductively and we identified six categories.Two annotators thoroughly analyzed the entire WSC corpus\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
-In a second process, all WSs were annotated with these previously identified categories. The annotation was based on the additional knowledge that is applied in order to answer the question. To decide which sentence belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We will now explain the six categories in more detail. 
-
+As discussed before, for correctly resolving the problems from the WSC corpus, a system needs to be able to mimic commonsense reasoning. To do this, additional background knowledge from different domains is required. In order to determine these domains of knowledge in the WSC corpus, we approached the problems inductively and we identified six categories. Two annotators thoroughly analyzed the entire WSC corpus\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
+In a second process, all WSs were annotated with these previously identified categories (See Appendix \ref{AppendixB}). The annotation was based on the additional knowledge that is applied in order to answer the question. To decide which sentence belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
 
 \paragraph{Physical} To resolve the WSs from this category additional knowledge about some physical feature which is a trait of the ambiguous pronoun is needed.
  
@@ -29,7 +32,7 @@ In a second process, all WSs were annotated with these previously identified cat
 
 \paragraph{Multiple knowledge} Lastly, in this category are all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
 
-\begin{table}
+\begin{table} [h!]
 	\input{types.tex} 
 	\caption{{\label{types}}Types of knowledge}
 \end{table}
@@ -58,9 +61,9 @@ For solving the WSs from the \textit{space} subcategory, spatial reasoning and i
 For example, consider the following WS:\\
 \textit{Example 3.1} 
 \begin{itemize} 
-	\item[\textbf{S:}] \textbf{Tom threw his schoolbag down to Ray after he reached the [top/bottom] of the stairs.}
+	\item[\textbf{S:}] \textbf{\underline{Tom} threw his schoolbag down to \underline{Ray} after \underline{he} reached the [top/bottom] of the stairs.}
 	\item[\textbf{Q:}] \textbf{Who reached the [top/bottom] of the stairs?}
-	\item[\textbf{A:}] \textbf{Tom/Ray.}
+	\item[\textbf{A:}] \textbf{Tom/Ray}
 \end{itemize}
 
 The sentence in this example contains information about a specific location in space which can be \textit{top of the stairs} or \textit{bottom of the stairs}. In addition, it states something about an event which happened \textit{after} a certain event. Therefore, answering the question from this example requires applying reasoning about both space and time. Other WSs are simpler, where only knowledge about space is needed. These WSs have a special words such as: \textit{above/bellow, in/out}.
@@ -68,8 +71,8 @@ The sentence in this example contains information about a specific location in s
 The WSs from the \textit{time} subcategory require temporal reasoning. 
 Formalization of knowledge about change over time and chronology of events is needed for solving these WSs. For annotating these WSs we relied on the context and we identified events which happened at different points in time.
 
+\begin{comment}
 
-Let us consider the following WS which is example from the weight subcategory : \\
 \textit{Example 3.2}
 \begin{itemize} \label{Ex2}
 	\item[\textbf{S:}] \textbf{The man could not lift his son because he was so [weak/heavy].}
@@ -78,6 +81,7 @@ Let us consider the following WS which is example from the weight subcategory : 
 \end{itemize}
 
 While heavy is a description of the weight of an object/a person, weak on the other hand is a description of the strength. Both special words represent a physical trait of the ambiguous pronoun, but they are not from the same subcategory.
+\end{comment}
 
 %TODO calculate the random agreement
 
@@ -105,12 +109,16 @@ From the table we can be observed that both annotators agree on high number of W
 There is also strong agreement for both the \textit{Emotional} and the \textit{Causal} category. 
 However, there is a significant difference of 20 WSs in the annotation for the \textit{Interactions} category. Lastly, from both annotators, around 30 WSs were annotated with the category \textit{Multiple knowledge}. 
 
+The result of the evaluation of the WSs annotation indicate that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While one annotator placed 44 WSs in this category, the other annotator 20 of those 44 WSs distributed in all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
+
+
 
 \section{Semantic representation and ASP encoding}
-As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate WSs that belong to this category. For extracting the semantic graphs we used the KParser\footnote{kparser.org}.
-Two examples of such semantic graphs\footnote{Slightly simplified such that only relevant information is represented.}, are shown in Figure \ref{Graph1} and \ref{Graph2}. 
+We use the KParser for translating the input sentence and question into a graph representation. Based on this representation we encode the input sentence and question in ASP format. As additional knowledge we provide characterization of the category where the input sentence and question belong.
+Furthermore, we use the implementation of the Reasoning Algorithm provided by Sharma and Baral \cite{2018CommonsenseKT} to test whether the knowledge that characterizes the category contributes to the extraction of the possible answer. 
 
-We can observe that the semantic representations of the sentences are indeed very similar. 
+As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate two WSs that belong to this category. Namely, we observe the WSs from \ref{Ex1} and \ref{ex:Graph}.
+The two semantic graphs\footnote{Slightly simplified such that only relevant information is represented.}, are shown in Figure \ref{Graph1} and \ref{Graph2}. We can observe that the semantic representations of the sentences are indeed very similar. 
 Figure \ref{Graph1} represents the semantic graph for the sentence:
 
 \begin{itemize}
@@ -167,10 +175,9 @@ Lastly, the ASP encoding of the question for the sentence in Figure \ref{Graph2}
 
 The predicates in the ASP rules for the question include a variable \textbf{Q} which is a substitution for the question word in the sentence, in this case for \textbf{Who}. 
 
-%TODO change this part, the algorithm will be explained before this section
-Since developing an reasoning algorithm is not a central part of our work, we used the Reasoning Algorithm provided from Sharma and Baral \cite{2018CommonsenseKT} to test the two example sentences from the \textit{Physical} category. The algorithm is accessible online as a supplementary document\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view} for the paper. 
+Since developing an reasoning algorithm is not a central part of our work, we used the Reasoning Algorithm provided from Sharma and Baral \cite{2018CommonsenseKT} to test the two example sentences from the \textit{Physical} category. The returned answer for both sentences was the correct answer. When considered the twin sentence with the switched special word, the Reasoning Algorithm again retrieved the correct answer. Furthermore, when the rule describing the background knowledge is removed, there is no answer was retrieved. 
 
-The returned answer for both sentences was the correct answer. When considered the twin sentence with the switched special word, the Reasoning Algorithm again retrieved the correct answer. Furthermore, when the rule describing the background knowledge is removed, there is no answer was retrieved. 
+
 
 
 

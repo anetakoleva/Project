@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  11 JUN 2019 12:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  11 JUN 2019 16:54
 entering extended mode
 **./master.tex
 (master.tex
@@ -1250,16 +1250,24 @@ chapter 4.
 
 ]
 (types.tex
-Overfull \hbox (13.03154pt too wide) in paragraph at lines 5--22
+Overfull \hbox (13.03154pt too wide) in paragraph at lines 5--21
 [][] 
  []
 
-) [21] [22] [23] (categories.tex) [24] (graph1.tex) (graph_weak.tex) [25])
-[26] [27]
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21] [22] Excluding 'comment' comment. [23] (categories.tex) [24] (graph1.tex)
+(graph_weak.tex)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25] [26]) [27]
 chapter 5.
 (sections/6-Discussion.tex [28
 
-] Excluding 'comment' comment.) [29]
+]) [29]
 chapter 6.
 (sections/5-Conclusion.tex) [30
 
@@ -1311,10 +1319,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
 ### semi simple group (level 1) entered at line 51 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23611 strings out of 492895
- 431163 string characters out of 3133471
- 799790 words of memory out of 3000000
- 26872 multiletter control sequences out of 15000+200000
+ 23609 strings out of 492895
+ 431150 string characters out of 3133471
+ 800790 words of memory out of 3000000
+ 26873 multiletter control sequences out of 15000+200000
  58011 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,19n,100p,9116b,3393s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1329,9 +1337,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on master.pdf (44 pages, 299485 bytes).
+Output written on master.pdf (44 pages, 300058 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 165 named destinations out of 1000 (max. 500000)
+ 639 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,17 +1,12 @@
 %%\label{section:Discussion}
-
+%TODO check if this should be in the previous section
 An initial objective of this project was to identify the main challenge that needs to be resolved in order to tackle the WSC.
 From studying the existing approaches, we recognized the need for having a formal representation of a specific background knowledge during the reasoning process in the knowledge-based approaches. To this end, we proposed a categorization of the sentences for which similar knowledge is required for sentences belonging in the same category. We assume that for the different categories there can be different formalized rules which can be used during the reasoning process. 
-
-%TODO move this paragraph after the results in previous section
-
-The result of the evaluation of the WSs annotation indicate that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While one annotator placed 44 WSs in this category, the other annotator 20 of those 44 WSs distributed in all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
 
 
 The identified categories differ from the ones presented by Sharma and Baral \cite{2018CommonsenseKT} in the way they are defined. We rely on the context of the WS sentences, whereas in \cite{2018CommonsenseKT} the categorization is based on the structure of the sentence. Namely, we analyzed the entire WSC corpus and identified what is the commonsense knowledge that is needed for answering the question and from which category it would be. In Sharma and Baral \cite{2018CommonsenseKT} the categories are identified using a more general approach that is, they all have the same structure \textit{X prevents/follows/causes Y}. 
 
-One unanticipated finding was that the rule-based Reasoning Algorithm given in Sharma and Baral \cite{2018CommonsenseKT} does not work as expected. In the supplementary document\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view} for the paper the ASP code for the Reasoning Algorithm together with an example is given. The example is the WS from Example 3.2.
-After encoding this example and assuring the correct answer, we tried to test it with several different WSs. For this, changes in the sentence and background knowledge representation were made and the correct answer was retrieved in all tried examples. What came as a surprise was that the correct answer was retrieved even when \textit{the key rule} was removed. The key rule is the one which formalizes the knowledge type of the WSs.
+One unanticipated finding was that the rule-based Reasoning Algorithm given in Sharma and Baral \cite{2018CommonsenseKT} does not work as expected.  What came as a surprise was that the correct answer was retrieved even when \textit{the key rule} was removed. The key rule is the one which formalizes the knowledge type of the WSs.
 As explained in Sharma and Baral \cite{2018CommonsenseKT}, for the given example this rule is what characterizes the knowledge type \textit{Property prevents Action}. In the example given in the supplementary document this rule is encoded as: \textbf{has\_k(weak\_1,prevents,lifts\_5)}. 
 Intrigued by this result, we analyzed more closely the Reasoning Algorithm. What we discovered is that the answer returned depends on whether in the background knowledge there is information about the \textit{agent} or the \textit{recipient} of the action. 
 
@@ -27,20 +22,3 @@ When parsed with the KParser, the semantic graph representation of this sentence
 
 
 
-
-\begin{comment}
-
-However, there are limits to how far the idea of/co
-ncept of X can be taken. 
-\begin{itemize}
-	\item what was difficult to do, or discover (ex:classifying the sentences; identifying the different categories)
-%	\item what worked well, what didn't
-	\item what was interesting, challenging
-	\item what's missing; didn't do (my own reasoner)
-	\item How my framework relates to other approaches
-\end{itemize}
-
-Hence, identifying the category of an input WSC sentence can be essential for obtaining the correct answer.
-
-
-\end{comment}
