@@ -1,7 +1,7 @@
 %\section{Commonsense Knowledge Types}
 
 %TODO An approach to Commonsense Knowledge Types ; explain their approach in more details there and the Reasoning ALgorithm ; explain that the Algorithm does not work as they say in the paper; the RA doesn't even the rule about the type in order to reason correctly; when I comment out ht hard coded it doesn't work
-Intrigued by the remarkably achieved accuracy of the Sharma and Baral \cite{2018CommonsenseKT} approach, we now describe this work in more details. In the previous chapter, in section \ref{section:TheDifferentApproaches} we outlined \ref{Steps} of the approach. Here, we first focus on the process of identification of the presented commonsense knowledge types. Then, we discuss the proposed reasoning algorithm together with the worked out example. Finally, we give our observations and comments about this approach.
+Intrigued by the remarkably achieved accuracy of the Sharma and Baral \cite{2018CommonsenseKT} approach, we now describe this work in more details. In the previous chapter, in section \ref{section:TheDifferentApproaches} we outlined \ref{Steps} of the approach. Here, we first focus on the process of identification of the presented commonsense knowledge types. Then, we discuss the proposed reasoning algorithm together with the worked out example. We conclude this chapter with some final observations about this approach.
 
 
 \section{Identification of Commonsense Knowledge Types}
@@ -30,7 +30,7 @@ Nodes with red color represent events which correspond to the verbs in the sente
 
 For the representation of the question, one additional conceptual class labeled as "q" is introduced. In this conceptual class are all nodes which represent the question words from the WSC problems, such as: \textit{Who, Which and What}.
 
-From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to conclusion that the missing knowledge required in order to answer the question, must connect the trait of an entity being weak with its inability to lift. In Figure 3 is the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
+From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to conclusion that the missing knowledge required to answer the question, must connect the trait of an entity being weak with its inability to lift. In Figure 3 is the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
 
 %TODO add here graph for their type
 \begin{comment}
@@ -53,40 +53,40 @@ The presented identified knowledge types are the following:
 
 
 \section{Reasoning Algorithm}
-We will now explain the proposed Reasoning Algorithm (RA) which was used for answering the WSC problems by using the previously explained knowledge types. The RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view}. The code for the RA algorithm can be found in Appendix\ref{AppendixA}. 
+In this section we will explain the proposed logical Reasoning Algorithm (RA) from Sharma and Baral \cite{2018CommonsenseKT}. This RA was used for solving the WSC problems by applying the previously explained knowledge types. It takes a formal representation of Winograd sentence and question and additional knowledge as input and it returns an answer to the question. The implementation of the RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view} and it can be found in Appendix\ref{AppendixA}. 
 
-%TODO clarify cross domain sibling vs clone
-
-The RA is based on Answer Set Programming (ASP) \cite{DBLP:conf/aaai/Lifschitz08}. 
-The RA is split into two phases, each including several steps. Each step, results in creating new ASP rules.
-In the second phase, the graph representation of the WSs question is matched with the merged representation from the first phase. With this matching, the possible answer should be retrieved. 
+The RA is based on Answer Set Programming (ASP) \cite{DBLP:conf/aaai/Lifschitz08}. Therefore, after the Winograd sentence and question have been represented as semantic graphs, the observations from these graphs are encoded as ASP rules. The retrieved answer should be entailed by these input rules.
+The RA is split into two main phases, each including several steps. Each step, results in creating new ASP rules.
 \begin{itemize}
 	\item \textbf{Phase 1: Generating merged representation}\\
-	 In this phase, the graph representation of the Winograd sentence and the background knowledge are analyzed and the following information from both is extracted and merged.
+	 In this phase, the graph representation of the Winograd sentence and the additional knowledge are merged. The idea here is to extend the information from the input sentence with the information from the additional knowledge. To achieve this, the following information from both graph representations is extracted and later merged.
 	\begin{enumerate}
-		\item All the nodes which are an instance of a defined class of nodes (for example: person, motion, description) in the KParser are identified as constant nodes. 
-		\item Nodes with parents as constant nodes are identified. 
-		\item Nodes with children as constant nodes are identified. 
-		\item The cross domain siblings in both representations are identified. These are constant nodes which appear in both graphs and they both are instances of nodes of the same type. Furthermore the cross domain siblings ave the same number of child/parent nodes which are connected through the same semantic relations. 
-		\item A merged representation is generated
-		
+		\item All the nodes which are an instance of a defined class of nodes (for example: person, motion, description) in the KParser are identified as constant nodes. All constant nodes have a directed edge labeled as \textit{instance\_of} to another node in the graph. 
+		\item Constant nodes with parents/children as constant nodes are identified. These are nodes  previously identified as constant nodes which have directed edges to other constant nodes.
+		\item The cross domain siblings in both representations are identified. These are different constant nodes which appear in both graphs and they both are instances of nodes of the same type. 
+		\item Nodes which are identical in both graphs are identified. These nodes are called cross domain clones and are of the same type as the cross domain sibling. Additionally, they have the same number of child/parent nodes which are connected through the same semantic relations. 
+		\item In this last step a merged representation is created. The merged representation is a copy of the sentence's representation, expanded with the additional knowledge by adding edges between nodes from both graphs that have been identified as cross domain clones.
 	\end{enumerate}
+
 	\item \textbf{Phase 2: Extracting possible answers}\\
-	In this phase, the graph representation of the WSs question is projected on the merged representation from the previous step. The goal is to retrieve the nodes which are cross domain clones of the unknown nodes (q)  in the graph representation of the question.
+	In this phase, the graph representation of the WSs question is projected onto the merged representation from the previous step. The goal is to retrieve the nodes which are cross domain clones of the unknown node (q) from the question in the merged representation. Similarly as in the previous phase, information from both graph representations is extracted and merged.
 	\begin{enumerate}
 		\item Constant nodes are identified from both graphs.
 		\item Nodes with children/parent as constant node are identified. 
-		\item Cross domain siblings of the nodes from the question graph are identified.
-		\item Using the previous nodes, the cross domain clones of the nodes from the question graph are identified. 
+		\item Cross domain siblings of the nodes from the question graph are \\ identified in the merged representation.
+		\item Using the previously extracted nodes, the cross domain clones of the nodes from\\ the question graph are identified in the merged representation.
+		\item Nodes from the merged graph which are cross domain clones to the unknown node (q)\\ from the question graph are retrieved as an answer.
 	\end{enumerate}
 \end{itemize}
 
+According to Sharma and Baral \cite{2018CommonsenseKT} this RA can be applied to the first 10 from the  12 identified categories.
 
-The reasoning algorithm can reason over 10 of the 12 identified categories.
+\paragraph{Worked-out example} To verify the work of the RA, we tried the worked out example which was provided together with the implementation in the supplementary document for Sharma and Baral \cite{2018CommonsenseKT}. The worked out example includes the ASP encoding of the sentence and question from \ref{ex:Graph}. For extraction of additional knowledge the sentence \textit{``She could not lift it because she is a weak girl"} was used. The extracted knowledge is from the first type which was analyzed before \textit{``weak y prevents y lifts"} and this has also been provided in ASP encoding. Running the RA with the provided ASP rules for the sentence, question and knowledge type, retrieves as an answer: \textit{ans(q\_1,he\_9)} and \textit{ans(q\_1,man\_2)}. Hence, the two nodes \textit{he\_9} and \textit{man\_2} correspond to the unknown node \textit{q\_1} from the question. The conclusion is that the correct referent to the ambiguous pronoun \textit{he\_9} in this case is the noun \textit{man\_2}.
 
-\section{Observations}
-%TODO add this to discussion; not here
-The encoding the example available in the supplementary document resulted in correct answer. 
-After that we tried a few different sentences and the reasoning algorithm worked correctly. 
-When the rule that defines the knowledge type is commented out, again a correct answer is retrieved. 
-Our conclusion is that the RA does not even use this rule in the reasoning process. Rather it relies on hard coded information about the agent and the recipient of the action.
+\paragraph{Observations}
+After trying the provided worked out example and ensuring that the RA retrieved the correct answer, we decided to try some more WSC problems. %TODO add here the number of the WS problems we encoded in ASP  
+In order to do this, we followed the steps for the worked out example. We first used the KParser to get the graph representation of the input Winograd sentence and question and after that we encoded this in ASP.
+Since the knowledge types for the different WSC problems are not publicly available, we could not know which problem from which knowledge type is. Therefore, the encoding for the additional knowledge remained the same. 
+Nevertheless, for all WSs that we encoded the correct answer was retrieved. 
+What came as a surprise is that even after the rule that defines the knowledge type is commented out, again a correct answer is retrieved for all tried examples. Therefore, we conclude that the RA does not use the rule for the knowledge type in the reasoning process. Rather, it relies on hard coded information about the agent and the recipient of the action for retrieving the answer. 
+
