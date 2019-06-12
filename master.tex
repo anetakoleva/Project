@@ -24,7 +24,13 @@
 	\labelmarkup{#2}% visible printed text.
 }
 \makeatother
-
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers} }
+\usepackage{amssymb}
+\usepackage{xcolor}
+\newcommand{\bluecheck}{{\color{blue}\checkmark}}
+\newcommand{\redcheck}{{\color{red}\checkmark}}
 
 \renewcommand{\bibname}{References}
 \author{Aneta Koleva}

@@ -19,7 +19,8 @@
 \usepackage{url}
 \usepackage{pbox}
 \usepackage{makecell,tabularx}
-
+\usepackage{array,etoolbox}
+%\usepackage{longtable}
 \usepackage{adjustbox}
 \usepackage{appendix}
 % Schriftart setzen
