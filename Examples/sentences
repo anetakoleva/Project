@@ -1,0 +1,17 @@
+-Size/weight/height sentences 
+2. The trophy doesn't fit into the brown suitcase because it's too [small/large]. What is too [small/large]?
+   Answers:The suitcase/the trophy. 
+8. The man couldn't lift his son because he was so [weak/heavy]. Who was [weak/heavy]?
+   Answers: The man/the son. 
+10.John couldn't see the stage with Billy in front of him because he is so [short/tall]. Who is so [short/tall]?
+    Answers: John/Billy. --fails in the second case
+
+
+Location sentences:
+
+11. Tom threw his schoolbag down to Ray after he reached the [top/bottom] of the stairs. Who reached the [top/bottom] of the stairs?
+    Answers: Tom/Ray.
+19. The sack of potatoes had been placed [above/below] the bag of flour, so it had to be moved first. What had to be moved first?
+    Answers: The sack of potatoes/the bag of flour.
+54. The dog chased the cat, which ran up a tree, It waited at the [top/bottom]. Which waited at the [top/bottom]?
+    Answers: The cat/the dog.

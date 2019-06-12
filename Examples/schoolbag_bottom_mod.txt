@@ -1,0 +1,200 @@
+% Reasoning algorithm
+% Defining domain of variables
+
+k_val(X) :- has_k(X,R,Y).
+k_val(Y) :- has_k(X,R,Y).
+% Extracting constant nodes from graphical representations
+s_const(X) :- has_s(X,instance_of,I).
+q_const(X) :- has_q(X,instance_of,I).
+k_class(X) :- has_k(A,instance_of,X).
+k_const(X) :- not k_class(X), k_val(X).
+
+% Extracting constant nodes which has constant parent nodes
+% from graphical representations of sentence, question and knowledge
+s_has_par(X) :- has_s(P,R,X), s_const(X), s_const(P).
+q_has_par(X) :- has_q(P,R,X), q_const(X), q_const(P).
+k_has_par(X) :- has_k(P,R,X), k_const(X), k_const(P).
+
+% Extracting constant nodes which has constant children nodes
+% from graphical representations of sentence, question and knowledge
+s_has_child(X) :- has_s(X,R,C), s_const(X), s_const(C).
+q_has_child(X) :- has_q(X,R,C), q_const(X), q_const(C).
+k_has_child(X) :- has_k(X,R,C), k_const(X), k_const(C).
+
+
+% Extracting cross-domain siblings from a knowledge’s representation
+% to a sentence’s representation
+not_k_s_crossdom_sib(X,Y) :- has_k(X,instance_of,I1),
+has_k(X,instance_of,I2),
+has_s(Y,instance_of,I1),
+not has_s(Y,instance_of,I2),
+I1!=I2.
+not_k_s_crossdom_sib(X,Y) :- has_k(X,instance_of,I1),
+has_k(X,instance_of,I2),
+I1!=I2,
+not has_s(Y,instance_of,I1),
+has_s(Y,instance_of,I2).
+not_k_s_crossdom_sib(X,Y) :- has_k(X,instance_of,I1),
+has_k(X,instance_of,I2),
+I1!=I2,
+not has_s(Y,instance_of,I1),
+not has_s(Y,instance_of,I2),
+s_const(Y).
+k_s_crossdom_sib(X,Y) :- has_s(Y,instance_of,I),
+has_k(X,instance_of,I),
+s_const(Y),
+k_const(X),
+not not_k_s_crossdom_sib(X,Y).
+
+% Extracting cross-domain clones from a knowledge’s representation
+% to a sentence’s representation
+k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
+has_k(Pj,Rj,X),
+has_s(Pj_prime,Rj,Y),
+k_s_crossdom_clone(Pj,Pj_prime),
+k_const(Pj),
+has_k(X,Rk,Cj),
+has_s(Y,Rk,Cj_prime),
+k_s_crossdom_sib(Cj,Cj_prime),
+k_const(Cj).
+k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
+not k_has_par(X),
+has_k(X,Rk,Cj),
+has_s(Y,Rk,Cj_prime),
+k_s_crossdom_sib(Cj,Cj_prime),
+k_const(Cj).
+k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
+has_k(Pj,Rj,X),
+has_s(Pj_prime,Rj,Y),
+k_s_crossdom_clone(Pj,Pj_prime),
+k_const(Pj),
+not k_has_child(X).
+k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
+not k_has_par(X),
+not k_has_child(X).
+% Generating a merged representation of a sentence and a knowledge
+has_m(X,R,Y) :- has_s(X,R,Y).
+k_covered(X) :- k_const(X),
+s_const(Y),
+k_s_crossdom_clone(X,Y).
+k_not_all_covered :- k_const(X),
+not k_covered(X).
+k_all_covered :- not k_not_all_covered.
+has_m(X,R,Y) :- has_s(X,R,Y1),
+has_s(X2,R2,Y),
+Y1!=Y,
+k_s_crossdom_clone(Y_k,Y1),
+k_s_crossdom_clone(Y_k,Y),
+k_all_covered.
+has_m(X,R,Y) :- has_s(X1,R,Y),
+has_s(X,R2,Y2),
+X1!=X,
+k_s_crossdom_clone(X_k,X1),
+k_s_crossdom_clone(X_k,X),
+k_all_covered.
+% Extracting constant nodes from graphical representations
+m_const(X) :- has_m(X,instance_of,I).
+% Extracting constant nodes which has constant parent nodes
+% from a merged representation
+m_has_par(X) :- has_m(P,R,X), m_const(X), m_const(P).
+% Extracting constant nodes which has constant children nodes
+% from a merged representation
+m_has_child(X) :- has_m(X,R,C), m_const(X), m_const(C).
+% Extracting cross-domain siblings from a question’s representation
+% to a merged representation
+not_q_m_crossdom_sib(X,Y) :- has_q(X,instance_of,I1),
+has_q(X,instance_of,I2),
+has_m(Y,instance_of,I1),
+not has_m(Y,instance_of,I2),
+I1!=I2, I1!=q, I2!=q.
+not_q_m_crossdom_sib(X,Y) :- has_q(X,instance_of,I1),
+has_q(X,instance_of,I2),
+not has_m(Y,instance_of,I1),
+has_m(Y,instance_of,I2),
+I1!=I2, I1!=q, I2!=q.
+not_q_m_crossdom_sib(X,Y) :- has_q(X,instance_of,I1),
+has_q(X,instance_of,I2),
+not has_m(Y,instance_of,I1),
+not has_m(Y,instance_of,I2),
+m_const(Y),
+I1!=I2, I1!=q, I2!=q.
+q_m_crossdom_sib(X,Y) :- has_m(Y,instance_of,I),
+has_q(X,instance_of,I),
+not not_q_m_crossdom_sib(X,Y),
+m_const(Y),
+q_const(X).
+% Extracting cross-domain clones from a question’s representation
+% to a merged representation
+q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
+has_q(Pj,Rj,X),
+has_m(Pj_prime,Rj,Y),
+q_m_crossdom_clone(Pj,Pj_prime),
+q_const(Pj),
+has_q(X,Rk,Cj),
+has_m(Y,Rk,Cj_prime),
+q_m_crossdom_sib(Cj,Cj_prime),
+q_const(Cj).
+q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
+not q_has_par(X),
+has_q(X,Rk,Cj),
+has_m(Y,Rk,Cj_prime),
+q_m_crossdom_sib(Cj,Cj_prime),
+q_const(Cj).
+q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
+has_q(Pj,Rj,X),
+has_m(Pj_prime,Rj,Y),
+q_m_crossdom_clone(Pj,Pj_prime),
+q_const(Pj),
+not q_has_child(X).
+q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
+not q_has_par(X),
+not q_has_child(X).
+% Extracting the answers to the input question
+q_covered(X) :- q_const(X),
+m_const(Y),
+q_m_crossdom_clone(X,Y).
+q_not_all_covered :- not q_covered(X),
+q_const(X).
+q_all_covered :- not q_not_all_covered.
+ans(Q,X) :- q_m_crossdom_clone(Q,X),
+has_q(Q,instance_of,q),
+q_all_covered.
+% Making answers visible in the terminal
+#show ans/2.
+
+
+
+% Sentence:-
+%Tom threw his schoolbag down to Ray after
+% he reached the bottom of the stairs.
+% Representation:
+has_s(he_9,instance_of,entity).
+has_s(reached_10,instance_of,reached)
+has_s(reached_10,agent,ray_7)
+has_s(reached_10,recipient,bottom_12)
+has_s(bottom_12,is_trait_of,he_9).
+has_s(bottom_12,instance_of,bottom_12).
+has_s(throw_5,instance_of,throw).
+has_s(throw_5,agent,tom_2).
+has_s(throw_5,recipient,schoolbag).
+has_s(ray_7,instance_of,entity).
+has_s(tom_2,instance_of,entity).
+
+
+% Question:- Who reached the bottom of the stairs?
+% Representation:
+has_q(reached_2,instance_of,reached).
+has_q(reached_2,agent,q_1)
+has_q(reached_2,recipient,bottom_4)
+has_q(q_1,instance_of,q).
+has_q(q_1,instance_of,entity).
+has_q(bottom_4,instance_of,bottom).
+
+% Knowledge:-
+% Representation:
+has_k(bottom_1,is_trait_of,y_2).
+has_k(bottom_1,instance_of,bottom).
+has_k(y_2,instance_of,entity).
+%has_k(bottom_1,prevents,throws_5).
+has_k(throws_5,instance_of,throw).
+has_k(throws_5,recipient,y_2).
