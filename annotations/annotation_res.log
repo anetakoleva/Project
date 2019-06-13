@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  12 JUN 2019 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  13 JUN 2019 17:52
 entering extended mode
 **./annotation_res.tex
 (annotation_res.tex
@@ -89,18 +89,18 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (annotation_res.aux)
 \openout1 = `annotation_res.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -116,53 +116,53 @@ LaTeX Font Info:    ... okay on input line 12.
 \makeMPintoPDFobject=\count100
 \everyMPtoPDFconversion=\toks18
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (105.20923pt too wide) in alignment at lines 14--34
+Overfull \hbox (105.20923pt too wide) in alignment at lines 16--36
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (105.20923pt too wide) in alignment at lines 34--54
+Overfull \hbox (105.20923pt too wide) in alignment at lines 36--56
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (105.20923pt too wide) in alignment at lines 54--74
+Overfull \hbox (105.20923pt too wide) in alignment at lines 56--76
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (105.20923pt too wide) in alignment at lines 74--94
+Overfull \hbox (105.20923pt too wide) in alignment at lines 76--96
  [] [] [] [] [] [] 
  []
 
 [1
 
 {C:/Users/z003yzhj/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (105.20923pt too wide) in alignment at lines 94--114
+Overfull \hbox (105.20923pt too wide) in alignment at lines 96--117
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (105.20923pt too wide) in alignment at lines 114--134
+Overfull \hbox (105.20923pt too wide) in alignment at lines 117--138
  [] [] [] [] [] [] 
  []
 
 [2]
-Overfull \hbox (105.20923pt too wide) in alignment at lines 134--154
+Overfull \hbox (105.20923pt too wide) in alignment at lines 138--158
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (105.20923pt too wide) in alignment at lines 154--168
+Overfull \hbox (105.20923pt too wide) in alignment at lines 158--172
  [] [] [] [] [] [] 
  []
 
@@ -170,7 +170,7 @@ Overfull \hbox (105.20923pt too wide) in alignment at lines 154--168
 Here is how much of TeX's memory you used:
  1889 strings out of 492895
  22327 string characters out of 3133471
- 127536 words of memory out of 3000000
+ 131536 words of memory out of 3000000
  5842 multiletter control sequences out of 15000+200000
  5647 words of font info for 23 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -179,7 +179,7 @@ Here is how much of TeX's memory you used:
 msfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/m
 sam10.pfb>
-Output written on annotation_res.pdf (4 pages, 46079 bytes).
+Output written on annotation_res.pdf (4 pages, 47776 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

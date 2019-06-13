@@ -66,14 +66,14 @@
 \newif\if@proseminar
 \@proseminarfalse
 \DeclareOption{proseminar}{%
-  \@proseminartrue
+	\@proseminartrue
 }
 
 % Hauptseminar-Vorlage
 \newif\if@hauptseminar
 \@hauptseminarfalse
 \DeclareOption{hauptseminar}{%
-  \@hauptseminartrue
+	\@hauptseminartrue
 }
 
 
@@ -81,42 +81,42 @@
 \newif\if@beleg
 \@belegfalse
 \DeclareOption{beleg}{%
-  \@belegtrue
+	\@belegtrue
 }
 
 % Diplom Inf-Vorlage
 \newif\if@diplominf
 \@diplominffalse
 \DeclareOption{diplominf}{%
-  \@diplominftrue
+	\@diplominftrue
 }
 
 % Diplom IST-Vorlage
 \newif\if@diplomist
 \@diplomistfalse
 \DeclareOption{diplomist}{%
-  \@diplomisttrue
+	\@diplomisttrue
 }
 
 % Diplom TechMath-Vorlage
 \newif\if@diplommedieninf
 \@diplommedieninffalse
 \DeclareOption{diplommedieninf}{%
-  \@diplommedieninftrue
+	\@diplommedieninftrue
 }
 
 % Bachelor Vorlage
 \newif\if@bachelorofscience
 \@bachelorofsciencefalse
 \DeclareOption{bachelorofscience}{%
-  \@bachelorofsciencetrue
+	\@bachelorofsciencetrue
 }
 
 % Master Vorlage
 \newif\if@masterofscience
 \@masterofsciencefalse
 \DeclareOption{masterofscience}{%
-  \@masterofsciencetrue
+	\@masterofsciencetrue
 }
 
 
@@ -125,28 +125,28 @@
 \newif\if@female
 \@femalefalse
 \DeclareOption{female}{%
-  \@femaletrue
+	\@femaletrue
 }
 
 % plain-vorlage article
 \newif\if@plainarticle
 \@plainarticlefalse
 \DeclareOption{plainarticle}{%
-  \@plainarticletrue
+	\@plainarticletrue
 }
 
 % plain-vorlage article
 \newif\if@plainreport
 \@plainreportfalse
 \DeclareOption{plainreport}{%
-  \@plainreporttrue
+	\@plainreporttrue
 }
 
 % CGV auf Titelseite 
 \newif\if@cgvtitle
 \@cgvtitlefalse
 \DeclareOption{cgvtitle}{%
-  \@cgvtitletrue
+	\@cgvtitletrue
 }
 
 % References numbered not alpha
@@ -169,49 +169,49 @@
 \newif\if@hyperref
 \@hyperreffalse
 \DeclareOption{hyperref}{%
-  \@hyperreftrue
+	\@hyperreftrue
 }
 
 % Nomenclature
 \newif\if@nomencl
 \@nomenclfalse
 \DeclareOption{nomencl}{%
-  \@nomencltrue
+	\@nomencltrue
 }
 
 %german-Option verarbeiten
 \newif\if@german
 \@germanfalse
 \DeclareOption{german}{%
-  \@germanfalse%
+	\@germanfalse%
 }%
 
 % formatierung fuer cgv-report
 \newif\if@final
 \@finalfalse
 \DeclareOption{final}{%
-  \@finaltrue%
+	\@finaltrue%
 }%
 
 % kein Inhaltsverzeichnis
 \newif\if@notoc
 \@notocfalse
 \DeclareOption{notoc}{%
-  \@notoctrue%
+	\@notoctrue%
 }%
 
 % keine Aufgabenstellung
 \newif\if@noproblem
 \@noproblemfalse
 \DeclareOption{noproblem}{%
-  \@noproblemtrue%
+	\@noproblemtrue%
 }%
 
 % zweiseitig wenn nicht 'final'
 \newif\if@twoside
 \@twosidefalse
 \DeclareOption{twoside}{%
-  \@twosidetrue%
+	\@twosidetrue%
 }%
 \ProcessOptions
 
@@ -241,58 +241,58 @@
 % set document type
 
 \if@beleg
-  \def\@isreport{1}
+\def\@isreport{1}
 \fi
 \if@diplominf
-  \def\@isreport{1}
-  \def\@isdiploma{1}
+\def\@isreport{1}
+\def\@isdiploma{1}
 \fi
 \if@diplomist
-	\def\@belegtrue{0}
-  \def\@isreport{1}
-  \def\@isdiploma{1}
+\def\@belegtrue{0}
+\def\@isreport{1}
+\def\@isdiploma{1}
 \fi
 \if@diplommedieninf
-  \def\@isreport{1}
-  \def\@isdiploma{1}
+\def\@isreport{1}
+\def\@isdiploma{1}
 \fi
 \if@plainreport
-  \def\@isreport{1}
-   \def\@isplain{1}
+\def\@isreport{1}
+\def\@isplain{1}
 \fi
 \if@plainarticle
-  \def\@isplain{1}
+\def\@isplain{1}
 \fi
 \if@bachelorofscience
-  \def\@isreport{1}
-  \def\@isdiploma{1}
+\def\@isreport{1}
+\def\@isdiploma{1}
 \fi
 \if@masterofscience
-  \def\@isreport{1}
-  \def\@isdiploma{1}
+\def\@isreport{1}
+\def\@isdiploma{1}
 \fi
 
 
 \ifx\@empty\@isreport
-  \if@final
-    \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,normalheadings]{scrartcl}%
-  \else
-    \if@twoside
-      \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,normalheadings]{scrartcl}%
-    \else
-      \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, oneside,titlepage,normalheadings]{scrartcl}%
-    \fi
-  \fi
+\if@final
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,normalheadings]{scrartcl}%
 \else
-  \if@final
-    \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,openright,normalheadings]{scrreprt}%
-  \else
-    \if@twoside
-      \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,openright,normalheadings]{scrreprt}%
-    \else
-      \LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, oneside,titlepage,openright,normalheadings]{scrreprt}%
-    \fi
-  \fi
+\if@twoside
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,normalheadings]{scrartcl}%
+\else
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, oneside,titlepage,normalheadings]{scrartcl}%
+\fi
+\fi
+\else
+\if@final
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,openright,normalheadings]{scrreprt}%
+\else
+\if@twoside
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, twoside,titlepage,openright,normalheadings]{scrreprt}%
+\else
+\LoadClass[cleardoubleempty, liststotoc, bibtotoc, idxtotoc, 11pt, abstracton, pointlessnumbers, oneside,titlepage,openright,normalheadings]{scrreprt}%
+\fi
+\fi
 \fi
 
 % deckblatttitel, je nachdem, was fuer ein dokument erstellt werden soll
@@ -322,9 +322,9 @@
 \fi
 
 \if@female
- \def\@female{in}
+\def\@female{in}
 \else
- \def\@female{}
+\def\@female{}
 \fi
 
 \if@diplominf%
@@ -392,44 +392,44 @@
 %Da man bei Neudeutsch ebenfalls Zitate in Altdeutsch haben wird,
 %Wird das german-Paket auf jeden Fall benoetigt.
 \if@german%
-  \RequirePackage{german}%
-  \def\@copyrightlabel{Erkl\"{a}rungen zum Urheberrecht}
-  \renewcommand\copyrightinfo[0]{%
-    \cleardoublepage
-    \ifx\@empty\@isreport
-      \section*{\@copyrightlabel}
-    \else
-      \chapter*{\@copyrightlabel}
-    \fi
-    \@copyrighterklaerung}
-  \ifx\@empty\@isplain
-    \renewcommand{\betreuerlabel}[0]{Betreuer: }
-		\renewcommand{\matnostart}[0]{(}
-    \renewcommand{\matnolabel}[0]{Mat.-Nr.: }
-    \renewcommand{\matnoclosing}[0]{)}
-    \renewcommand{\birthstart}[0]{(Geboren am }
-    \renewcommand{\birthmiddle}[0]{ in }
-    \renewcommand{\birthclosing}[0]{, }
-  \fi
+\RequirePackage{german}%
+\def\@copyrightlabel{Erkl\"{a}rungen zum Urheberrecht}
+\renewcommand\copyrightinfo[0]{%
+	\cleardoublepage
+	\ifx\@empty\@isreport
+	\section*{\@copyrightlabel}
+	\else
+	\chapter*{\@copyrightlabel}
+	\fi
+	\@copyrighterklaerung}
+\ifx\@empty\@isplain
+\renewcommand{\betreuerlabel}[0]{Betreuer: }
+\renewcommand{\matnostart}[0]{(}
+\renewcommand{\matnolabel}[0]{Mat.-Nr.: }
+\renewcommand{\matnoclosing}[0]{)}
+\renewcommand{\birthstart}[0]{(Geboren am }
+\renewcommand{\birthmiddle}[0]{ in }
+\renewcommand{\birthclosing}[0]{, }
+\fi
 \else
-  \def\@copyrightlabel{Copyright Information}
-  \renewcommand\copyrightinfo[0]{%
-    \cleardoublepage
-    \ifx\@empty\@isreport
-    \section*{\@copyrightlabel}
-  \else
-    \chapter*{\@copyrightlabel}
-  \fi
-  \@copyrighterklaerung}
-  \ifx\@empty\@isplain
-    \renewcommand{\betreuerlabel}[0]{Supervisors: }
-		\renewcommand{\matnostart}[0]{(}
-    \renewcommand{\matnolabel}[0]{Mat.-No.: }
-    \renewcommand{\matnoclosing}[0]{)}
-   % \renewcommand{\birthstart}[0]{(Born }
-   % \renewcommand{\birthmiddle}[0]{ in }
-   % \renewcommand{\birthclosing}[0]{, }
-  \fi
+\def\@copyrightlabel{Copyright Information}
+\renewcommand\copyrightinfo[0]{%
+	\cleardoublepage
+	\ifx\@empty\@isreport
+	\section*{\@copyrightlabel}
+	\else
+	\chapter*{\@copyrightlabel}
+	\fi
+	\@copyrighterklaerung}
+\ifx\@empty\@isplain
+\renewcommand{\betreuerlabel}[0]{Supervisors: }
+\renewcommand{\matnostart}[0]{(}
+\renewcommand{\matnolabel}[0]{Mat.-No.: }
+\renewcommand{\matnoclosing}[0]{)}
+% \renewcommand{\birthstart}[0]{(Born }
+% \renewcommand{\birthmiddle}[0]{ in }
+% \renewcommand{\birthclosing}[0]{, }
+\fi
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -443,18 +443,18 @@
 
 % Nomenclature laden
 \if@nomencl
-  \if@german
-    \RequirePackage[german]{nomencl}
-  \else
-    \RequirePackage{nomencl}
-  \fi
+\if@german
+\RequirePackage[german]{nomencl}
+\else
+\RequirePackage{nomencl}
+\fi
 
-  % Randbreite definieren
-  \def\@nomenclmargin{3cm}
-  \newcommand\setnomenclmargin[1]{\def\@nomenclmargin{#1}}
-  
-  % index erstellen
-  \makeglossary 
+% Randbreite definieren
+\def\@nomenclmargin{3cm}
+\newcommand\setnomenclmargin[1]{\def\@nomenclmargin{#1}}
+
+% index erstellen
+\makeglossary 
 
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -479,145 +479,145 @@
 \let\@altab=\abstract
 \let\end@altab=\endabstract
 \renewenvironment{abstract}{%
-\fancyfoot{}
-\fancyhead{}
-\if@final
-  \fancyhead[LE,RO]{\thepage}
-\else
-  \if@twoside
-    \fancyhead[LE,RO]{\thepage}
-  \else
-    \fancyhead[R]{\thepage}
-  \fi
-\fi
-\begin{@altab}%
-\thispagestyle{fancy}}{\end{@altab}%
-\cleardoublepage
-\ifx\@empty\@isreport
-  \if@final
-    \fancyhead[LO]{\@author}
-    \fancyhead[RE]{\@title}
-  \else
-    \if@twoside
-      \fancyhead[LO]{\@author}
-      \fancyhead[RE]{\@title}
-    \else
-      \fancyhead[L]{\@author -- \@title}
-    \fi
-  \fi
-\else
-  \if@final
-    \fancyhead[LO]{\rightmark}
-    \fancyhead[RE]{\leftmark}
-  \else
-    \if@twoside
-      \fancyhead[LO]{\rightmark}
-      \fancyhead[RE]{\leftmark}
-    \else
-      \fancyhead[L]{\rightmark}
-    \fi
-  \fi
-\fi}
+	\fancyfoot{}
+	\fancyhead{}
+	\if@final
+	\fancyhead[LE,RO]{\thepage}
+	\else
+	\if@twoside
+	\fancyhead[LE,RO]{\thepage}
+	\else
+	\fancyhead[R]{\thepage}
+	\fi
+	\fi
+	\begin{@altab}%
+		\thispagestyle{fancy}}{\end{@altab}%
+	\cleardoublepage
+	\ifx\@empty\@isreport
+	\if@final
+	\fancyhead[LO]{\@author}
+	\fancyhead[RE]{\@title}
+	\else
+	\if@twoside
+	\fancyhead[LO]{\@author}
+	\fancyhead[RE]{\@title}
+	\else
+	\fancyhead[L]{\@author -- \@title}
+	\fi
+	\fi
+	\else
+	\if@final
+	\fancyhead[LO]{\rightmark}
+	\fancyhead[RE]{\leftmark}
+	\else
+	\if@twoside
+	\fancyhead[LO]{\rightmark}
+	\fancyhead[RE]{\leftmark}
+	\else
+	\fancyhead[L]{\rightmark}
+	\fi
+	\fi
+	\fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Institution fuer Titelseite
 \if@cgvtitle
-  \if@german
-  \newcommand{\@institution}{
-    \begin{center}
-    %Institution an der die Arbeit geschrieben wurde
-    \huge
-    \textsc{Dresden University of Technology}
+\if@german
+\newcommand{\@institution}{
+	\begin{center}
+		%Institution an der die Arbeit geschrieben wurde
+		\huge
+		\textsc{Dresden University of Technology}
+		
+		\bigskip
+		\Large
+		
+		$\quad$\\
+		$\quad$}
+\end{center}
+}
+\else
+\newcommand{\@institution}{
+\begin{center}
+	%Institution an der die Arbeit geschrieben wurde
+	\huge
+	\textsc{Dresden University of Technology}
+	
+	\bigskip
+	\Large
+	
+	$\quad$\\
+	$\quad$}
+\end{center}
+}
+\fi
+\else
+\if@german
+\newcommand{\@institution}{
+\begin{center}
+%Institution an der die Arbeit geschrieben wurde
+\huge
+\textsc{Dresden University of Technology}
 
-    \bigskip
-    \Large
-    
-    $\quad$\\
-    $\quad$}
-    \end{center}
-  }
-  \else
-  \newcommand{\@institution}{
-    \begin{center}
-    %Institution an der die Arbeit geschrieben wurde
-    \huge
-    \textsc{Dresden University of Technology}
+\bigskip
+\Large
 
-    \bigskip
-    \Large
+\end{center}
+}
+\else
+\newcommand{\@institution}{
+\begin{center}
+%Institution an der die Arbeit geschrieben wurde
+\huge
+\textsc{Dresden University of Technology}
 
-    $\quad$\\
-    $\quad$}
-    \end{center}
-  }
-  \fi
-  \else
-	  \if@german
-	  \newcommand{\@institution}{
-	    \begin{center}
-	    %Institution an der die Arbeit geschrieben wurde
-	    \huge
-	    \textsc{Dresden University of Technology}
+\bigskip
+\Large
 
-	    \bigskip
-	    \Large
-
-	    \end{center}
-	  }
-	  \else
-	  \newcommand{\@institution}{
-	    \begin{center}
-	    %Institution an der die Arbeit geschrieben wurde
-	    \huge
-	    \textsc{Dresden University of Technology}
-
-	    \bigskip
-	    \Large
-    
-	    \end{center}
-	  }
-	  \fi
-  \fi
+\end{center}
+}
+\fi
+\fi
 %\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Style fuer Bibliography
 \if@bibnum
-  \if@german
-    \bibliographystyle{plaindin}
-  \else
-    \bibliographystyle{plain}
-  \fi
+\if@german
+\bibliographystyle{plaindin}
 \else
-  \if@german
-    \bibliographystyle{alphadin}
-  \else
-    \bibliographystyle{alpha}
-  \fi
+\bibliographystyle{plain}
+\fi
+\else
+\if@german
+\bibliographystyle{alphadin}
+\else
+\bibliographystyle{alpha}
+\fi
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of tables/figures hinzu falls gewuenscht
 \if@lof
-  \newcommand{\printlof}{\listoffigures}
+\newcommand{\printlof}{\listoffigures}
 \else
-  \newcommand{\printlof}{ }
+\newcommand{\printlof}{ }
 \fi
 \if@lot
-  \newcommand{\printlot}{\listoftables}
+\newcommand{\printlot}{\listoftables}
 \else
-  \newcommand{\printlot}{ }
+\newcommand{\printlot}{ }
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % zeile unter dem autor zusammenstellen
 \ifx\@empty\@isdiploma
-  \ifx\@empty\@isplain
-    \def\@subauthor{\matnostart\matnolabel\@matno\matnoclosing}
-  \else
-    \def\@subauthor{$\quad$}
-  \fi
+\ifx\@empty\@isplain
+\def\@subauthor{\matnostart\matnolabel\@matno\matnoclosing}
 \else
-  \def\@subauthor{\matnostart\matnolabel\@matno\matnoclosing}
+\def\@subauthor{$\quad$}
+\fi
+\else
+\def\@subauthor{\matnostart\matnolabel\@matno\matnoclosing}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -627,7 +627,7 @@
 \renewcommand{\appendix}[0]{\cleardoublestandardpage
 \ifx\@empty\@bibfiles
 \else
-  \bibliography{\@bibfiles}
+\bibliography{\@bibfiles}
 \fi
 \cleardoublestandardpage
 \printlof
@@ -651,47 +651,47 @@
 %\pagestyle{empty}
 \ifx\@empty\@isplain
 \else
-  \def\@publishers{$\quad$}
-  \def\@subject{$\quad$}
+\def\@publishers{$\quad$}
+\def\@subject{$\quad$}
 \fi
 \begin{titlepage}
-  \enlargethispage{1cm}
-
-  \@institution
-  \vspace{2cm}
-
-  \begin{center}
-  % Titel der Arbeit
-  \huge
-  \titleheader\\[1.5cm]
-  \huge
-  \@title
-  \vspace{2cm}
-
-  % Zweck der Arbeit
-  \Large
-  {\Large \@author }\\\@subauthor\\[2cm]
-
-  \end{center}
-  \vfill
-
-\begin{flushleft}
- \Large
-\ifx\@empty\@isplain
- \betreuerlabel \@betreuer\\[1cm]
-\else
- $\quad$\\[1cm]
-\fi
-        Dresden, \@date\\[2cm]
-\end{flushleft}
+	\enlargethispage{1cm}
+	
+	\@institution
+	\vspace{2cm}
+	
+	\begin{center}
+		% Titel der Arbeit
+		\huge
+		\titleheader\\[1.5cm]
+		\huge
+		\@title
+		\vspace{2cm}
+		
+		% Zweck der Arbeit
+		\Large
+		{\Large \@author }\\\@subauthor\\[2cm]
+		
+	\end{center}
+	\vfill
+	
+	\begin{flushleft}
+		\Large
+		\ifx\@empty\@isplain
+		\betreuerlabel \@betreuer\\[1cm]
+		\else
+		$\quad$\\[1cm]
+		\fi
+		Dresden, \@date\\[2cm]
+	\end{flushleft}
 \end{titlepage}
-   \cleardoubleemptypage
+\cleardoubleemptypage
 
 % zeilenabstand ja nach variante
 \if@final
-  \renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{1.0}
 \else
-  \renewcommand{\baselinestretch}{1.5}
+\renewcommand{\baselinestretch}{1.5}
 \fi
 \normalsize
 % Seitenstil festlegen
@@ -702,147 +702,147 @@
 % Aufgabenstellung
 \ifx\@isbeleg\@isdiploma
 \else
-  \if@noproblem
-  \else
-  %	\ifx\@haupseminartrue\@proseminar
-  %		\section*{Aufgabenstellung}
-  %	\else
-  %  	\chapter*{Aufgabenstellung}
-  %  \fi
-  	\@problem
-  \fi
+\if@noproblem
+\else
+%	\ifx\@haupseminartrue\@proseminar
+%		\section*{Aufgabenstellung}
+%	\else
+%  	\chapter*{Aufgabenstellung}
+%  \fi
+\@problem
+\fi
 \fi
 
 \cleardoublestandardpage
 %Selbständigkeitserklärung
 
-  %   \chapter*{Selbstst\"{a}ndigkeitserkl\"{a}rung}
+%   \chapter*{Selbstst\"{a}ndigkeitserkl\"{a}rung}
 
-   % Hiermit erkl\"{a}re ich, dass ich die von mir am heutigen Tag dem Pr\"{u}fungsausschuss der Fakult\"{a}t \@faculty~eingereichte Arbeit zum Thema:
-   %  \begin{center}
-   %  \textit{\@title} 
-   %  \end{center}
-     
-    % vollkommen selbstst\"{a}ndig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt sowie Zitate kenntlich gemacht habe.
+% Hiermit erkl\"{a}re ich, dass ich die von mir am heutigen Tag dem Pr\"{u}fungsausschuss der Fakult\"{a}t \@faculty~eingereichte Arbeit zum Thema:
+%  \begin{center}
+%  \textit{\@title} 
+%  \end{center}
 
-    %Dresden, den \@date\\[3cm]
-    %\@author
+% vollkommen selbstst\"{a}ndig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt sowie Zitate kenntlich gemacht habe.
+
+%Dresden, den \@date\\[3cm]
+%\@author
 
 %\cleardoublestandardpage
 %Zusammenfassung
 \ifx\@empty\@isdiploma
 \else
-  \renewcommand{\baselinestretch}{1.0}
-  {\vspace*{2cm}
-  %\minisec{Kurzfassung}
-  \@abstractde
-  \vspace{2cm}
-  \minisec{Abstract}
-  \@abstracten
-  }
-  \if@final
-  \renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{1.0}
+{\vspace*{2cm}
+	%\minisec{Kurzfassung}
+	\@abstractde
+	\vspace{2cm}
+	\minisec{Abstract}
+	\@abstracten
+}
+\if@final
+\renewcommand{\baselinestretch}{1.0}
 \else
-  \renewcommand{\baselinestretch}{1.5}
+\renewcommand{\baselinestretch}{1.5}
 \fi   
 \fi
 \cleardoublestandardpage
 %Inhaltsverzeichnis
 \pagenumbering{arabic}
 \if@final
-  \fancyhead[LE,RO]{\thepage}
+\fancyhead[LE,RO]{\thepage}
 \else
-  \if@twoside
-    \fancyhead[LE,RO]{\thepage}
-  \else
-    \fancyhead[R]{\thepage}
-  \fi
+\if@twoside
+\fancyhead[LE,RO]{\thepage}
+\else
+\fancyhead[R]{\thepage}
+\fi
 \fi
 \if@notoc
 \else
-  \tableofcontents
-  \cleardoublestandardpage
+\tableofcontents
+\cleardoublestandardpage
 \fi
 %Nomenclature
 \if@nomencl
-  \if@german
-    \addcontentsline{toc}{chapter}{Symbolverzeichnis}
-  \else
-    \addcontentsline{toc}{chapter}{Nomenclature}
-  \fi
-  \label{sec:Nomenclature}
-  \printglossary[\@nomenclmargin]
+\if@german
+\addcontentsline{toc}{chapter}{Symbolverzeichnis}
+\else
+\addcontentsline{toc}{chapter}{Nomenclature}
+\fi
+\label{sec:Nomenclature}
+\printglossary[\@nomenclmargin]
 \fi
 %Kopfzeile basteln
 \markboth{}{}
 \ifx\@empty\@isreport
-  \if@final
-    \fancyhead[LO]{\@author}
-    \fancyhead[RE]{\@title}
-  \else
-    \if@twoside
-      \fancyhead[LO]{\@author}
-      \fancyhead[RE]{\@title}
-    \else
-      \fancyhead[L]{\@author -- \@title}
-    \fi
-  \fi
+\if@final
+\fancyhead[LO]{\@author}
+\fancyhead[RE]{\@title}
 \else
-  \if@final
-    \fancyhead[LO]{\rightmark}
-    \fancyhead[RE]{\leftmark}
-  \else
-    \if@twoside
-      \fancyhead[LO]{\rightmark}
-      \fancyhead[RE]{\leftmark}
-    \else   
-      \fancyhead[L]{\leftmark}
-    \fi
-  \fi
+\if@twoside
+\fancyhead[LO]{\@author}
+\fancyhead[RE]{\@title}
+\else
+\fancyhead[L]{\@author -- \@title}
+\fi
+\fi
+\else
+\if@final
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\leftmark}
+\else
+\if@twoside
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\leftmark}
+\else   
+\fancyhead[L]{\leftmark}
+\fi
+\fi
 \fi}{%
 % Literatur-, Abbildungs- und Tabellenverzeichnis, wenn nicht schon bei
 % \appendix automatisch davor eingefügt
 \ifx\@empty\@haveapp
-  \cleardoublestandardpage
-  \ifx\@empty\@bibfiles
-  \else
-    \bibliography{\@bibfiles}
-  \fi
-  \cleardoublestandardpage
-  \printlof
-  \cleardoublestandardpage
-  \printlot
+\cleardoublestandardpage
+\ifx\@empty\@bibfiles
+\else
+\bibliography{\@bibfiles}
+\fi
+\cleardoublestandardpage
+\printlof
+\cleardoublestandardpage
+\printlot
 \fi
 \cleardoublestandardpage
 %Danksagung
 \ifx\@empty\@acknowledgments
 \else
-  \if@german
-    \@mkboth{Danksagung}{}
-  \else
-    \@mkboth{Acknowledgments}
-  \fi
-  \ifx\@empty\@isreport
-    \if@german
-      \section*{Danksagung}
-    \else
-      \section*{Acknowledgments}
-    \fi
-  \else
-    \if@german
-      \chapter*{Danksagung}
-    \else
-      \chapter*{Acknowledgments}
-    \fi
-  \fi
-  \@acknowledgments
+\if@german
+\@mkboth{Danksagung}{}
+\else
+\@mkboth{Acknowledgments}
+\fi
+\ifx\@empty\@isreport
+\if@german
+\section*{Danksagung}
+\else
+\section*{Acknowledgments}
+\fi
+\else
+\if@german
+\chapter*{Danksagung}
+\else
+\chapter*{Acknowledgments}
+\fi
+\fi
+\@acknowledgments
 \fi
 % Copyright-Kram
 \cleardoublestandardpage
 \ifx\@empty\@copyrighterklaerung
 \else
-  \@mkboth{\@copyrightlabel}{}
-  \copyrightinfo
+\@mkboth{\@copyrightlabel}{}
+\copyrightinfo
 \fi
 \cleardoublestandardpage
 \end{@altdoc}}
@@ -861,66 +861,66 @@
 \renewenvironment{itemize}{%
 \begin{@altitemize}%
 \ifnum \@itemdepth = 1
-  \vspace{-10pt}
-  \setlength{\itemsep}{-1pt}
+\vspace{-10pt}
+\setlength{\itemsep}{-1pt}
 \else
-  \ifnum \@itemdepth = 2
-    \vspace{-6pt}
-    \setlength{\itemsep}{0pt}
-  \else
-    \ifnum \@itemdepth = 3
-      \vspace{-2pt}
-      \setlength{\itemsep}{1pt}
-    \else
-      \vspace{0pt}
-      \setlength{\itemsep}{2pt}
-    \fi
-  \fi
+\ifnum \@itemdepth = 2
+\vspace{-6pt}
+\setlength{\itemsep}{0pt}
+\else
+\ifnum \@itemdepth = 3
+\vspace{-2pt}
+\setlength{\itemsep}{1pt}
+\else
+\vspace{0pt}
+\setlength{\itemsep}{2pt}
 \fi
-  \setlength{\parsep}{0pt}
+\fi
+\fi
+\setlength{\parsep}{0pt}
 \setlength{\labelsep}{12pt}
 }%
 {\end{@altitemize}\vspace{-2pt}}
 
 % enumerate ohne abstand zw. den items
 \def\enumerate{%
-  \ifnum \@enumdepth >3 \@toodeep\else
-	\ifnum \@enumdepth = 0
-	  \vspace{-10pt}
-	  \setlength{\itemsep}{-1pt}
-	\else
-	  \ifnum \@enumdepth = 1
-	    \vspace{-6pt}
-	    \setlength{\itemsep}{0pt}
-	  \else
-	    \ifnum \@enumdepth = 2
-	      \vspace{-2pt}
-	      \setlength{\itemsep}{1pt}
-	    \else
-	      \vspace{0pt}
-	      \setlength{\itemsep}{2pt}
-	    \fi
-	  \fi
-	\fi
-	\setlength{\parsep}{0pt}
-	\setlength{\labelsep}{12pt}
-      \advance\@enumdepth \@ne
-      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\fi
-  \@ifnextchar[{\@@enum@}{\@enum@}}
+\ifnum \@enumdepth >3 \@toodeep\else
+\ifnum \@enumdepth = 0
+\vspace{-10pt}
+\setlength{\itemsep}{-1pt}
+\else
+\ifnum \@enumdepth = 1
+\vspace{-6pt}
+\setlength{\itemsep}{0pt}
+\else
+\ifnum \@enumdepth = 2
+\vspace{-2pt}
+\setlength{\itemsep}{1pt}
+\else
+\vspace{0pt}
+\setlength{\itemsep}{2pt}
+\fi
+\fi
+\fi
+\setlength{\parsep}{0pt}
+\setlength{\labelsep}{12pt}
+\advance\@enumdepth \@ne
+\edef\@enumctr{enum\romannumeral\the\@enumdepth}\fi
+\@ifnextchar[{\@@enum@}{\@enum@}}
 \def\@@enum@[#1]{%
-  \@enLab{}\let\@enThe\@enQmark
-  \@enloop#1\@enum@
-  \ifx\@enThe\@enQmark\@warning{The counter will not be printed.%
-   ^^J\space\@spaces\@spaces\@spaces The label is: \the\@enLab}\fi
-  \expandafter\edef\csname label\@enumctr\endcsname{\the\@enLab}%
-  \expandafter\let\csname the\@enumctr\endcsname\@enThe
-  \csname c@\@enumctr\endcsname7
-  \expandafter\settowidth
-            \csname leftmargin\romannumeral\@enumdepth\endcsname
-            {\the\@enLab\hspace{\labelsep}}%
-  \@enum@}
+\@enLab{}\let\@enThe\@enQmark
+\@enloop#1\@enum@
+\ifx\@enThe\@enQmark\@warning{The counter will not be printed.%
+^^J\space\@spaces\@spaces\@spaces The label is: \the\@enLab}\fi
+\expandafter\edef\csname label\@enumctr\endcsname{\the\@enLab}%
+\expandafter\let\csname the\@enumctr\endcsname\@enThe
+\csname c@\@enumctr\endcsname7
+\expandafter\settowidth
+\csname leftmargin\romannumeral\@enumdepth\endcsname
+{\the\@enLab\hspace{\labelsep}}%
+\@enum@}
 \def\@enum@{\list{\csname label\@enumctr\endcsname}%
-           {\usecounter{\@enumctr}\def\makelabel##1{\hss\llap{##1}}}}
+{\usecounter{\@enumctr}\def\makelabel##1{\hss\llap{##1}}}}
 
 % paragraph mit Zeilenumbruch nach der Ueberschrift
 \newcommand\Paragraph[1]{\minisec{#1}}

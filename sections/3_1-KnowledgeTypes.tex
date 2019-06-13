@@ -52,7 +52,7 @@ The presented knowledge types are the following:
 
 
 \section{Reasoning Algorithm}
-In this section we explain the proposed logical Reasoning Algorithm (RA) from Sharma and Baral \cite{2018CommonsenseKT}. This RA was used for solving the WSC problems by applying the previously explained knowledge types. It takes a formal representation of Winograd sentence and question and additional knowledge as input and it returns an answer to the question. The implementation of the RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view} and it can be found in Appendix\ref{AppendixA}. 
+In this section we explain the proposed logical Reasoning Algorithm (RA) from Sharma and Baral \cite{2018CommonsenseKT}. This RA was used for solving the WSC problems by applying the previously explained knowledge types. It takes a formal representation of Winograd sentence and question and additional knowledge as input and it returns an answer to the question. The implementation of the RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view}. The implementation of the RA  can be also found in Appendix\ref{AppendixA}. 
 
 The RA is based on Answer Set Programming (ASP) \cite{DBLP:conf/aaai/Lifschitz08}. Therefore, after the Winograd sentence and question have been represented as semantic graphs, the observations from these graphs are encoded as ASP rules. The retrieved answer should be entailed by these input rules.
 The RA is split into two main phases, each including several steps. Each step, results in creating new ASP rules.

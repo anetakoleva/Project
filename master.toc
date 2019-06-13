@@ -28,4 +28,4 @@
 \contentsline {paragraph}{\nonumberline Future Work}{30}{section*.19}% 
 \contentsline {chapter}{\nonumberline References}{32}{chapter*.20}% 
 \contentsline {chapter}{\numberline {A}Reasoning Algorithm}{36}{appendix.A}% 
-\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{42}{appendix.B}% 
+\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{40}{appendix.B}% 
