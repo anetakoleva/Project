@@ -198,4 +198,4 @@ has_k(weak_1,instance_of,weak).
 has_k(y_2,instance_of,entity).
 %has_k(weak_1,prevents,lifts_5).
 has_k(lifts_5,instance_of,lift).
-has_k(lifts_5,agent,y_2).
+has_k(lifts_5,recipient,y_2).

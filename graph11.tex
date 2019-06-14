@@ -1,5 +1,3 @@
-%\documentclass[border=10pt]{standalone}
-%\usepackage{tikz}
 \tikzset{
 	treenode/.style = {shape=rectangle, rounded corners,
 		draw, align=center,
@@ -22,21 +20,20 @@
 	every node/.style       = {font=\footnotesize},
 	sloped
 	]
-	\node [root] {is-3}
-	child { node [env, blue] {it-11}
-	  child {node [env] {small}
+	\node [root] {was}
+	child { node [env, blue] {he-9}
+	  child {node [env] {weak-11}
 			edge from parent node [below] {trait} }
 	   edge from parent node [above] {agent}}
-	child { node [env, bottom color=red!30] {fit-5} 
-	  child {node [env]  {could}
+	child { node [env, bottom color=red!30] {lift} 
+	  child {node [env]  {could-3}
 	  	edge from parent node [above] {modal verb} }	
-	  child {node [env, blue]  {trophy-2}
+	  child {node [env, blue]  {man-2}
 	  	edge from parent node [above] {agent} }
-	  child {node [env, blue]  {suitcase-9}
+	  child {node [env, blue]  {son-7}
 	  	edge from parent node [above] {recipient}}
 	  child {node [env]  {not-4}
 			edge from parent node [above] {negation} }
 		edge from parent node [above] {cause}};
 	
 	\end{tikzpicture}
-%\end{document}

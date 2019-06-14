@@ -31,6 +31,25 @@
 \usepackage{xcolor}
 \newcommand{\bluecheck}{{\color{blue}\checkmark}}
 \newcommand{\redcheck}{{\color{red}\checkmark}}
+\renewcommand{\lstlistingname}{Code}
+
+\lstdefinestyle{SC}{
+	language=erlang,
+	xleftmargin=.2\textwidth,
+	xrightmargin=.2\textwidth
+}
+\lstset{ 
+	numbers=left,
+	numberstyle=\tiny,
+	basicstyle=\scriptsize,
+	showstringspaces=false,
+	showspaces=false,
+	commentstyle=\color{blue},
+	keywordstyle=\bfseries\color{purple},
+	captionpos=b,
+	frame=lines
+}
+
 
 \renewcommand{\bibname}{References}
 \author{Aneta Koleva}
@@ -45,7 +64,8 @@
 
 %\acknowledgments{Die Danksagung...}
 %TODO: Your Abstract should answer these questions about your manuscript:
-%TODO Check for lonly words in lines and for lines starting with citations.
+%TODO Check for lonely words in lines and for lines starting with citations.
+%TODO Run spell checker and check for '
 %What was done?
 %Why did you do it?
 %What did you find?

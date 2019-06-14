@@ -1,29 +1,36 @@
+\label{AppendixA}
+%TODO find how not to use numbering here
+
+Implementation in ASP of the reasoning algorithm provided by Sharma and Baral \cite{2018CommonsenseKT}.
 \begin{lstlisting}[language=Prolog]
 
+%Phase 1: Generating merged representation
 
 %Defining domain of variables
 k_val(X) :- has_k(X,R,Y).
 k_val(Y) :- has_k(X,R,Y).
 
-%Extracting constant nodes from graphical representations
+%Extracting constant nodes from graphical representation of  
+%sentence, question and knowledge (Step 1)
 s_const(X) :- has_s(X,instance_of,I).
 q_const(X) :- has_q(X,instance_of,I).
 k_class(X) :- has_k(A,instance_of,X).
 k_const(X) :- not k_class(X), k_val(X).
 
-%Extracting constant nodes which has constant parent nodes
-%from graphical representations of sentence, question and knowledge
+%Extracting constant nodes which has constant parent nodes from
+%graphical representations of sentence, question and knowledge (Step 2)
 s_has_par(X) :- has_s(P,R,X), s_const(X), s_const(P).
 q_has_par(X) :- has_q(P,R,X), q_const(X), q_const(P).
 k_has_par(X) :- has_k(P,R,X), k_const(X), k_const(P).
 
-%Extracting constant nodes which has constant children nodes
-% from graphical representations of sentence, question and knowledge.
+%Extracting constant nodes which has constant children nodes from
+%graphical representations of sentence, question and knowledge. (Step 2)
 s_has_child(X) :- has_s(X,R,C), s_const(X), s_const(C).
 q_has_child(X) :- has_q(X,R,C), q_const(X), q_const(C).
 k_has_child(X) :- has_k(X,R,C), k_const(X), k_const(C).
 
-%Extracting cross-domain siblings from a knowledge representation to a sentence representation
+%Extracting cross-domain siblings from a knowledge representation  
+%to a sentence representation. (Step 3)
 not_k_s_crossdom_sib(X,Y) :- has_k(X,instance_of,I1),
 			has_k(X,instance_of,I2),
 			has_s(Y,instance_of,I1),
@@ -46,7 +53,8 @@ k_s_crossdom_sib(X,Y) :- has_s(Y,instance_of,I),
 			k_const(X),
 			not not_k_s_crossdom_sib(X,Y).
 
-%Extracting cross-domain clones from a knowledge representation to a sentence representation
+%Extracting cross-domain clones from a knowledge representation  
+%to a sentence representation. (Step 4)
 k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
 			has_k(Pj,Rj,X),
 			has_s(Pj_prime,Rj,Y),
@@ -71,13 +79,11 @@ k_s_crossdom_clone(X,Y) :- k_s_crossdom_sib(X,Y),
 			not k_has_par(X),
 			not k_has_child(X).
 
-%Generating a merged representation of a sentence and a knowledge
+%Generating a merged representation of a sentence and a knowledge. (Step 5)
 has_m(X,R,Y) :- has_s(X,R,Y).
-
 k_covered(X) :- k_const(X),
 			s_const(Y),
-			k_s_crossdom_clone(X,Y).
-			
+			k_s_crossdom_clone(X,Y).		
 k_not_all_covered :- k_const(X),
 			not k_covered(X).
 k_all_covered :- not k_not_all_covered.
@@ -94,19 +100,21 @@ has_m(X,R,Y) :- has_s(X1,R,Y),
 			k_s_crossdom_clone(X_k,X),
 			k_all_covered.
 
-%Extracting constant nodes from graphical representation
+%Phase 2: Extracting possible answers
+ 
+%Extracting constant nodes from the merged representation. (Step 1)
 has_const(X) :- has_m(X,instance_of,I).
 
 %Extracting constant nodes which has constant parent nodes
-%from a merged representation
+%from a merged representation. (Step 2)
 m_has_par(X) :- has_m(P,R,X), m_const(X), m_const(P).
 
 %Extracting constant nodes which has constant children nodes
-%from a merged representation
+%from a merged representation. (Step 2)
 m_has_child(X) :- has_m(X,R,C), m_const(X), m_const(C).
 
 %Extracting cross-domain siblings from a question representation
-%to a merged representation
+%to a merged representation. (Step 3)
 not_q_m_crossdom_sib(X,Y) :- has_q(X,instance_of,I1),
 			has_q(X,instance_of,I2),
 			has_m(Y,instance_of,I1),
@@ -130,7 +138,7 @@ q_m_crossdom_sib(X,Y) :- has_m(Y,instance_of,I),
 			q_const(X).
 
 %Extracting cross-domain clones from a question representation
-%to a merged representation
+%to a merged representation. (Step 4)
 q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
 			has_q(Pj,Rj,X),
 			has_m(Pj_prime,Rj,Y),
@@ -154,7 +162,8 @@ q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
 q_m_crossdom_clone(X,Y) :- q_m_crossdom_sib(X,Y),
 			not q_has_par(X),
 			not q_has_child(X).
-%Extracting the answers to the input question
+			
+%Extracting the answers to the input question. (Step 5)
 q_covered(X) :- q_const(X),
 			m_const(Y),
 			q_m_crossdom_clone(X,Y).
@@ -167,7 +176,7 @@ ans(Q,X) :- q_m_crossdom_clone(Q,X),
 			q_all_covered.
 
 %Making answers visible in the terminal
-\%show ans/2.
+ #show ans/2.
 
 
 
