@@ -9,6 +9,8 @@
 % notoc			kein Inhaltsverzeichnis
 % twoside		zweiseitig
 \usepackage{enumitem}
+\usepackage[all]{nowidow}
+\usepackage{tikz-qtree}
 
 \makeatletter
 \newcommand{\labeltext}[3][]{%
@@ -39,8 +41,6 @@
 	xrightmargin=.2\textwidth
 }
 \lstset{ 
-	numbers=left,
-	numberstyle=\tiny,
 	basicstyle=\scriptsize,
 	showstringspaces=false,
 	showspaces=false,
@@ -91,9 +91,6 @@
 \chapter{Categorization of Commonsense Knowledge}
 
 \input{sections/4-ConceptualFramework}
-
-\chapter{Discussion}
-
 \input{sections/6-Discussion}
 
 \chapter{Conclusion and Future Work}

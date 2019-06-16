@@ -4,11 +4,11 @@
 	treenode/.style = {shape=rectangle, rounded corners,
 		draw, align=center,
 		top color=white, bottom color=blue!20},
-	root/.style     = {treenode, font=\ttfamily\normalsize},
+	root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
 	env/.style      = {treenode, font=\ttfamily\normalsize},
 	dummy/.style    = {circle,draw},
-	level 1/.style={sibling distance=6cm, level distance = 1em},
-	level 2/.style={sibling distance=2.5cm,level distance = 5em}, 
+	level 1/.style={sibling distance=6cm, level distance = 3em, label = 1pt },
+	level 2/.style={sibling distance=2.3cm,level distance = 5em}, 
 	level 3/.style={sibling distance=2cm},
 	blueRed/.style={env, top color=blue, bottom color=red} 
 }
@@ -22,14 +22,17 @@ edge from parent/.style = {draw, -latex},
 every node/.style       = {font=\footnotesize},
 sloped
 ]
+\Tree[
 \node  [env, blue] {weak-1}
-child { node [env, blue] {lifts-5}
-	child {node [env, gray] {entity}
-		edge from parent node [above] {inst\_of}}
-	child {node [env, gray] {q}
-		edge from parent node [above] {inst\_of}} 	
-	edge from parent node [above] {prevents}};
-
-
+ 	  child {node [env, blue]  {not-4}
+ 	edge from parent node [above] {negation} };
+]
+\begin{scope}[xshift=7cm]
+\Tree[
+\node  [env, blue] {lifts-5}
+	  child {node [env, blue]  {not-4}
+	edge from parent node [above] {negation} };
+]
+\end{scope}
 \end{tikzpicture}
 %\end{document}

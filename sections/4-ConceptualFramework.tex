@@ -3,7 +3,7 @@
 
 
 
-Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. The idea is to identify categories of knowledge which can capture meta-knowledge that is common for more than one WS. The additional knowledge which characterizes these categories will then contribute to the RA for extracting the possible correct answer. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the additional knowledge belongs. In this chapter, we first explain the identified categories. Next, we discuss in more details the semantic representation and ASP encoding of two WSs from one of the categories. Finally, we try the RA using additional knowledge defined according to one of the identified categories. 
+Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the required additional knowledge belongs. The idea is to use these categories when defining the additional knowledge such that it will contribute to the reasoning process when extracting the possible correct answer. In this chapter, we first discuss the process of identifying the proposed categories and give short description for each of them. Next, we discuss in more details the semantic representation and ASP encoding of two WSs from one of the categories. After that, we apply additional knowledge defined according to one of the identified categories to the RA from Sharma and Baral \cite{2018CommonsenseKT}. Finally, we end this chapter with a general discussion.
   
 \begin{comment}
 Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify categories of knowledge which are needed in order to answer the questions from the WSs. 
@@ -15,8 +15,8 @@ We use the KParser for extracting the graph representation of the input sentence
 
 
 \section{Commonsense domains}
-As discussed before, for correctly resolving the problems from the WSC corpus, a system needs to be able to mimic commonsense reasoning. To do this, additional background knowledge from different domains is required. In order to determine these domains of knowledge in the WSC corpus, we approached the problems inductively and we identified six categories. Two annotators thoroughly analyzed the entire WSC corpus(Appendix \ref{AppendixB}) and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
-In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the additional knowledge that is applied in order to answer the question. To decide which sentence belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
+As discussed before, for correctly resolving the problems from the WSC corpus, a system needs to be able to mimic commonsense reasoning. To do this, additional background knowledge from different domains is required. In order to determine these domains of knowledge in the WSC corpus, we approached the problems inductively and we identified six categories. Two annotators thoroughly analyzed the entire WSC corpus (Appendix \ref{AppendixB}) and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
+In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the additional knowledge that is applied in order to answer the question form the WS. To decide which WS belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
 
 \paragraph{Physical} To resolve the WSs from this category additional knowledge about some physical feature which is a trait of the ambiguous pronoun is needed.
  
@@ -134,14 +134,15 @@ In both representations, the main event (\textit{fit, lift}) is connected with t
 
 We are interested to find out whether we can improve the reasoning procedure from Sharma and Baral \cite{2018CommonsenseKT} 
 by applying rules based on the category of the WS. 
-For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP. Because we will use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
+For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP. Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
 Since both of the WSs that we are testing are from the \textit{Physical} category, as additional knowledge we provide a rule that characterizes the physical trait from the sentences. 
 
 In Code \ref{code1} the rules\footnote{Simplified such that only rules with relevant information are shown.} extracted from the graph in Figure \ref{Graph1} are shown. For extracting these rules we followed the steps provided for the worked-out example. However, it is not difficult to notice that the information encoded in the ASP rules comes straightforward from observing the graph representation of the sentence.
 In Code \ref{code2} the rules which are used as additional knowledge for this example are shown. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit" }.
 In the same manner the ASP rules for the WSs from \ref{ex:Graph} are defined. As additional knowledge for this example we encode the sentence: \textit{``Weak entitie(s) could not lift"}.
 
-\begin{lstlisting}[language = Prolog,  caption={Knowledge from S2},label=code1] 
+\begin{lstlisting}[language = Prolog,  caption={Knowledge from S2},label=code1, numbers=left,
+numberstyle=\tiny] 
 has_s(it_11,instance_of,object).
 has_s(small_14,is_trait_of,it_9).
 has_s(small_14,modifier,too_13).
@@ -151,13 +152,14 @@ has_s(suitcase_9,instance_of,object).
 has_s(trophy_2,instance_of,object).
 \end{lstlisting}
 
-\begin{lstlisting}[language = Prolog,  caption={Additional knowledge},label=code2]
+\begin{lstlisting}[language = Prolog,  caption={Additional knowledge},label=code2,numbers=left,
+numberstyle=\tiny]
 has_k(small_1,is_trait_of,y_2) :- has_k(fits_5, recipient, y_2), not has_k(fits_5,modifier,could_3).
 has_k(y_2,instance_of,entity).
 has_k(fits_5,recipient,y_2).
 \end{lstlisting}
 
-When running the RA with our encoding of the additional knowledge, the returned answer for both sentences was the correct answer. We also considered the twin sentences with the switched special word, and the RA again retrieved the correct answer. Furthermore, when the rule describing the background knowledge is removed, there is no answer was retrieved. 
+When running the RA with our encoding of the additional knowledge, for both examples the correct answer was retrieved. We also considered the twin sentences with the switched special word, and the RA again retrieved the correct answer. Additionally, when the rule describing the background knowledge is removed, there is no answer was retrieved. Furthermore, in Line 4 when we substitute \textit{recipient} with \textit{agent}, again no answer is retrieved. This means that when the additional knowledge is formalized as in Code \ref{code2}, it prevents the RA to rely on hard coded information.
 
 
 

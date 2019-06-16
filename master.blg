@@ -1,6 +1,8 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: master.aux
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: master.aux
 The style file: alpha.bst
-Illegal, another \bibstyle command---line 215 of file master.aux
+Illegal, another \bibstyle command---line 203 of file master.aux
  : \bibstyle
  :          {plainnat}
 I'm skipping whatever remains of this command
@@ -54,4 +56,45 @@ Warning--I didn't find a database entry for "DBLP:conf/nips/2017"
 Warning--I didn't find a database entry for "DBLP:conf/aaai/2018"
 Warning--I didn't find a database entry for "DBLP:conf/aaai/2018w"
 Warning--empty institution in McCarthy:1960:PCS:889202
+You've used 36 entries,
+            2543 wiz_defined-function locations,
+            820 strings with 13475 characters,
+and the built_in function-call counts, 16093 in all, are:
+= -- 1586
+> -- 817
+< -- 24
++ -- 292
+- -- 283
+* -- 1115
+:= -- 2583
+add.period$ -- 112
+call.type$ -- 36
+change.case$ -- 253
+chr.to.int$ -- 35
+cite$ -- 37
+duplicate$ -- 665
+empty$ -- 1152
+format.name$ -- 321
+if$ -- 3350
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 33
+newline$ -- 186
+num.names$ -- 110
+pop$ -- 257
+preamble$ -- 1
+purify$ -- 288
+quote$ -- 0
+skip$ -- 587
+stack$ -- 0
+substring$ -- 823
+swap$ -- 167
+text.length$ -- 24
+text.prefix$ -- 11
+top$ -- 0
+type$ -- 288
+warning$ -- 1
+while$ -- 144
+width$ -- 40
+write$ -- 470
 (There were 16 error messages)

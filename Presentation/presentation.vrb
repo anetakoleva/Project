@@ -1,0 +1,20 @@
+\frametitle{Extensions}
+Extend syntax and semantics of expressions to accomodate
+    \begin{itemize}
+      \item Term (in)\alert{equality}
+      \item \alert{Comparison} of integer expressions
+    \end{itemize}
+    \begin{verbatim}
+expression
+: ...
+
+| left=intExpression
+    op=(GT|LT|GE|LE|NE|EQ)
+  right=intExpression
+# arithmeticAtom
+
+| left=term op=(NE|EQ) right=term
+# equalityAtom
+
+;
+    \end{verbatim}
