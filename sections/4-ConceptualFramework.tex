@@ -3,7 +3,7 @@
 
 
 
-Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the required additional knowledge belongs. The idea is to use these categories when defining the additional knowledge such that it will contribute to the reasoning process when extracting the possible correct answer. In this chapter, we first discuss the process of identifying the proposed categories and give short description for each of them. Next, we discuss in more details the semantic representation and ASP encoding of two WSs from one of the categories. After that, we apply additional knowledge defined according to one of the identified categories to the RA from Sharma and Baral \cite{2018CommonsenseKT}. Finally, we end this chapter with a general discussion.
+Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the required additional knowledge belongs. The idea is to use these categories when defining the additional knowledge such that it will contribute to the reasoning process when extracting the possible correct answer. In this chapter, we first discuss the process of identifying the proposed categories and give short description for each of them. Next, we discuss in more details the semantic representation and ASP encoding of two WSs from one of the categories. After that, we apply additional knowledge defined according to one of the identified categories to the RA from Sharma~and~Baral~\cite{2018CommonsenseKT}. Finally, we end this chapter with a general discussion.
   
 \begin{comment}
 Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify categories of knowledge which are needed in order to answer the questions from the WSs. 
@@ -71,7 +71,7 @@ Formalization of knowledge about change over time and chronology of events is ne
 
 \labeltext{\textit{Example 3.2}}{time}
 \begin{itemize} \label{Ex2}
-	\item[\textbf{S:}] \textbf{Thomson visited Cooper's grave in 1765. At that date he had been} \\ \textbf{[dead/travelling] for five years.}
+	\item[\textbf{S:}] \textbf{\underline{Thomson} visited \underline{Cooper}'s grave in 1765. At that date \underline{he} had been} \\ \textbf{[dead/travelling] for five years.}
 	\item[\textbf{Q:}] \textbf{ Who had been [dead/travelling] for five years? }
 	\item[\textbf{A:}] \textbf{Cooper/Thomson}
 \end{itemize}
@@ -87,7 +87,7 @@ It is defined as follows:
 \begin{equation}
 	\kappa = (p_o-p_e)/(1-p_e)
 \end{equation}
-where $p_o$ is the observed accuracy among the annotators and $p_e$ is the expected accuracy when both annotators assign categories randomly. Each of the two annotators analyzed all the problems from the WSC corpus and annotated them with one of the identified six categories. For the calculation of the Cohen's kappa score, we used the sklearn metrics  package\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen\_kappa\_score} that includes an implementation of Cohen's kappa.
+where $p_o$ is the observed accuracy among the annotators and $p_e$ is the expected accuracy when both annotators assign categories randomly. Each of the two annotators analyzed all the problems from the WSC corpus and annotated them with one of the identified six categories. For the calculation of the Cohen's kappa score, we used the sklearn metrics  package\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen\_kappa\_score} that includes an implementation of~Cohen's~kappa.
 
 \paragraph{Results}
 The calculated Cohen's kappa score for the annotation of the WSs is 0.66. According to the description for relative strength of agreement from Landis and Koch \cite{articleM}, this score is interpreted as substantial agreement. In our case this means, that both annotators largely agree on the annotation of WSs with the provided six categories.
@@ -103,7 +103,7 @@ The numbers of WSs  and the percentage for each category, as annotated by the tw
 
 
 \section{Semantic representation and ASP encoding}
-As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate two WSs that belong to this category. Namely, we observe the WSs from \ref{Ex1} and \ref{ex:Graph}. 
+As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate two WSs that belong to this category. Namely, we observe the WSs from \ref{Ex1} and \ref{ex:Graph} (\#2 and \#8 in Appendix \ref{AppendixB}). 
 We use the KParser for translating the input sentence and question into a graph representation.
 The two semantic graphs\footnote{Slightly simplified such that only relevant information is represented.}, are shown in Figure \ref{Graph1} and Figure \ref{Graph2}. We can observe that the semantic representations of the sentences are indeed very similar. 
 Figure \ref{Graph1} represents the semantic graph for the sentence:
@@ -134,18 +134,17 @@ In both representations, the main event (\textit{fit, lift}) is connected with t
 
 We are interested to find out whether we can improve the reasoning procedure from Sharma and Baral \cite{2018CommonsenseKT} 
 by applying rules based on the category of the WS. 
-For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP. Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
+For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP (See Appendix \ref{AppendixA}). Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
 Since both of the WSs that we are testing are from the \textit{Physical} category, as additional knowledge we provide a rule that characterizes the physical trait from the sentences. 
 
 In Code \ref{code1} the rules\footnote{Simplified such that only rules with relevant information are shown.} extracted from the graph in Figure \ref{Graph1} are shown. For extracting these rules we followed the steps provided for the worked-out example. However, it is not difficult to notice that the information encoded in the ASP rules comes straightforward from observing the graph representation of the sentence.
-In Code \ref{code2} the rules which are used as additional knowledge for this example are shown. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit" }.
-In the same manner the ASP rules for the WSs from \ref{ex:Graph} are defined. As additional knowledge for this example we encode the sentence: \textit{``Weak entitie(s) could not lift"}.
+In Code \ref{code2} the rules which are used as additional knowledge for this example are shown. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit"}.
+In the same manner the ASP rules for the WSs from \ref{ex:Graph} are defined. As additional knowledge for this example we encode the sentence: \textit{``Weak entitie(s) could not lift"}. 
 
 \begin{lstlisting}[language = Prolog,  caption={Knowledge from S2},label=code1, numbers=left,
 numberstyle=\tiny] 
 has_s(it_11,instance_of,object).
 has_s(small_14,is_trait_of,it_9).
-has_s(small_14,modifier,too_13).
 has_s(fit_5,agent,trophy_2).
 has_s(fit_5,recipient,suitcase_9).
 has_s(suitcase_9,instance_of,object).
@@ -154,7 +153,8 @@ has_s(trophy_2,instance_of,object).
 
 \begin{lstlisting}[language = Prolog,  caption={Additional knowledge},label=code2,numbers=left,
 numberstyle=\tiny]
-has_k(small_1,is_trait_of,y_2) :- has_k(fits_5, recipient, y_2), not has_k(fits_5,modifier,could_3).
+has_k(small_1,is_trait_of,y_2) :- has_k(fits_5, recipient, y_2), 
+				  not has_k(fits_5,modifier,could_3).
 has_k(y_2,instance_of,entity).
 has_k(fits_5,recipient,y_2).
 \end{lstlisting}

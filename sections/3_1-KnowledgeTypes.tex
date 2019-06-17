@@ -14,41 +14,37 @@ To illustrate the results of the semantic parsing, we analyze part of a WS which
 
 In these graphs, the different colors of the nodes indicate the predefined class of nodes to which they belong. 
 Nodes with red color represent events which correspond to the verbs in the sentence. Nodes with blue color represent entities and qualities of entities, and the nodes with gray color represent conceptual classes. The labels on the directed edges are the semantic relations between the different nodes in the graph. The number next to a word refers to the position of the word in the sentence. 
-\begin{figure}
+\begin{figure} [h!]
 	\centering
 	\input{graph_weak.tex}
 	\caption{\label{Graph11}``The man couldn't lift his son because he was so weak."}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure} [h!]
 	\centering
 	\input{graph_quest.tex}
 	\caption{\label{Graph12}``Who was weak?"}
 \end{figure}
 
-For the representation of the question, one additional conceptual class labeled as "q" is introduced. In this conceptual class are the question words from the WSC problems, such as: \textit{Who, Which and What}.
-
-From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to conclusion that the missing knowledge required to answer the question, must connect the trait of an entity being weak with its inability to lift. In Figure 3 is the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
-
-%TODO FIX the graph for their type
-
-\begin{figure}
+\begin{figure} [h!]
 	\centering
 	\input{graph_type.tex}
-	\caption{\label{Graph13}``Prevents type?"}
+	\caption{\label{Graph13} ``weak y prevents y lifts"}
 \end{figure}
 
+For the representation of the question, one additional conceptual class labeled as "q" is introduced. In this conceptual class are the question words from the WSC problems, such as: \textit{Who, Which and What}. 
+From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to conclusion that the missing knowledge required to answer the question, must connect the trait of an entity being weak with its inability to lift. In Figure 3 is the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
 
-By applying similar analysis to all problems from the WSC corpus, Sharma and Baral \cite{2018CommonsenseKT} identified 12 different knowledge types. From these, the first 10 knowledge types share the same structure as they are all based on different interactions between actions and properties. Each of the 10 knowledge types consists of three parts: the first and third part are sentences containing entities, properties or actions, whereas the second part is a semantic relation (\textit{causes, prevents} or \textit{followed by}) which connects them. The last two knowledge types have different structure because one of them requires multiple knowledge and the other one is based on the conditional likelihood of a previous event. 
-For the representation of the knowledge type shown in Figure 1.3, the first part is \textit{weak y}, the third part is \textit{y lifts} and the semantic relation is \textit{prevents}.
-The presented knowledge types are shown in Table \ref{Ktypes}.
+By applying similar analysis to all problems from the WSC corpus \footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.xml}. Sharma and Baral \cite{2018CommonsenseKT} identified 12 different knowledge types. From these, the first 10 knowledge types share the same structure as they are all based on different interactions between actions and properties. Each of the 10 knowledge types consists of three parts: the first and third part are sentences containing entities, properties or actions, whereas the second part is a semantic relation (\textit{causes, prevents} or \textit{followed by}) which connects them. The last two knowledge types have different structure because one of them requires multiple knowledge and the other one is based on the conditional likelihood of a previous event. 
+For the representation of the knowledge type shown in Figure 1.3, the first part is \textit{weak y}, the third part is \textit{y lifts} and the semantic relation is \textit{prevents}. The presented knowledge types are shown in Table \ref{Ktypes}. From the table, it can be noted that 240 problems belong to the first 10 types and from these, 112 are in the 9th category. \\ 
 
 \begin{figure} [h!]
 	\centering
 	\input{kn_types.tex}
 	\caption{\label{Ktypes} Knowledge Types}
 \end{figure}
+\pagebreak
 
 \section{Reasoning Algorithm}
 \label{RA}
@@ -78,13 +74,12 @@ The RA is split into two main phases, each including several steps. The executio
 	\end{enumerate}
 \end{itemize}
 
-The implementation of the RA with the indicated phases and steps can be is available in Appendix\ref{AppendixA}. 
+The implementation of the RA with the indicated phases and steps is available in Appendix\ref{AppendixA}. 
 According to Sharma and Baral \cite{2018CommonsenseKT} this RA can be applied to WSC problems which belong to the first 10 from the identified 12 knowledge types. 
-
 \paragraph{Worked-out example} To check the work of the RA, we tried the code for the example which was provided together with the implementation of the RA in the supplementary document for Sharma and Baral \cite{2018CommonsenseKT}. In this example are the ASP encoding of the sentence and question from \ref{ex:Graph}.
 For extraction of additional knowledge the sentence \textit{``She could not lift it because she is a weak girl"} was used. The extracted knowledge from this sentence is \textit{``weak y prevent y lifts"} and this corresponds to the first knowledge type \textit{``Property prevents Action"}. The ASP encoding of this knowledge is shown in Code \ref{code}. The predicate name \textbf{has\_k} indicates that these rules are extracted from the graph representation of the additional knowledge. Similarly, there are predicates \textbf{has\_s} and \textbf{has\_q} for rules extracted from the graphs of the input sentence and question. Line 4 in Code \ref{code} is the rule which characterizes the corresponding knowledge type for this example. Running the RA with the provided ASP rules for the sentence, question and knowledge type, retrieves as answers: \textbf{ans(q\_1,he\_9)} and \textbf{ans(q\_1,man\_2)}. Hence, the two nodes \textbf{he\_9} and \textbf{man\_2} from the merged representation correspond to the unknown node \textbf{q\_1} from the question. The conclusion is that the correct referent for the ambiguous pronoun \textbf{he\_9} is the noun \textbf{man\_2}. 
 
-
+\pagebreak
 \begin{lstlisting}[language = Prolog, style=SC, caption={``weak y prevents y lifts"},label=code,numbers=left,
 numberstyle=\tiny ]
 has_k(weak_1,is_trait_of,y_2).

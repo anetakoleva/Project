@@ -50,6 +50,7 @@
 	frame=lines
 }
 
+\usetikzlibrary{arrows, shapes, trees, positioning}
 
 \renewcommand{\bibname}{References}
 \author{Aneta Koleva}
@@ -63,15 +64,13 @@
 
 
 %\acknowledgments{Die Danksagung...}
-%TODO: Your Abstract should answer these questions about your manuscript:
-%TODO Check for lonely words in lines and for lines starting with citations.
-%TODO Run spell checker and check for '
+
 %What was done?
 %Why did you do it?
 %What did you find?
 %Why are these findings useful and important?
 
-\abstracten{We investigate how to formalize commonsense reasoning in machines by analyzing The Winograd Schema Challenge (WSC). WSC is a complex coreference resolution task and requires applying knowledge on commonsense reasoning. In addition, to identify the main challenges of the WSC, we provide a survey of the different state-of-the-art approaches and their methods for addressing the WSC. After that, we perform an elaborate analysis of the WSC problems and identify six categories of commonsense knowledge required for their resolving. These categories might be helpful for further developments in the formal specification of characterizing meta-knowledge, that is required to solve the WSC.
+\abstracten{We investigate how to formalize commonsense reasoning in machines by analyzing The Winograd Schema Challenge (WSC). WSC is a complex coreference resolution task and requires applying knowledge on commonsense reasoning. In addition, to identify the main challenges of the WSC, we provide a survey of the different state-of-the-art approaches and their methods for addressing the WSC. After that, we perform an elaborate analysis of the WSC problems and identify six categories of commonsense knowledge required for their resolving. We focus on formalizing physical reasoning, which has its roots from Morgenstern \cite{DBLP:journals/sLogica/Morgenstern01}. These categories might be helpful for further developments in the formal specification of characterizing meta-knowledge, that is required to solve the WSC.
 }
 %\abstractde{Zusammenfassung Text Deutsch}
 \begin{document}
@@ -85,7 +84,7 @@
 
 \input{sections/3-TheDifferentApproaches}
 
-\chapter{An approach to Commonsense Knowledge Types Identification and Reasoning for the WSC}
+\chapter{An approach to Commonsense Knowledge Types Identification}
 \input{sections/3_1-KnowledgeTypes}
 
 \chapter{Categorization of Commonsense Knowledge}

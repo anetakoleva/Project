@@ -1,5 +1,4 @@
 \label{AppendixA}
-%TODO find how not to use numbering here
 
 Implementation in ASP of the reasoning algorithm provided by Sharma and Baral \cite{2018CommonsenseKT}.
 \begin{lstlisting}[language=Prolog]
@@ -177,7 +176,82 @@ ans(Q,X) :- q_m_crossdom_clone(Q,X),
 
 %Making answers visible in the terminal
  #show ans/2.
+ 
+\end{lstlisting} 
 
 
+ASP formalization for WS \#2 and \#8 from the Physical category.
+
+\begin{lstlisting}[language=Prolog]
+% WS #2:
+%The trophy doesn't fit into the brown suitcase because it's too small.
+
+% Representation:
+has_s(it_9,instance_of,entity).
+has_s(small_12,is_trait_of,it_9).
+has_s(small_12,modifier,too_11).
+has_s(too_11,instance_of,too).
+has_s(small_12,instance_of,small).
+has_s(fit_5,instance_of,fit).
+has_s(fit_5,agent,trophy_2).
+has_s(fit_5,recipient,suitcase_7).
+has_s(suitcase_7,instance_of,entity).
+has_s(trophy_2,instance_of,entity).
+not has_s(fit_5,modifier,could_3).
+
+% Question:- What is too small?
+% Representation:
+has_q(small_4,is_trait_of,q_1).
+has_q(q_1,instance_of,q).
+has_q(q_1,instance_of,entity).
+has_q(small_4,instance_of,small).
+
+% Knowledge:- small entity could not fit
+% Representation:
+has_k(small_1,is_trait_of,y_2) :- has_k(fits_5,recipient,y_2),
+				  not has_k(fits_5,modifier,could_3).
+has_k(small_1,instance_of,small).
+has_k(y_2,instance_of,entity).
+has_k(fits_5,instance_of,fit).
+has_k(fits_5,recipient,y_2).
+
+%Answer: 
+ans(q_1,it_9) ans(q_1,suitcase_7) 
+
+% WS #
+% The man could not lift his son because he was so
+weak.
+% Representation:
+has_s(he_9,instance_of,entity).
+has_s(weak_12,is_trait_of,he_9).
+has_s(weak_12,modifier,so_11).
+has_s(so_11,instance_of,so).
+has_s(weak_12,instance_of,weak).
+has_s(lift_5,instance_of,lift).
+has_s(lift_5,agent,man_2).
+has_s(lift_5,recipient,son_7).
+has_s(son_7,instance_of,entity).
+has_s(man_2,instance_of,entity).
+has_s(son_7,related_to,his_6).
+not has_s(lift_5,modifier,could_3).
+
+% Question:- Who was so weak?
+% Representation:
+has_q(weak_4,is_trait_of,q_1).
+has_q(q_1,instance_of,q).
+has_q(q_1,instance_of,entity).
+has_q(weak_4,instance_of,weak).
+
+% Knowledge:- weak entity could not lift 
+% Representation:
+has_k(weak_1, is_trait_of, y_2) :- has_k(lift_5,agent, y_2),  
+				   not has_k(lift_5,modifier,could_3).
+has_k(weak_1,instance_of,weak).
+has_k(y_2,instance_of,entity).
+has_k(lift_5, instance_of, lift).
+has_k(lift_5, agent, y_2).
+
+%Answer: 
+ans(q_1,he_9) ans(q_1,man_2)   
 
 \end{lstlisting}

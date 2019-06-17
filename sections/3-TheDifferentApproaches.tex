@@ -85,13 +85,15 @@ A very recent approach, which achieves state-of-the-art results, is a knowledge 
 
  The experiments done during the evaluation of this framework show the a correct answer is given for 119 WSs. Furthermore, the precision, recall and F1 score\footnote{These are performance measures, usually used in binary classification tasks. They all rely on confusion matrix in which are presented the outcome of the prediction and the actual values.} is calculated and compared with results from previous approaches (\cite{DBLP:conf/aaai/SharmaB16, DBLP:conf/aaaiss/LiuJLZWH17}). The knowledge-hunting framework outperformed all the previous once with achieved higher F1 score and higher recall. 
 
+\paragraph{Observations} 
+Table \ref{Table2} presents a summary of all the previously analyzed approaches. For each approach, the size of the evaluation dataset and the size of correctly answered problems is expressed with both the number of sentences and what percentage this number is for the used dataset. If the evaluation was not provided for any of the datasets, then there is NA for Not Available. In the last column are remarks for each of the approaches stating their main contribution or main drawback. \\ 
+From Table \ref{Table2} can be observed that almost all of the approaches are evaluated on different or on smaller datasets. 
+For the machine learning approaches this is because of the small number of available problems, which is also the main disadvantage for these approaches. 
+In the case of the knowledge based approaches, the general drawback is that the test set is directly analyzed and based on these observations the models are build. As a consequence, the size of the evaluation sets is significantly smaller in comparison to the machine learning approaches. Moreover, none of these approaches achieves an accuracy close to 90\%, which means there is room for improvement for both machine learning and knowledge-based approaches. One additional remark is that to the best of our knowledge, there is no approach which combines the strengths of both the machine learning and knowledge based approaches. \\
+
+
 \begin{table}[h!]
 	\centering
 	\input{approaches.tex}
 	\caption{{\label{Table2}}Summary of the analyzed approaches}
 \end{table}
-
-Table \ref{Table2} presents a summary of all the previously analyzed approaches. For each approach, the size of the evaluation dataset and the size of correctly answered problems is expressed with both the number of sentences and what percentage this number is for the used dataset. If the evaluation was not provided for any of the datasets, then there is NA for Not Available. In the last column are remarks for each of the approaches stating their main contribution or main drawback. \\ 
-From Table \ref{Table2} can be observed that almost all of the approaches are evaluated on different or on smaller datasets. 
-For the machine learning approaches this is because of the small number of available problems, which is also the main disadvantage for these approaches. 
-In the case of the knowledge based approaches, the general drawback is that the test set is directly analyzed and based on these observations the models are build. As a consequence, the size of the evaluation sets is significantly smaller in comparison to the machine learning approaches. Moreover, none of these approaches achieves an accuracy close to 90\%, which means there is room for improvement for both machine learning and knowledge-based approaches. One additional remark is that to the best of our knowledge, there is no approach which combines the strengths of both the machine learning and knowledge based approaches. 

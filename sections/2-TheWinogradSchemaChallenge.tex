@@ -1,9 +1,8 @@
 \label{Background}
- In this chapter we introduce the structure of the WSC and the  
- %TODO add good opening sentence here
- In section 2.1 we introduce the features of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. Additionally we explain the dataset of Pronoun Disambiguation Problems (PDPS) which was proposed by \cite{DBLP:conf/aaai/MorgensternO15}. Finally, we discuss what makes the WSC so hard for solving and what are the main limitations of this challenge. In section 2.2 we analyze the different state-of-the-art approaches and give a summary of the results from their evaluation.
- 
+In this chapter we introduce the background information about the WSC. In section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. 
+Additionally, we explain the dataset of Pronoun Disambiguation Problems (PDPs) and we discuss what makes the WSC so hard for solving. In the next section we review the different state-of-the-art approaches. We start by discussing the machine learning approaches, and follow by describing the knowledge based approaches. Finally, we summarize the observations made from all the reviewed approaches.
 
+ 
 \section{The Winograd Schema Challenge}
 \label{section:TheWinogradSchemaChallenge}
 
@@ -24,7 +23,7 @@ A Winograd Schema (WS) consists of three main parts:
     \item Two possible answers corresponding to the noun phrases in the sentence
 \end{enumerate}
 
-The WSC dataset currently consists of 285\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.xml} such WSs.
+The WSC dataset currently consists of 150\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} \footnote{The number of WSC problems varies depending on the format in which they are available.\\In the .xml file there are 285 problems, whereas in the .html file there are 150 WSs} such problems.
 A typical example of a WS is the following one:
 \labeltext{\textit{Example 2.1.1}}{Ex1}:
 \begin{itemize} 
@@ -70,7 +69,7 @@ Along with the text, a snippet with the ambiguous pronoun that needs to be resol
 As in \ref{PDP}, a PDP may consist of more than one sentence and it can also have more than two possible answers. Similar to resolving WSs, considerable use of commonsense reasoning is required when answering the PDPs. Since the structure of the PDPs is not always consistent, resolving these problems is more difficult than resolving WSs.
 
 Having the two different sets allows the evaluation of the participating systems in the challenge to be done gradually. 
-If a system successfully pases the questions from the first dataset, then it will be challenged with the WSs set. Morgensten et al. \cite{DBLP:journals/aim/MorgensternDO16} argue that if a system can answer the problems from the PDP set correctly, then it will surely have success when answering the WSs set.  
+If a system successfully answers the questions from the first dataset, then it will be challenged with the WSs set. Morgensten et al. \cite{DBLP:journals/aim/MorgensternDO16} argue that if a system can answer the problems from the PDP set correctly, then it will surely have success when answering the WSs set.  
 Additionally, the PDPs are taken from various literature sources and may include different aspects of commonsense knowledge which would otherwise not be included in the created WSs. 
 
 \begin{comment}
@@ -85,7 +84,7 @@ Since the idea of the authors of the WSC was to construct this challenge as an a
 
 
 \subsection{Main challenges and limitations}
-We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations of the WSC. 
+We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC. 
 
 Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. Coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst}  achieved accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
 	

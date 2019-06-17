@@ -23,10 +23,21 @@ David Crystal.
 \newblock A dictionary of linguistics and phonetics, sixth edition.
 \newblock {\em The Modern Language Journal}, 76:25--26, 01 2011.
 
+\bibitem[Dav90]{Davis:1990:RCK:83819}
+Ernest Davis.
+\newblock {\em Representations of Commonsense Knowledge}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1990.
+
 \bibitem[Dav16]{DBLP:journals/corr/Davis16}
 Ernest Davis.
 \newblock Winograd schemas and machine translation.
 \newblock {\em CoRR}, abs/1608.01884, 2016.
+
+\bibitem[DM15]{DBLP:journals/cacm/DavisM15}
+Ernest Davis and Gary Marcus.
+\newblock Commonsense reasoning and commonsense knowledge in artificial
+  intelligence.
+\newblock {\em Commun. {ACM}}, 58(9):92--103, 2015.
 
 \bibitem[ECT{\etalchar{+}}18]{DBLP:conf/emnlp/EmamiCTSC18}
 Ali Emami, Noelia De~La Cruz, Adam Trischler, Kaheer Suleman, and Jackie
@@ -138,6 +149,12 @@ John McCarthy, Marvin Minsky, Aaron Sloman, Leiguang Gong, Tessa~A. Lau, Leora
   Morgenstern, Erik~T. Mueller, Doug Riecken, Moninder Singh, and Push Singh.
 \newblock An architecture of diversity for commonsense reasoning.
 \newblock {\em {IBM} Systems Journal}, 41(3), 2002.
+
+\bibitem[Mor01]{DBLP:journals/sLogica/Morgenstern01}
+Leora Morgenstern.
+\newblock Mid-sized axiomatizations of commonsense problems: {A} case study in
+  egg cracking.
+\newblock {\em Studia Logica}, 67(3):333--384, 2001.
 
 \bibitem[MPC18]{DBLP:conf/aaai/MaPC18}
 Yukun Ma, Haiyun Peng, and Erik Cambria.
