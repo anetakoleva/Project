@@ -14,8 +14,10 @@
 \usepackage{pdfpages}
 \usepackage{graphicx} 
 \usepackage{tikz}
+\usepackage{makecell}
+\usepackage{comment}
 \usetikzlibrary{positioning}
-
+\newcommand\tab[1][1cm]{\hspace*{#1}}
 \tikzstyle{ele} = [circle, text centered, minimum width=1em, minimum height=3ex]
 
 %% Uncomment to activate navigation symbols in the lower right of the pages:
@@ -137,26 +139,12 @@
 
 \begin{frame}
 \frametitle{Previous Approaches}
-
-\begin{itemize}
-	\item Machine learning and deep learning
-	\begin{itemize}
-		\normalsize
-		\item Supervised ranking SVM 
-		\item Supervised classification Task 
-		\item Knowledge enhanced embeddings 
-		\item Google's language models 
-		\item Open AI language model 
-	\end{itemize}			
-	\item Knowledge-based
-	\begin{itemize}
-		\normalsize
-		\item Knowledge graphs with Relevance Theory 
-		\item Semantic parsing and knowledge hunting 
-		\item Parsing query results and assigning scores 
-		\item Knowledge types identification 
-	\end{itemize}
+\onslide<1->\begin{itemize}
+	\item Machine learning and deep learning techniques
+	\item Knowledge-based system with reasoning procedures
 \end{itemize}
+
+\onslide<2->\input{approaches.tex}
 
 \end{frame}
 
@@ -211,26 +199,28 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Semantic graph representation}
 \begin{itemize}
 \normalsize
-\item Representation of the knowledge ``\textit{weak y \textbf{prevents} y lifts}"
+\item ``The man couldn't lift his son because he was so weak".
+\input{graph_weak.tex}
+\begin{columns}
+	\begin{column}{0.45\textwidth}
+	\item ``Who was weak?"
+	\input{graph_quest.tex} 
+	
+	\end{column}
+	\begin{column}{0.30\textwidth}
+	\item ``weak y \textbf{prevents} y lifts"
+	\input{kn_type.tex} 
+	\end{column}
+\end{columns}
+%\item Knowledge: 
+
+
 \end{itemize}
 
-\centering
-\includegraphics[scale=0.3]{Figure4_c.png}  
-
 \end{frame}
-
-\section{Methodology}
-
-\begin{frame}
-\vfill
-\begin{LARGE}
-\hfill Methodology \hfill 
-\end{LARGE}
-\vfill
-\end{frame}
-\subsection{Pause}
 
 \begin{frame}[fragile]
 \frametitle{Categorization of Winograd Schemas}
@@ -262,7 +252,7 @@
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so \textbf{[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
 		
-		2. Emotions &\textbf{S:}  Frank felt \textbf{[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
+		2. Emotional &\textbf{S:}  Frank felt \textbf{[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
 		
 		3. Interactions &\textbf{S:} Joan made sure to thank Susan for all the help she had \textbf{[given/received]}. \\&\textbf{Q:} Who had [given/received] help?\\ \hline
 		
@@ -285,7 +275,7 @@
 	\normalsize
 	\item Strong agreement between the annotators \\
 	Cohen's kappa score 0.66
-	\item Annotation Results
+	\item Annotation Results \\
 \end{itemize}
 \begin{table}
 	\centering
@@ -296,9 +286,14 @@
 \begin{frame}[fragile]
 
 \frametitle{Graph Representation for Physical Category}
-\onslide<1->\begin{enumerate}
-	\item The man couldn't lift his son because he was so weak. 
-	\item The trophy doesn't fit into the brown suitcase because it's too small.
+\onslide<1-> \begin{enumerate}	
+	\item The trophy doesn't fit into the brown suitcase because it's too small. 
+	\input{graph1.tex}
+
+
+\onslide<2-> \item The man couldn't lift his son because he was so weak. 
+ 			 \input{graph11.tex}
+
 \end{enumerate}
 \end{frame}
 
@@ -310,8 +305,10 @@
 	\item Similar reasoning rules for categorizing the traits
 	\begin{enumerate}
 		\normalsize
-		\item weak(X) :- lift(X,Y), not lift(modifier, could).
-		\item small(Y) :- fit(X,Y), not fit(modifier, could).
+		\item has\_k(small,is\_trait\_of,y) :- has\_k(fits,recipient,y),\\
+		\tab \tab \tab  \alert{not} has\_k(fits,modifier,could).\\
+		\item has\_k(weak, is\_trait\_of,y) :- has\_k(lift,agent,y), \\ 
+		\tab \tab \tab	\alert{not} has\_k(lift,modifier,could).
 	\end{enumerate}
 	\onslide<2->		\item Reasoning Algorithm
 	\onslide<2->		\item Change of background knowledge
@@ -339,11 +336,19 @@
  \frametitle{Future Work}
  \begin{itemize}
  	\normalsize
- 	\item Better Reasoning Algorithm
- 	\item Knowledge Graphs (RDF) representation
+ 	\item Formalization of the characteristics for each category
+ 	\item Knowledge-enhanced neural networks
 \end{itemize}	
 \end{frame}
 
 
+\begin{frame}
+	\vfill
+	\begin{LARGE}
+		\hfill Thank you! \hfill 
+	\end{LARGE}
+	\vfill
+\end{frame}
+\subsection{Pause}
 
 \end{document}

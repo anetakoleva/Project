@@ -1,0 +1,55 @@
+%\documentclass{standalone}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows, shapes, trees, positioning}
+
+%\begin{document}
+	
+	\tikzset{
+		treenode/.style = {shape=rectangle, rounded corners,
+			draw, align=center,
+			top color=white, bottom color=blue!20},
+		root/.style     = {treenode, font=\ttfamily\normalsize},
+		env/.style      = {treenode, font=\ttfamily\normalsize},
+		dummy/.style    = {circle,draw},
+		level 1/.style={sibling distance=6.3cm, level distance = 6em},
+		level 2/.style={sibling distance=2.5cm,level distance = 5em}, 
+		level 3/.style={sibling distance=2cm},
+		blueRed/.style={env, top color=blue, bottom color=red} 
+	}
+	
+	\begin{tikzpicture}
+	[
+	grow                    = down,
+	sibling distance        = 50em,
+	level distance          = 5em,
+	edge from parent/.style = {draw, -latex},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+	
+	
+	
+	% Theraspist 1
+	\node[root]   (root)   {weak-1}
+	child {node [env, gray] {weak}
+		edge from parent node [above] {inst\_of}}
+	child {node [env, gray] (s1) {y-2}
+		child {node [env, gray] {entity}
+			edge from parent node[above] {inst\_of}}
+		edge from parent node[above] {is\_trait\_of}
+	} ;
+	
+	
+	
+	% Theraspist 2
+	\node[root]   (lift)   [right=45mm of root] {lifts-5}
+	child {node [root] (s1) {y-2}
+		edge from parent node[above] {agent}}
+	child {node[env, gray] (S4) {lift}
+		edge from parent node[above] {inst\_of}};
+	
+	\draw[-> ] (root) -- node[above] {prevents} (lift);
+	%\draw[-> ] (lift) -- node[above] {agent} (s1);
+	
+	\end{tikzpicture}
+%\end{document}

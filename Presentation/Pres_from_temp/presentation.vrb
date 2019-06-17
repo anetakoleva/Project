@@ -1,6 +1,6 @@
 \frametitle{Future Work}
  \begin{itemize}
  	\normalsize
- 	\item Better Reasoning Algorithm
- 	\item Knowledge Graphs (RDF) representation
-\end{itemize}
+ 	\item Formalization of the characteristics for each category
+ 	\item Knowledge-enhanced neural networks
+\end{itemize}	

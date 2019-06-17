@@ -3,7 +3,5 @@
 \beamer@subsectionintoc {1}{1}{Winograd Schema Challenge}{4}{0}{1}
 \beamer@subsectionintoc {1}{2}{Competition}{7}{0}{1}
 \beamer@sectionintoc {2}{Previous Approaches}{8}{0}{2}
-\beamer@sectionintoc {3}{Alerts}{9}{0}{3}
-\beamer@sectionintoc {4}{Methodology}{17}{0}{4}
-\beamer@subsectionintoc {4}{1}{Pause}{18}{0}{4}
-\beamer@subsubsectionintoc {4}{1}{1}{Conclusion}{25}{0}{4}
+\beamer@sectionintoc {3}{Alerts}{10}{0}{3}
+\beamer@subsubsectionintoc {3}{0}{1}{Conclusion}{26}{0}{3}
