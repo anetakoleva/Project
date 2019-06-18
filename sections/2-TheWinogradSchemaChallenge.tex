@@ -1,12 +1,12 @@
 \label{Background}
 In this chapter we introduce the background information about the WSC. In section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. 
-Additionally, we explain the dataset of Pronoun Disambiguation Problems (PDPs) and we discuss what makes the WSC so hard for solving. In the next section we review the different state-of-the-art approaches. We start by discussing the machine learning approaches, and follow by describing the knowledge based approaches. Finally, we summarize the observations made from all the reviewed approaches.
+Additionally, we explain the dataset of Pronoun Disambiguation Problems (PDPs) and we discuss what makes the WSC so hard for solving. In the next section we review the different state-of-the-art approaches. We start by discussing the machine learning approaches, and we follow it up by describing the knowledge based approaches. Finally, we summarize the observations made from all the reviewed approaches.
 
  
 \section{The Winograd Schema Challenge}
 \label{section:TheWinogradSchemaChallenge}
 
-The WSC was originally conceived in 2012 \cite{DBLP:conf/kr/LevesqueDM12} and since then it has caught the  attention of many researchers from different areas. However, the first and so far only WSC competition was held in 2016 as part of IJCAI\footnote{http://ijcai-16.org/}. Before the competition, the rules for executing and evaluating the participants were presented by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}. The competition consisted of two rounds, one qualifying and one final, each with 60 questions. For the qualifying round, the questions were randomly chosen from the PDPs dataset and for the final round the questions were from the WSC dataset. In the qualifying round none of the participants achieved accuracy of 90\%, which was the requirement for advancing to the final round. 
+The WSC was originally conceived in 2012 \cite{DBLP:conf/kr/LevesqueDM12} and since then it has caught the  attention of many researchers from different areas. However, the first and so far the only WSC competition was held in 2016 as part of IJCAI\footnote{http://ijcai-16.org/}. Before the competition, the rules for executing and evaluating the participants were presented by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}. The competition consisted of two rounds, one qualifying and one final, each with 60 questions. For the qualifying round, the questions were randomly chosen from the PDPs dataset and for the final round the questions were from the WSC dataset. In the qualifying round none of the participants achieved accuracy of 90\%, which was the requirement for advancing to the final round. 
 
 
 \subsection{Description}
@@ -15,15 +15,15 @@ A Winograd Schema (WS) consists of three main parts:
 \begin{enumerate}
 	\item A sentence that consists of:
 	\begin{itemize}
-		\item Two noun phrases of the same semantic class and of the same gender
-		\item One ambiguous pronoun that could refer to either of the antecedent noun phrases
-		\item A special word such that when changed, the resolution of the pronoun is changed
+		\item Two noun phrases of the same semantic class and of the same gender.
+		\item One ambiguous pronoun that could refer to either of the antecedent noun phrases.
+		\item A special word such that when changed, the resolution of the pronoun is changed.
 	\end{itemize}
     \item A question, possibly containing the special word, asking about the referent \\of the ambiguous pronoun
     \item Two possible answers corresponding to the noun phrases in the sentence
 \end{enumerate}
 
-The WSC dataset currently consists of 150\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} \footnote{The number of WSC problems varies depending on the format in which they are available.\\In the .xml file there are 285 problems, whereas in the .html file there are 150 WSs} such problems.
+The WSC dataset currently consists of 150 such problems\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} \footnote{The number of WSC problems varies depending on the format in which they are available.\\In the .xml file there are 285 problems, whereas in the .html file there are 150 WSs} .
 A typical example of a WS is the following one:
 \labeltext{\textit{Example 2.1.1}}{Ex1}:
 \begin{itemize} 
@@ -52,7 +52,7 @@ Here is an example of a WS that is not Google proof:\\
 
 \ref{ex:Google} has been provided as a failed example\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSfailed.html} because the term \textit{foolish mistake} is commonly used and can be returned as an answer when querying Google. Additional feature is that resolving a WS should be easy  for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
 For the execution and evaluation part of the WSC, two distinct datasets have been formulated and published by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}.
-The first dataset consists of pronoun disambiguation problems (PDPs)\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition. 
+The first dataset consists of PDPs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition. 
 The second dataset consists of WSs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} which have been constructed by the challenge organizers.
 The following is an example of the PDPs:\\
 \labeltext{\textit{Example 2.1.3}}{PDP}:
@@ -86,12 +86,12 @@ Since the idea of the authors of the WSC was to construct this challenge as an a
 \subsection{Main challenges and limitations}
 We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC. 
 
-Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. Coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst}  achieved accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
+Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. The coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst}  achieved accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
 	
 From the examples given earlier, it is clear that background knowledge is required in order for a human reader to derive the correct answer. Since the sentences from both datasets, PDPs and WSs, are non-domain specific it is difficult to determine what kind of background knowledge is needed. Therefore, the first challenge imposed by the WSC is how to obtain knowledge for commonsense reasoning. 
 The second is how to formalize this knowledge such that all important information are preserved. Lastly, how to reason on top of formalized knowledge is the third main challenge when trying to solve the WSC. 
 
-Regarding the limitations of the WSC, as a first and probably most important limitation is the number of available sentences. Because the process of creating new WS is difficult, the number of available sentences is very small. Moreover no training data is provided for any of the datasets which makes it hard to approach the task as a machine learning problem. Another limitation is the constraint posed by the language of the sentences. For some other languages, as explained by Davis \cite{DBLP:journals/corr/Davis16}, the disambiguation of a pronoun for different genders may not be as clear as in English. Nevertheless, there are translation of 144 WSs in Japanese\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/collection\_ja.pdf} and 107 WSs in French \footnote{http://www.llf.cnrs.fr/winograd-fr}. 
+Regarding the limitations of the WSC, first and probably most important limitation is the number of available sentences. Because the process of creating new WS is difficult, the number of available sentences is very small. Moreover no training data is provided for any of the datasets which makes it hard to approach the task as a machine learning problem. Another limitation is the constraint posed by the language of the sentences. For some other languages, as explained by Davis \cite{DBLP:journals/corr/Davis16}, the disambiguation of a pronoun for different genders may not be as clear as in English. Nevertheless, there are translation of 144 WSs in Japanese\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/collection\_ja.pdf} and 107 WSs in French \footnote{http://www.llf.cnrs.fr/winograd-fr}. 
 
 A third limitation is the lack of a more detailed evaluation protocol. In the proposal for the WSC competition the evaluation is measuring the accuracy of predicting the correct answers from both the PDPs and WSs datasets. However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that this evaluation does not measure whether commonsense reasoning was involved in the prediction of the correct answer. For this reason, they propose a different evaluation protocol which additionally includes measures of the accuracy on a changed subset and a consistency score. The changed subset contains WSs with switched antecedents such as in the following example. \\
 \labeltext{\textit{Example 2.1.4}}{changed}:

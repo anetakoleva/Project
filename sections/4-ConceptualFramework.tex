@@ -3,7 +3,7 @@
 
 
 
-Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the required additional knowledge belongs. The idea is to use these categories when defining the additional knowledge such that it will contribute to the reasoning process when extracting the possible correct answer. In this chapter, we first discuss the process of identifying the proposed categories and give short description for each of them. Next, we discuss in more details the semantic representation and ASP encoding of two WSs from one of the categories. After that, we apply additional knowledge defined according to one of the identified categories to the RA from Sharma~and~Baral~\cite{2018CommonsenseKT}. Finally, we end this chapter with a general discussion.
+Motivated by the found shortcoming in the usage of the identified knowledge types with the RA in Sharma and Baral \cite{2018CommonsenseKT}, we present a conceptual analysis which focuses on different categorization of the WSC problems. As a result of our analysis we present six categories based on the domain of commonsense knowledge in which the required additional knowledge belongs. The idea is to use these categories when defining the additional knowledge such that it will contribute to the reasoning process when extracting the possible correct answer. In this chapter, we first discuss the process of identifying the proposed categories and give a short description for each of them. Next, we discuss in more details the semantic representation and the ASP encoding of two WSs from one of the categories. After that, we apply additional knowledge defined according to one of the identified categories to the RA from Sharma~and~Baral~\cite{2018CommonsenseKT}. Finally, we end this chapter with a general discussion.
   
 \begin{comment}
 Similarly as in Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} and in Sharma and Baral \cite{2018CommonsenseKT}, we identify categories of knowledge which are needed in order to answer the questions from the WSs. 
@@ -28,11 +28,11 @@ In a second process, all WSs were annotated with these previously identified cat
 
 \paragraph{Causal} Although many of the WSs express causality, we categorize here only those for which the causality is expressed more explicitly. These sentences contain linking words such as \textit{so} and \textit{because}.
 
-\paragraph{Multiple knowledge} Lastly, in this category are all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
+\paragraph{Multiple knowledge} Lastly, this category contains are all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
 
 \begin{table} [h!]
 	\input{types.tex} 
-	\caption{{\label{types}}Types of knowledge}
+	\caption{{\label{types}}Types of knowledge.}
 \end{table}
 
 The annotation of the WSs in some cases was very straightforward and easy to decide. For instance, if we analyze the example for the \textit{Emotional} category in Table \ref{types} the special word can be \textit{vindicated} or \textit{crushed}, which we know both are emotions. In addition, the verb \textit{felt}, which is a past form of the verb \textit{to feel}, is an emotion indicator. To answer the question ``Who was the winner of the competition?", a deeper understanding of both emotions is required. Furthermore, knowledge about which emotions are related to winning is needed. 
@@ -57,7 +57,7 @@ Similar to this subcategory are the \textit{height/width} and the \textit{weight
 
 For solving the WSs from the \textit{space} subcategory, spatial reasoning and in some cases spatial-temporal reasoning is needed. Since the knowledge required for resolving the WSs from this subcategory has to include rules for navigating and understanding time and space, we consider the knowledge needed for this category to be the hardest one to formalize among the subcategories of the \textit{Physical} category.
 For example, consider the following WS:\\
-\labeltext{\textit{Example 3.1}}{space} 
+\labeltext{\textit{Example 4.1}}{space} 
 \begin{itemize} 
 	\item[\textbf{S:}] \textbf{\underline{Tom} threw his schoolbag down to \underline{Ray} after \underline{he} reached the [top/bottom] of the stairs.}
 	\item[\textbf{Q:}] \textbf{Who reached the [top/bottom] of the stairs?}
@@ -69,7 +69,7 @@ The sentence in \ref{space} contains information about a specific location in sp
 The WSs from the \textit{time} subcategory require temporal reasoning. 
 Formalization of knowledge about change over time and chronology of events is needed for solving these WSs. For annotating these WSs we relied on the context and we identified events which happened at different points in time. The following is an example of WS that belongs to this subcategory:
 
-\labeltext{\textit{Example 3.2}}{time}
+\labeltext{\textit{Example 4.2}}{time}
 \begin{itemize} \label{Ex2}
 	\item[\textbf{S:}] \textbf{\underline{Thomson} visited \underline{Cooper}'s grave in 1765. At that date \underline{he} had been} \\ \textbf{[dead/travelling] for five years.}
 	\item[\textbf{Q:}] \textbf{ Who had been [dead/travelling] for five years? }
@@ -95,10 +95,11 @@ The calculated Cohen's kappa score for the annotation of the WSs is 0.66. Accord
 \begin{table}[h!]
 	\centering
 	\input{categories.tex}
-	\caption{{\label{kappa}}Annotation results}
+	\caption{{\label{kappa}}Annotation results.}
 \end{table}
 
-The numbers of WSs  and the percentage for each category, as annotated by the two annotators, are shown in Table \ref{kappa}. The result of the evaluation of the WSs annotation indicate that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While one annotator placed 44 WSs in this category, the other annotator 20 of those 44 WSs distributed in all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
+Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While one annotator placed 44 WSs in this category, the other annotator placed 24 WSs.
+The other 20 WSs were distributed among all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
 
 
 
@@ -137,8 +138,8 @@ by applying rules based on the category of the WS.
 For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP (See Appendix \ref{AppendixA}). Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
 Since both of the WSs that we are testing are from the \textit{Physical} category, as additional knowledge we provide a rule that characterizes the physical trait from the sentences. 
 
-In Code \ref{code1} the rules\footnote{Simplified such that only rules with relevant information are shown.} extracted from the graph in Figure \ref{Graph1} are shown. For extracting these rules we followed the steps provided for the worked-out example. However, it is not difficult to notice that the information encoded in the ASP rules comes straightforward from observing the graph representation of the sentence.
-In Code \ref{code2} the rules which are used as additional knowledge for this example are shown. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit"}.
+Code \ref{code1} shows the rules\footnote{Simplified such that only rules with relevant information are shown.} extracted from the graph in Figure \ref{Graph1}. For extracting these rules we followed the steps provided for the worked-out example. However, it is not difficult to notice that the information encoded in the ASP rules comes straightforward from observing the graph representation of the sentence.
+Code \ref{code2} shows the rules which are used as additional knowledge for this example. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit"}.
 In the same manner the ASP rules for the WSs from \ref{ex:Graph} are defined. As additional knowledge for this example we encode the sentence: \textit{``Weak entitie(s) could not lift"}. 
 
 \begin{lstlisting}[language = Prolog,  caption={Knowledge from S2},label=code1, numbers=left,
@@ -159,7 +160,7 @@ has_k(y_2,instance_of,entity).
 has_k(fits_5,recipient,y_2).
 \end{lstlisting}
 
-When running the RA with our encoding of the additional knowledge, for both examples the correct answer was retrieved. We also considered the twin sentences with the switched special word, and the RA again retrieved the correct answer. Additionally, when the rule describing the background knowledge is removed, there is no answer was retrieved. Furthermore, in Line 4 when we substitute \textit{recipient} with \textit{agent}, again no answer is retrieved. This means that when the additional knowledge is formalized as in Code \ref{code2}, it prevents the RA to rely on hard coded information.
+When running the RA with our encoding of the additional knowledge, the correct answer was retrieved for both examples. We also considered the twin sentences with the switched special word, and the RA again retrieved the correct answer. Additionally, when the rule describing the background knowledge is removed, no answer was retrieved. Furthermore, in Line 4 when we substitute \textit{recipient} with \textit{agent}, again no answer is retrieved. This means that when the additional knowledge is formalized as in Code \ref{code2}, it prevents the RA to rely on hard coded information.
 
 
 
