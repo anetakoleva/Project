@@ -36,6 +36,11 @@ Ali Emami, Noelia De~La Cruz, Adam Trischler, Kaheer Suleman, and Jackie
   Natural Language Processing, Brussels, Belgium, October 31 - November 4,
   2018}, pages 1949--1958, 2018.
 
+\bibitem[ED17]{ijcai}
+Charles L.~Ortiz Ernest~Davis, Leora~Morgenstern.
+\newblock The first winograd schema challenge at ijcai-16.
+\newblock {\em AI Magazine}, pages 97--98, 2017.
+
 \bibitem[JA18]{W18-4105}
 Opitz Juri and Frank Anette.
 \newblock Addressing the winograd schema challenge as a sequence ranking task.
@@ -50,6 +55,11 @@ Thorsten Joachims.
   Conference on Knowledge Discovery and Data Mining, July 23-26, 2002,
   Edmonton, Alberta, Canada}, pages 133--142, 2002.
 
+\bibitem[JRL77]{articleM}
+Gary G.~Koch J.~Richard~Landis.
+\newblock The measurement of observer agreement for categorical data.
+\newblock {\em Biometrics}, 33:159--74, 04 1977.
+
 \bibitem[LDM12]{DBLP:conf/kr/LevesqueDM12}
 Hector~J. Levesque, Ernest Davis, and Leora Morgenstern.
 \newblock The winograd schema challenge.
@@ -61,11 +71,6 @@ Hector~J. Levesque, Ernest Davis, and Leora Morgenstern.
 Douglas~B. Lenat.
 \newblock {CYC:} {A} large-scale investment in knowledge infrastructure.
 \newblock {\em Commun. {ACM}}, 38(11):32--38, 1995.
-
-\bibitem[LGK77]{articleM}
-J~Landis and Gary G.~Koch.
-\newblock The measurement of observer agreement for categorical data.
-\newblock {\em Biometrics}, 33:159--74, 04 1977.
 
 \bibitem[Lif08]{DBLP:conf/aaai/Lifschitz08}
 Vladimir Lifschitz.

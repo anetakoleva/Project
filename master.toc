@@ -1,32 +1,41 @@
-\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
-\contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}The Winograd Schema Challenge}{4}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Description}{4}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Main challenges and limitations}{7}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Related Work}{8}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Machine learning approaches}{8}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Knowledge-based approaches}{11}{subsection.2.2.2}
-\contentsline {paragraph}{\nonumberline Observations}{13}{section*.7}
-\contentsline {chapter}{\numberline {3}An approach to Commonsense Knowledge Types Identification}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Identification of Commonsense Knowledge Types}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Reasoning Algorithm}{18}{section.3.2}
-\contentsline {paragraph}{\nonumberline Worked-out example}{19}{section*.9}
-\contentsline {paragraph}{\nonumberline Observations}{20}{section*.10}
-\contentsline {chapter}{\numberline {4}Categorization of Commonsense Knowledge}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Commonsense domains}{21}{section.4.1}
-\contentsline {paragraph}{\nonumberline Physical}{22}{section*.11}
-\contentsline {paragraph}{\nonumberline Emotional}{22}{section*.12}
-\contentsline {paragraph}{\nonumberline Interactions}{22}{section*.13}
-\contentsline {paragraph}{\nonumberline Comparison}{22}{section*.14}
-\contentsline {paragraph}{\nonumberline Causal}{22}{section*.15}
-\contentsline {paragraph}{\nonumberline Multiple knowledge}{22}{section*.16}
-\contentsline {paragraph}{\nonumberline Evaluation}{24}{section*.19}
-\contentsline {paragraph}{\nonumberline Results}{25}{section*.20}
-\contentsline {section}{\numberline {4.2}Semantic representation and ASP encoding}{26}{section.4.2}
-\contentsline {section}{\numberline {4.3}Discussion}{28}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{30}{chapter.5}
-\contentsline {paragraph}{\nonumberline Conclusion}{30}{section*.21}
-\contentsline {paragraph}{\nonumberline Future Work}{30}{section*.22}
-\contentsline {chapter}{\nonumberline References}{32}{chapter*.23}
-\contentsline {chapter}{\numberline {A}Reasoning Algorithm}{36}{appendix.A}
-\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{42}{appendix.B}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}The Winograd Schema Challenge}{4}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Description}{4}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Main challenges and limitations}{7}{subsection.2.1.2}% 
+\contentsline {section}{\numberline {2.2}Related Work}{8}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Machine learning approaches}{8}{subsection.2.2.1}% 
+\contentsline {paragraph}{\nonumberline Supervised ranking SVM model}{9}{section*.7}% 
+\contentsline {paragraph}{\nonumberline Classification task with NN}{9}{section*.8}% 
+\contentsline {paragraph}{\nonumberline Knowledge Enhanced Embeddings}{10}{section*.9}% 
+\contentsline {paragraph}{\nonumberline Google\IeC {\textquoteright }s language model}{10}{section*.10}% 
+\contentsline {paragraph}{\nonumberline OpenAI language model}{11}{section*.11}% 
+\contentsline {subsection}{\numberline {2.2.2}Knowledge-based approaches}{11}{subsection.2.2.2}% 
+\contentsline {paragraph}{\nonumberline Graphs with Relevance theory}{12}{section*.12}% 
+\contentsline {paragraph}{\nonumberline 2 identified categories}{12}{section*.13}% 
+\contentsline {paragraph}{\nonumberline Semantic relations categories}{13}{section*.14}% 
+\contentsline {paragraph}{\nonumberline Knowledge hunting framework}{14}{section*.16}% 
+\contentsline {paragraph}{\nonumberline Observations}{14}{section*.17}% 
+\contentsline {chapter}{\numberline {3}An approach to Commonsense Knowledge Types Identification}{16}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Identification of Commonsense Knowledge Types}{16}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Reasoning Algorithm}{19}{section.3.2}% 
+\contentsline {paragraph}{\nonumberline Worked-out example}{20}{section*.19}% 
+\contentsline {paragraph}{\nonumberline Observations}{21}{section*.20}% 
+\contentsline {chapter}{\numberline {4}Categorization of Commonsense Knowledge}{22}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Commonsense domains}{22}{section.4.1}% 
+\contentsline {paragraph}{\nonumberline Physical}{23}{section*.21}% 
+\contentsline {paragraph}{\nonumberline Emotional}{23}{section*.22}% 
+\contentsline {paragraph}{\nonumberline Interactions}{23}{section*.23}% 
+\contentsline {paragraph}{\nonumberline Comparison}{23}{section*.24}% 
+\contentsline {paragraph}{\nonumberline Causal}{23}{section*.25}% 
+\contentsline {paragraph}{\nonumberline Multiple knowledge}{23}{section*.26}% 
+\contentsline {paragraph}{\nonumberline Evaluation}{25}{section*.29}% 
+\contentsline {paragraph}{\nonumberline Results}{26}{section*.30}% 
+\contentsline {section}{\numberline {4.2}Semantic representation and ASP encoding}{27}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Discussion}{29}{section.4.3}% 
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{31}{chapter.5}% 
+\contentsline {paragraph}{\nonumberline Conclusion}{31}{section*.31}% 
+\contentsline {paragraph}{\nonumberline Future Work}{31}{section*.32}% 
+\contentsline {chapter}{\nonumberline References}{33}{chapter*.33}% 
+\contentsline {chapter}{\numberline {A}Reasoning Algorithm}{37}{appendix.A}% 
+\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{43}{appendix.B}% 

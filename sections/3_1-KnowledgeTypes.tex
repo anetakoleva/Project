@@ -1,12 +1,12 @@
 %\section{Commonsense Knowledge Types}
 \label{knowledge_types}
-Intrigued by the achieved high accuracy of the Sharma and Baral \cite{2018CommonsenseKT} approach, we now describe this work in more details. In section \ref{section:TheDifferentApproaches} we outlined \underline{\ref{Steps}} of this approach. Here, we first focus on the process of identification of the presented commonsense knowledge types. Then, we discuss the proposed reasoning algorithm and the provided worked out example. We conclude this chapter with some final observations about this approach.
+Intrigued by the achieved high accuracy of the Sharma and Baral \cite{2018CommonsenseKT} approach, we now describe this work in more detail. In section \ref{section:TheDifferentApproaches} we outlined \underline{\ref{Steps}} of this approach. Here, we first focus on the process of identification of the presented commonsense knowledge types. Then, we discuss the proposed reasoning algorithm and the provided worked out example. We conclude this chapter with some final observations about this approach.
 
 
 \section{Identification of Commonsense Knowledge Types}
 The first step of the Sharma and Baral \cite{2018CommonsenseKT} approach is to represent the input Winograd sentence and question as semantic graphs. To achieve this, the KParser from \cite{DBLP:conf/ijcai/SharmaVAB15} is used. 
 To illustrate the results of the semantic parsing, we analyze part of a WS which is shown in \ref{ex:Graph}.  \\ 
-\labeltext{\textit{Example 3.1.1:}}{ex:Graph}
+\labeltext{\textit{Example~3.1.1}}{ex:Graph}:
 \begin{itemize}
 	\item[\textbf{S:}] \textbf{The man could not lift his son because he was weak.}
 	\item[\textbf{Q:}] \textbf{Who was weak?}
@@ -35,10 +35,10 @@ Nodes with red color represent events which correspond to the verbs in the sente
 \end{figure}
 
 For the representation of the question, one additional conceptual class labeled as "q" is introduced. In this conceptual class are the question words from the WSC problems, such as: \textit{Who, Which and What}. 
-From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to conclusion that the missing knowledge required to answer the question, must connect the trait of an entity being weak with its inability to lift. Figure 3 depicts the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
+From the observation of these two graphs, Sharma and Baral \cite{2018CommonsenseKT} come to the conclusion that the missing knowledge required to answer the question, must connect the trait of an entity being weak with its inability to lift. Figure 3 depicts the representation of this knowledge as shown in \cite{2018CommonsenseKT}. 
 
-By applying similar analysis to all problems from the WSC corpus \footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.xml}. Sharma and Baral \cite{2018CommonsenseKT} identified 12 different knowledge types. From these, the first 10 knowledge types share the same structure as they are all based on different interactions between actions and properties. Each of the 10 knowledge types consists of three parts: the first and third part are sentences containing entities, properties or actions, whereas the second part is a semantic relation (\textit{causes, prevents} or \textit{followed by}) which connects them. The last two knowledge types have different structure because one of them requires multiple knowledge and the other one is based on the conditional likelihood of a previous event. 
-For the representation of the knowledge type shown in Figure \ref{Ktypes} the first part is \textit{weak y}, the third part is \textit{y lifts} and the semantic relation is \textit{prevents}. The presented knowledge types are shown in Table \ref{Ktypes}. From the table, it can be noted that 240 problems belong to the first 10 types and from these, 112 are in the 9th category. \\ 
+By applying a similar analysis to all problems (285) from the WSC corpus \footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.xml}. Sharma and Baral \cite{2018CommonsenseKT} identified 12 different knowledge types. From these, the first 10 knowledge types share the same structure as they are all based on different interactions between actions and properties. Each of the 10 knowledge types consists of three parts: the first and third part are sentences containing entities, properties or actions, whereas the second part is a semantic relation (\textit{causes, prevents} or \textit{followed by}) which connects them. The last two knowledge types have a different structure because one of them requires multiple knowledge and the other one is based on the conditional likelihood of a previous event. 
+For the representation of the knowledge type shown in Figure \ref{Ktypes} the first part is \textit{weak y}, the third part is \textit{y lifts} and the semantic relation is \textit{prevents}. The presented knowledge types are shown in Table \ref{Ktypes}. From the table, it can be noted that 240 problems (84\%) belong to the first 10 types and from these, 112(46\%) are in the 9th category. \\ 
 
 \begin{figure} [h!]
 	\centering
@@ -49,7 +49,7 @@ For the representation of the knowledge type shown in Figure \ref{Ktypes} the fi
 
 \section{Reasoning Algorithm}
 \label{RA}
-In this section we explain the proposed logical Reasoning Algorithm (RA) from Sharma and Baral \cite{2018CommonsenseKT}. This RA was used for solving the WSC problems by applying the previously explained knowledge types. It takes a formal representation of Winograd sentence and question and additional knowledge as input and it returns an answer to the question. The implementation of the RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view}. 
+In this section we explain the proposed logical Reasoning Algorithm (RA) from Sharma and Baral \cite{2018CommonsenseKT}. This RA was used for solving the WSC problems by applying the previously explained knowledge types. It takes a formal representation of the Winograd sentence, the question and the additional knowledge as input and it returns an answer to the question. The implementation of the RA together with a running example is available online\footnote{https://drive.google.com/file/d/1WN0T98HaMFhWEEIH-3AlWoIPxAdFYlT\_/view}. 
 
 The RA is based on Answer Set Programming (ASP) \cite{DBLP:conf/aaai/Lifschitz08}. Therefore, after the Winograd sentence and question have been represented as semantic graphs, the observations from these graphs are encoded as ASP rules. The retrieved answer should be entailed by these input rules.
 The RA is split into two main phases, each including several steps. The execution of each step results in new ASP rules. 
@@ -74,11 +74,11 @@ The RA is split into two main phases, each including several steps. The executio
 		\item Nodes from the merged graph which are cross domain clones to the unknown node (q)\\ from the question graph are retrieved as an answer.
 	\end{enumerate}
 \end{itemize}
-
-The implementation of the RA with the indicated phases and steps is available in Appendix\ref{AppendixA}. 
+%TODO make the merged representation of the graph and refer to it in the text here
+The implementation of the RA with the indicated phases and steps is available in Appendix \ref{AppendixA}. 
 According to Sharma and Baral \cite{2018CommonsenseKT} this RA can be applied to WSC problems which belong to the first 10 from the identified 12 knowledge types. 
 
-\paragraph{Worked-out example} To check the work of the RA, we tried the code for the example which was provided together with the implementation of the RA in the supplementary document for Sharma and Baral \cite{2018CommonsenseKT}. This example illustrates the ASP encoding of the sentence and question from \ref{ex:Graph}.
+\paragraph{Worked-out example} To check the work of the RA, we run the code for the example which was provided together with the implementation of the RA in the supplementary document for Sharma and Baral \cite{2018CommonsenseKT}. This example illustrates the ASP encoding of the sentence and the question from \ref{ex:Graph}.
 For extraction of additional knowledge the sentence \textit{``She could not lift it because she is a weak girl"} was used. The extracted knowledge from this sentence is \textit{``weak y prevent y lifts"} and this corresponds to the first knowledge type \textit{``Property prevents Action"}. The ASP encoding of this knowledge is shown in Code \ref{code}. The predicate name \textbf{has\_k} indicates that these rules are extracted from the graph representation of the additional knowledge. Similarly, there are predicates \textbf{has\_s} and \textbf{has\_q} for rules extracted from the graphs of the input sentence and question. Line 4 in Code \ref{code} is the rule which characterizes the corresponding knowledge type for this example. Running the RA with the provided ASP rules for the sentence, question and knowledge type, retrieves as answers: \textbf{ans(q\_1,he\_9)} and \textbf{ans(q\_1,man\_2)}. Hence, the two nodes \textbf{he\_9} and \textbf{man\_2} from the merged representation correspond to the unknown node \textbf{q\_1} from the question. The conclusion is that the correct referent for the ambiguous pronoun \textbf{he\_9} is the noun \textbf{man\_2}. 
 
 \pagebreak
@@ -87,7 +87,7 @@ numberstyle=\tiny ]
 has_k(weak_1,is_trait_of,y_2).
 has_k(weak_1,instance_of,weak).
 has_k(y_2,instance_of,entity).
-%has_k(weak_1,prevents,lifts_5).
+has_k(weak_1,prevents,lifts_5).
 has_k(lifts_5,instance_of,lift).
 has_k(lifts_5,agent,y_2).
 \end{lstlisting}

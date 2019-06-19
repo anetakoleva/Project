@@ -22,13 +22,13 @@ In a second process, all WSs were annotated with these previously identified cat
  
 \paragraph{Emotional} This category captures all WSs that include some emotion. In other words, resolving these WSs requires some knowledge about emotions and their characteristics.
 
-\paragraph{Interactions} These WSs are related to abstract forms of interaction between the subject and the object in the sentence. In contrast to the WSs from the \textit{Physical} and \textit{Emotional} categories, resolving these WSs does not include knowledge about emotions or characteristics of physical objects.
+\paragraph{Interactions} These WSs are related to abstract forms of interaction between the subject and the object in the sentence. In contrast to the WSs from the previous two categories, resolving these WSs does not include knowledge about emotions or characteristics of physical objects.
 
 \paragraph{Comparison} In this category are all the WSs where the special words are usually antonyms. The comparison is mostly between the subject and the object in the sentence. 
 
-\paragraph{Causal} Although many of the WSs express causality, we categorize here only those for which the causality is expressed more explicitly. These sentences contain linking words such as \textit{so} and \textit{because}.
+\paragraph{Causal} Although many of the WSs express causality, we categorize here only those for which the causality is expressed explicitly. These sentences contain linking words such as \textit{so} and \textit{because}.
 
-\paragraph{Multiple knowledge} Lastly, this category contains are all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
+\paragraph{Multiple knowledge} Lastly, this category contains all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
 
 \begin{table} [h!]
 	\input{types.tex} 
@@ -64,7 +64,7 @@ For example, consider the following WS:\\
 	\item[\textbf{A:}] \textbf{Tom/Ray}
 \end{itemize}
 
-The sentence in \ref{space} contains information about a specific location in space which can be \textit{top of the stairs} or \textit{bottom of the stairs}. In addition, it states something about an event which happened \textit{after} a certain event. Therefore, answering the question from this example requires applying reasoning about both space and time. Other WSs are simpler, where only knowledge about space is needed. These WSs have a special words such as: \textit{above/bellow, in/out}.
+The sentence in \ref{space} contains information about a specific location in space which can be \textit{top of the stairs} or \textit{bottom of the stairs}. In addition, it states something about an event which happened \textit{after} a certain event. Therefore, answering the question from this example requires applying reasoning about both space and time. Other WSs are simpler, where only knowledge about space is needed. These WSs have a special word such as: \textit{above/bellow, in/out}.
 
 The WSs from the \textit{time} subcategory require temporal reasoning. 
 Formalization of knowledge about change over time and chronology of events is needed for solving these WSs. For annotating these WSs we relied on the context and we identified events which happened at different points in time. The following is an example of WS that belongs to this subcategory:
@@ -77,7 +77,7 @@ Formalization of knowledge about change over time and chronology of events is ne
 \end{itemize}
 
 
-%TODO calculate the random agreement
+%TODO check the calculations from Emma
 
 \paragraph{Evaluation}
 To evaluate the agreement of the annotation 
@@ -98,7 +98,7 @@ The calculated Cohen's kappa score for the annotation of the WSs is 0.66. Accord
 	\caption{{\label{kappa}}Annotation results.}
 \end{table}
 
-Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While one annotator placed 44 WSs in this category, the other annotator placed 24 WSs.
+Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains the largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While annotator 1 placed 44 WSs in this category, the annotator 2 placed 24 WSs.
 The other 20 WSs were distributed among all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
 
 
@@ -135,7 +135,7 @@ In both representations, the main event (\textit{fit, lift}) is connected with t
 
 We are interested to find out whether we can improve the reasoning procedure from Sharma and Baral \cite{2018CommonsenseKT} 
 by applying rules based on the category of the WS. 
-For this purpose, for both WSs from  \ref{Ex1} and \ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP (See Appendix \ref{AppendixA}). Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
+For this purpose, for both WSs from \ref{Ex1}~and~\ref{ex:Graph}, the input sentences, questions and additional knowledge were encoded in ASP (See Appendix \ref{AppendixA}). Because we use the RA, we used the same predicate names as in the worked-out example which was discussed in Section \ref{RA}. As an example of these ASP rules, part of the extracted rules for the WS from \ref{Ex1} are presented in Code \ref{code1} and  Code \ref{code2}. 
 Since both of the WSs that we are testing are from the \textit{Physical} category, as additional knowledge we provide a rule that characterizes the physical trait from the sentences. 
 
 Code \ref{code1} shows the rules\footnote{Simplified such that only rules with relevant information are shown.} extracted from the graph in Figure \ref{Graph1}. For extracting these rules we followed the steps provided for the worked-out example. However, it is not difficult to notice that the information encoded in the ASP rules comes straightforward from observing the graph representation of the sentence.

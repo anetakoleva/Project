@@ -1,8 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: master.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: master.aux
 The style file: alpha.bst
-Illegal, another \bibstyle command---line 206 of file master.aux
+Illegal, another \bibstyle command---line 225 of file master.aux
  : \bibstyle
  :          {plainnat}
 I'm skipping whatever remains of this command
@@ -12,9 +10,13 @@ I was expecting a `,' or a `}'---line 108 of file literatur.bib
  :   ee = {http://www.aaai.org/ojs/index.php/aimagazine/article/view/2303},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 284 of file literatur.bib
+Repeated entry---line 305 of file literatur.bib
  : @inproceedings{DBLP:conf/emnlp/RahmanN12
  :                                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 323 of file literatur.bib
+ : @misc{radford2019language
+ :                          ,
 I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:conf/emnlp/RahmanN12"
 refers to entry "DBLP:conf/emnlp/2012", which doesn't exist
@@ -56,45 +58,4 @@ Warning--I didn't find a database entry for "DBLP:conf/nips/2017"
 Warning--I didn't find a database entry for "DBLP:conf/aaai/2018"
 Warning--I didn't find a database entry for "DBLP:conf/aaai/2018w"
 Warning--empty institution in McCarthy:1960:PCS:889202
-You've used 37 entries,
-            2543 wiz_defined-function locations,
-            828 strings with 13670 characters,
-and the built_in function-call counts, 16449 in all, are:
-= -- 1624
-> -- 825
-< -- 25
-+ -- 294
-- -- 285
-* -- 1142
-:= -- 2639
-add.period$ -- 115
-call.type$ -- 37
-change.case$ -- 258
-chr.to.int$ -- 36
-cite$ -- 38
-duplicate$ -- 680
-empty$ -- 1182
-format.name$ -- 325
-if$ -- 3422
-int.to.chr$ -- 2
-int.to.str$ -- 0
-missing$ -- 34
-newline$ -- 191
-num.names$ -- 113
-pop$ -- 260
-preamble$ -- 1
-purify$ -- 294
-quote$ -- 0
-skip$ -- 598
-stack$ -- 0
-substring$ -- 855
-swap$ -- 168
-text.length$ -- 25
-text.prefix$ -- 12
-top$ -- 0
-type$ -- 296
-warning$ -- 1
-while$ -- 148
-width$ -- 41
-write$ -- 483
-(There were 16 error messages)
+(There were 17 error messages)
