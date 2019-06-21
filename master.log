@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  19 JUN 2019 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  21 JUN 2019 16:25
 entering extended mode
 **./master.tex
 (master.tex
@@ -1335,43 +1335,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--110
  []
 
 [14] (approaches.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 Supervised rank-ing SVM
- []
-
-
-Underfull \hbox (badness 5417) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 Classification task with NN
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 Google's lan-guage model
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 OpenAI lan-guage model
- []
-
-
-Overfull \hbox (5.38446pt too wide) in paragraph at lines 17--17
-|[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 2 iden-ti-fied cat-e-gories
- []
-
-
-Underfull \hbox (badness 4001) in paragraph at lines 17--17
-[]|\T1/ptm/m/n/9 Semantic re-la-tions cat-e-gories
- []
-
-
-Overfull \hbox (8.15651pt too wide) in paragraph at lines 17--17
-|[][]
+Overfull \hbox (7.02252pt too wide) in alignment at lines 25--25
+[][][][][] 
  []
 
 )) [15]
@@ -1381,7 +1346,12 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 25.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-))
+)
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10.95> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 61.
+)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1393,8 +1363,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+(merged.tex)
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
@@ -1404,7 +1378,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
 LaTeX Warning: Text page 17 contains only floats.
 
-[17] (kn_types.tex) [18] [19] [20]
+[17] (kn_types.tex)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18] [19] [20] [21]
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
@@ -1421,10 +1399,10 @@ File: lstlang2.sty 2019/02/27 1.8b listings language file
 File: lstlang3.sty 2019/02/27 1.8b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 86.
-) [21]
+nput line 92.
+) [22]
 chapter 4.
-(sections/4-ConceptualFramework.tex Excluding 'comment' comment. [22
+(sections/4-ConceptualFramework.tex Excluding 'comment' comment. [23
 
 ]
 (types.tex
@@ -1436,19 +1414,25 @@ Overfull \hbox (13.03154pt too wide) in paragraph at lines 5--21
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23] [24] [25] (categories.tex) [26] (graph1.tex) (graph11.tex) [27]
+[24] [25] [26] (categories.tex) [27] (graph1.tex) (graph11.tex) [28]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 158.
 )
-(sections/6-Discussion.tex [28] Excluding 'comment' comment.) [29] [30]
+(sections/6-Discussion.tex [29] Excluding 'comment' comment. [30]
+(disconnected.tex)
+Overfull \hbox (5.6636pt too wide) in paragraph at lines 73--29
+ [][] 
+ []
+
+) [31]
 chapter 5.
-(sections/5-Conclusion.tex [31
+(sections/5-Conclusion.tex [32
 
-]) (master.bbl [32]
+]) (master.bbl [33]
 chapter without number
-[33
+[34
 
-] [34]
+] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 194--201
 \T1/pcr/m/n/10.95 paper / Commonsense-[]Knowledge-[]Types-[]Identification-[]an
 d-[]for /
@@ -1460,17 +1444,17 @@ Underfull \hbox (badness 1817) in paragraph at lines 194--201
 , 2018.  [On-line; ac-cessed
  []
 
-[35]) [36]
+[36]) [37]
 chapter A.
-(appendix1.tex [37
+(appendix1.tex [38
 
 
 
 
 
-] [38] [39] [40] [41]) [42]
+] [39] [40] [41] [42]) [43]
 chapter B.
-(appendix2.tex [43
+(appendix2.tex [44
 
 ]
 Overfull \hbox (0.37848pt too wide) in paragraph at lines 26--27
@@ -1484,18 +1468,18 @@ Overfull \hbox (7.68199pt too wide) in paragraph at lines 38--39
 e is [nosy/indis-creet]. Who is [nosy/indis-
  []
 
-[44] [45] [46] [47] [48] [49] [50] [51]
+[45] [46] [47] [48] [49] [50] [51] [52]
 Overfull \hbox (0.94774pt too wide) in paragraph at lines 138--139
 []\T1/ptm/m/n/10.95 Patting/Stretching her back, the woman smiled at the girl. 
 Whose back did the woman [pat/stretch]?
  []
 
-[52] [53]
+[53] [54]
 Underfull \hbox (badness 10000) in paragraph at lines 163--163
 
  []
 
-[54]
+[55]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 166.
 
@@ -1513,7 +1497,7 @@ Overfull \hbox (13.20802pt too wide) in alignment at lines 209--229
  [] [] [] [] [] [] 
  []
 
-[55]
+[56]
 Overfull \hbox (13.20802pt too wide) in alignment at lines 229--249
  [] [] [] [] [] [] 
  []
@@ -1523,12 +1507,12 @@ Overfull \hbox (13.20802pt too wide) in alignment at lines 249--270
  [] [] [] [] [] [] 
  []
 
-[56]
+[57]
 Overfull \hbox (13.20802pt too wide) in alignment at lines 270--291
  [] [] [] [] [] [] 
  []
 
-[57]
+[58]
 Overfull \hbox (13.20802pt too wide) in alignment at lines 291--311
  [] [] [] [] [] [] 
  []
@@ -1538,7 +1522,7 @@ Overfull \hbox (13.20802pt too wide) in alignment at lines 311--325
  [] [] [] [] [] [] 
  []
 
-[58]) [59]
+[59]) [60]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
  (master.aux)
@@ -1552,29 +1536,31 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 ### semi simple group (level 1) entered at line 78 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 27820 strings out of 492895
- 524532 string characters out of 3133471
- 940436 words of memory out of 3000000
- 30518 multiletter control sequences out of 15000+200000
- 78487 words of font info for 102 fonts, out of 3000000 for 9000
+ 27949 strings out of 492895
+ 526804 string characters out of 3133471
+ 940462 words of memory out of 3000000
+ 30635 multiletter control sequences out of 15000+200000
+ 77042 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,19n,100p,9112b,3427s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,19n,100p,9112b,3371s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri
-8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on master.pdf (61 pages, 433983 bytes).
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
+utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on master.pdf (62 pages, 462906 bytes).
 PDF statistics:
- 1278 PDF objects out of 1440 (max. 8388607)
- 613 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1291 PDF objects out of 1440 (max. 8388607)
+ 616 named destinations out of 1000 (max. 500000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,7 +14,7 @@ To illustrate the results of the semantic parsing, we analyze part of a WS which
 
 The  resulting graphs are shown in Figure \ref{Graph11} and Figure \ref{Graph12}.
 In these graphs, the different colors of the nodes indicate the predefined class of nodes to which they belong. 
-Nodes with red color represent events which correspond to the verbs in the sentence. Nodes with blue color represent entities and qualities of entities, and the nodes with gray color represent conceptual classes. The labels on the directed edges are the semantic relations between the different nodes in the graph. The number next to a word refers to the position of the word in the sentence. 
+Nodes with underlined text represent events which correspond to the verbs in the sentence. Nodes with bold text represent entities and qualities of entities, and the nodes with italic text represent conceptual classes. The labels on the directed edges are the semantic relations between the different nodes in the graph. The number next to a word refers to the position of the word in the sentence. 
 \begin{figure} [h!]
 	\centering
 	\input{graph_weak.tex}
@@ -32,6 +32,12 @@ Nodes with red color represent events which correspond to the verbs in the sente
 	\centering
 	\input{graph_type.tex}
 	\caption{\label{Graph13} ``weak y prevents y lifts"}
+\end{figure}
+
+\begin{figure} [h!]
+	\centering
+	\input{merged.tex}
+	\caption{\label{Graph14} Merged representation}
 \end{figure}
 
 For the representation of the question, one additional conceptual class labeled as "q" is introduced. In this conceptual class are the question words from the WSC problems, such as: \textit{Who, Which and What}. 

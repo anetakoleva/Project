@@ -86,7 +86,7 @@ Since the idea of the authors of the WSC was to construct this challenge as an a
 \subsection{Main challenges and limitations}
 We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC. 
 
-Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. The coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst}  achieved accuracy of 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
+Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. The coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst} achieved an accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
 	
 From the examples given earlier, it is clear that background knowledge is required in order for a human reader to derive the correct answer. Since the sentences from both datasets, PDPs and WSs, are non-domain specific it is difficult to determine what kind of background knowledge is needed. Therefore, the first challenge imposed by the WSC is how to obtain knowledge for commonsense reasoning. 
 The second is how to formalize this knowledge such that all important information are preserved. Lastly, how to reason on top of formalized knowledge is the third main challenge when trying to solve the WSC. 
@@ -96,10 +96,10 @@ Regarding the limitations of the WSC, the first and probably most important limi
 A third limitation is the lack of a more detailed evaluation protocol. In the proposal for the WSC competition the evaluation is measuring the accuracy of predicting the correct answers from both the PDPs and WSs datasets. This accuracy is calculated with the following formula: \\
 \begin{center}
 \begin{math}
-	Accuracy = \frac{\text{WSs answered correctly}}{\text{total number of WSs}} * 100
+	\text{Accuracy} = \frac{\text{WSs answered correctly}}{\text{total number of WSs}} * 100
 \end{math}
 \end{center}
-However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that this evaluation does not measure whether commonsense reasoning was involved in the prediction of the correct answer. For this reason, they propose a different evaluation protocol which additionally includes measures of the accuracy on a switchable subset and a consistency score. The changed switchable contains WSs with switched antecedents such as in the following example. \\
+However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that this evaluation does not measure whether commonsense reasoning was involved in the prediction of the correct answer. For this reason, they propose a different evaluation protocol which additionally includes measures of the accuracy on a switchable subset and a consistency score. The switchable subset contains WSs with switched antecedents such as in the following example. \\
 \labeltext{\textit{Example 2.1.4}}{changed}:
 \begin{itemize} 
 	\item \textbf{S: \underline{Emma} did not pass the ball to \underline{Janie} although she saw that she was open.}

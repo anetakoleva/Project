@@ -30,11 +30,11 @@
 	
 	
 	% Theraspist 1
-	\node[root]   (root)   {weak-1}
-	child {node [env, gray] {weak}
+	\node[root]   (root)   {\underline{weak-1}}
+	child {node [env] {\textit{weak}}
 		edge from parent node [above] {inst\_of}}
-	child {node [env, gray] (s1) {y-2}
-		child {node [env, gray] {entity}
+	child {node [env] (s1) {\textbf{y-2}}
+		child {node [env] {\textit{entity}}
 			edge from parent node[above] {inst\_of}}
 		edge from parent node[above] {is\_trait\_of}
 	} ;
@@ -42,10 +42,10 @@
 	
 	
 	% Theraspist 2
-	\node[root]   (lift)   [right=45mm of root] {lifts-5}
-	child {node [root] (s1) {y-2}
+	\node[root]   (lift)   [right=45mm of root] {\underline{lifts-5}}
+	child {node [root] (s1) {\textbf{y-2}}
 		edge from parent node[above] {agent}}
-	child {node[env, gray] (S4) {lift}
+	child {node[env] (S4) {\textit{lift}}
 		edge from parent node[above] {inst\_of}};
 	
 	\draw[-> ] (root) -- node[above] {prevents} (lift);

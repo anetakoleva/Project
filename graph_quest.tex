@@ -22,14 +22,14 @@ edge from parent/.style = {draw, -latex},
 every node/.style       = {font=\footnotesize},
 sloped
 ]
-\node [root] {weak-3}
-child { node [env, blue] {q\_1}
-	child {node [env, gray] {entity}
+\node [root] {\underline{weak-3}}
+child { node [env] {q\_1}
+	child {node [env] {\textit{entity}}
 		edge from parent node [above] {inst\_of}}
-	child {node [env, gray] {q}
+	child {node [env] {\textit{q}}
 		edge from parent node [above] {inst\_of}} 	
 	edge from parent node [above] {trait\_of}}
-child {node [env, gray] {weak}
+child {node [env] {\textit{weak}}
 		edge from parent node[above] {inst\_of}};
 
 
