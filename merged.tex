@@ -53,15 +53,16 @@ child {node [env]  {\textbf{so-11}}
 		edge from parent node [above] {recipient}}
 	child {node [env] (man) [right=10mm of so]{\textbf{man-2}}
 		edge from parent node [above] {agent} }	
-	child { node [env] (he) [right=7mm of son] {\textbf{he-9}}
+	child { node [env] (he) [right=20mm of son] {\textbf{he-9}}
 		edge from parent node [above] {agent}}
-	child {node[env] (S4) [right=20mm of son]  {\textit{lift}}
+	child {node[env] (S4) [right=7mm of son]  {\textit{lift}}
 		edge from parent node[above, midway] {inst\_of}};
 	
 	\draw[-> ] (root) -- node[above] {prevents} (lift);
 	\draw[-> ] (son) -- node[above] {inst\_of} (person);
 	\draw[-> ] (man) -- node[above] {inst\_of} (person);
 	\draw[-> ] (son) -- node[above] {inst\_of} (person);
+	\draw[-> ] (he) -- node[below] {inst\_of} (person);
 	
 	\draw[-> ] (root) -- node[above] {is\_trait\_of} (man);
 	\draw[-> ] (root) -- node[above] {is\_trait\_of} (he);	

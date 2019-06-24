@@ -1,8 +1,6 @@
 \section{Discussion}
 \label{section:Discussion}
 
-%TODO Improve this section, 2-3 sentences
-
 An initial objective of this project was to identify the main challenge that needs to be resolved in order to tackle the WSC. From studying the existing approaches, we recognized the need for having a formal representation of a specific background knowledge during the reasoning process in the knowledge-based approaches. To this end, we proposed a categorization of the sentences for which similar knowledge is required for sentences belonging in the same category.
 
 \begin{comment}
@@ -11,8 +9,7 @@ Emphasize these two
 2. we tried to identify the least amount of necessary commonsense knowledge (due to efficiency), which can consist of various different knowledge(s), that can exclude each other
 \end{comment}
 
-
-The identified categories differ from the ones presented by Sharma and Baral \cite{2018CommonsenseKT} in the way they are defined. We rely on the context of the WS sentences, whereas in \cite{2018CommonsenseKT} the categorization is based on the structure of the sentence. Namely, we analyzed the entire WSC corpus and identified what is the commonsense knowledge that is needed for answering the question and from which category it would be. In Sharma and Baral \cite{2018CommonsenseKT} the categories are identified using a more general approach that is, they all have the same structure \textit{X prevents/follows/causes Y}. 
+The identified categories differ from the ones presented by Sharma and Baral \cite{2018CommonsenseKT} in the way they are defined. We rely on the content of the WS sentences, whereas in \cite{2018CommonsenseKT} the categorization is based on the structure of the sentence. Namely, we analyzed the entire WSC corpus and we tried to identify the least amount of necessary commonsense knowledge that is needed for answering the question and from which category it would be.  In Sharma and Baral \cite{2018CommonsenseKT} the categories are identified using a more general approach that is, they all have the same structure \textit{X prevents/follows/causes Y}. 
 
 One unanticipated finding was that the rule-based RA presented in Sharma and Baral \cite{2018CommonsenseKT} does not work as expected. What came as a surprise was that the correct answer was retrieved even when rule describing the knowledge type was removed. Intrigued by this result, we analyzed more closely the reasoning algorithm. What we discovered is that the answer returned depends on whether in the background knowledge there is information about the \textit{agent} or the \textit{recipient} of the action. With the intention to improve the reasoning procedure by  Sharma and Baral \cite{2018CommonsenseKT}, we decided to change only the encoding of the background knowledge so it would capture the characteristics to one of our identified categories. Having these rules as the background knowledge and then running the RA returns the correct answer. In contrast to the rule from the example in Sharma and Baral \cite{2018CommonsenseKT}, when the rule that formalizes the physical trait is removed from the background knowledge, no answer is retrieved. 
 

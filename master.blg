@@ -1,20 +1,20 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: master.aux
 The style file: alpha.bst
-Illegal, another \bibstyle command---line 237 of file master.aux
+Illegal, another \bibstyle command---line 253 of file master.aux
  : \bibstyle
  :          {plainnat}
 I'm skipping whatever remains of this command
 Database file #1: literatur.bib
-I was expecting a `,' or a `}'---line 108 of file literatur.bib
+I was expecting a `,' or a `}'---line 134 of file literatur.bib
  :   
  :   ee = {http://www.aaai.org/ojs/index.php/aimagazine/article/view/2303},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 305 of file literatur.bib
+Repeated entry---line 331 of file literatur.bib
  : @inproceedings{DBLP:conf/emnlp/RahmanN12
  :                                         ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 323 of file literatur.bib
+Repeated entry---line 349 of file literatur.bib
  : @misc{radford2019language
  :                          ,
 I'm skipping whatever remains of this entry

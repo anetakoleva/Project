@@ -16,13 +16,13 @@ We use the KParser for extracting the graph representation of the input sentence
 
 \section{Commonsense domains}
 As discussed before, for correctly resolving the problems from the WSC corpus, a system needs to be able to mimic commonsense reasoning. To do this, additional background knowledge from different domains is required. In order to determine these domains of knowledge in the WSC corpus, we approached the problems inductively and we identified six categories. Two annotators thoroughly analyzed the entire WSC corpus (Appendix \ref{AppendixB}) and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
-In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the additional knowledge that is applied in order to answer the question form the WS. To decide which WS belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
+In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the least possible knowledge that is necessary in order to solve the problem. For each WSC problem, the relevant knowledge which is required for resolving  it can be from different domains, however we tried to identify the domain of the least knowledge necessary. To decide which WS belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories excluding, the annotators used only category per problem. Additionally, the identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
 
 \paragraph{Physical} To resolve the WSs from this category additional knowledge about some physical feature which is a trait of the ambiguous pronoun is needed.
  
 \paragraph{Emotional} This category captures all WSs that include some emotion. In other words, resolving these WSs requires some knowledge about emotions and their characteristics.
 
-\paragraph{Interactions} These WSs are related to abstract forms of interaction between the subject and the object in the sentence. In contrast to the WSs from the previous two categories, resolving these WSs does not include knowledge about emotions or characteristics of physical objects.
+\paragraph{Interactions} These WSs are related to abstract forms of interaction between the subject and the object in the sentence.
 
 \paragraph{Comparison} In this category are all the WSs where the special words are usually antonyms. The comparison is mostly between the subject and the object in the sentence. 
 
@@ -50,7 +50,8 @@ The activity in the sentence from this WS depends on the physical trait of the p
 \begin{itemize}
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into \underline{the brown suitcase} because \underline{it} is too small.}
 \end{itemize}
-This physical trait is also the special word which can be \textit{small} or \textit{large}. For resolving these WSs, knowledge about the characteristics of an object of a certain size is required. For \ref{Ex1}, this knowledge should capture that a small object cannot fit into a large one, while a large one can fit small object.
+This physical trait is also the special word which can be \textit{small} or \textit{large}. Although there are other properties of the objects in the sentence, only the knowledge about the physical trait of the objects seems to be of crucial importance for correctly answering the question. 
+For \ref{Ex1}, this knowledge should capture that a small object cannot fit into a large one, while a large one can fit small object.
 
 Similar to this subcategory are the \textit{height/width} and the \textit{weight} subcategories. The WSs in these subcategories have a special word which characterize the ambiguous pronoun with certain height, width or weight such as \textit{short/tall}, \textit{wide/narrow}. Since these are all similar traits, we assume that their characterizations can be formalized in a similar way.
 
@@ -75,9 +76,7 @@ Formalization of knowledge about change over time and chronology of events is ne
 	\item[\textbf{Q:}] \textbf{ Who had been [dead/travelling] for five years? }
 	\item[\textbf{A:}] \textbf{Cooper/Thomson}
 \end{itemize}
-
-
-%TODO check the calculations from Emma
+In order to correctly answer the question from this WS as additional knowledge it is necessary to know what it means for a person to be dead/traveling for five years. For the first half of the WS, when the special word is \textit{dead}: If a person has been dead for five years, then that same person could not be visiting anyone's grave. For the second half of the WS,  when the special word is \textit{traveling} If a person has been traveling for five years, then normally this person would not have a grave. 
 
 \paragraph{Evaluation}
 To evaluate the agreement of the annotation 
@@ -142,7 +141,7 @@ Code \ref{code1} shows the rules\footnote{Simplified such that only rules with r
 Code \ref{code2} shows the rules which are used as additional knowledge for this example. The rule in Line 1 is the rule which characterizes the physical trait of the ambiguous pronoun. We encode the trait of being small as trait of an object and we have no knowledge that this object can fit something else. To explain this further, as additional knowledge we encode the sentence: \textit{``Small object(s) could not fit"}.
 In the same manner the ASP rules for the WSs from \ref{ex:Graph} are defined. As additional knowledge for this example we encode the sentence: \textit{``Weak entitie(s) could not lift"}. 
 
-\begin{lstlisting}[language = Prolog,  caption={Knowledge from S2},label=code1, numbers=left,
+\begin{lstlisting}[language = Prolog,  caption={Knowledge from Figure 4.1},label=code1, numbers=left,
 numberstyle=\tiny] 
 has_s(it_11,instance_of,object).
 has_s(small_14,is_trait_of,it_9).

@@ -35,6 +35,7 @@
 \usepackage{epstopdf}
 \usepackage{colortbl}
 \usepackage{tabularx}
+
 \usepackage{makecell}
 \usepackage{listings}
 
@@ -117,134 +118,265 @@ Supervisor: Emmanuelle-Anna Dietz \;}
 
 
 \begin{block}{Commonsense Reasoning in Computers}
-\justify
-Hector Levesque (2011) proposes a new test for assessing computer intelligence that requires use of commonsense reasoning when predicting the correct answer.\medskip \\
-\begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
-
-\begin{itemize}
-	\item[S:] \underline{The trophy} does not fit into \underline{the brown suitcase}\\ because {\color{myorange}it} is too {\color{myorange}[small/large]}.
-	\item[Q:] What is too [small/large]?
-	\item[A:] The suitcase/the trophy.
-\end{itemize}	
-\end{beamercolorbox}
-
-\begin{figure}[width]
-\begin{tikzpicture}[scale = 2]
-\begin{scope}[blend group = soft light]
-\fill[red!30!white]   ( 90:1.2) circle (2);
-\fill[green!30!white] (210:1.2) circle (2);
-\fill[blue!30!white]  (330:1.2) circle (2);
-\end{scope}
-\node at ( 90:2)    {NLP};
-\node at ( 210:2)   {Reasoning};
-\node at ( 330:2)   {Knowledge};
-\node [font=\Large] {WSC};
-\end{tikzpicture}
-\end{figure}
-
+	\justify
+	\vspace{-1.2cm}
+	Levesque (2011) proposes a new test for assessing computer intelligence that requires the use of commonsense reasoning.\medskip \\
+	\begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
+		
+		\begin{itemize}
+			\item[S:] \underline{The trophy} does not fit into \underline{the brown suitcase}\\ because {\color{myorange}it} is too {\color{myorange}[small/large]}.
+			\item[Q:] What is too [small/large]?
+			\item[A:] The suitcase/the trophy.
+		\end{itemize}
+	\end{beamercolorbox}
+ Add (least necessary) background knowledge and apply to~reasoning algorithm.
+	
+	\begin{figure}[width]
+		\begin{tikzpicture}[scale = 2]
+		\begin{scope}[blend group = soft light]
+		\fill[red!30!white]   ( 90:1.2) circle (2);
+		\fill[green!30!white] (210:1.2) circle (2);
+		\fill[blue!30!white]  (330:1.2) circle (2);
+		\end{scope}
+		\node at ( 90:2)    {NLP};
+		\node at ( 210:2)   {Reasoning};
+		\node at ( 330:2)   {Knowledge};
+		\node [font=\Large] {WSC};
+		\end{tikzpicture}
+	\end{figure}
+	
 \end{block}
  
-
+\vspace{-1.8cm}
 \begin{block}{Winograd Schema Challenge (WSC)}
-\justify
-\begin{itemize}
-	\item Structure of a Winograd Schema
+	\justify
+	\begin{itemize}
+		\item Structure of a Winograd Schema:
+		\begin{center}
+			\begin{tabular}{ l | c }
+				Sentence containing {\color{myorange}two nouns} &  {\color{myorange}trophy}, {\color{myorange}suitcase} \\
+				\hline 
+				{\color{myorange}One} ambiguous {\color{myorange}pronoun} & {\color{myorange}it} \\  
+				\hline
+				A {\color{myorange}special word} & {\color{myorange}small}/{\color{myorange} large}\\
+				\hline
+				{\color{myorange}Question} about the referent of the pronoun & What is too [{\color{myorange}small}/{\color{myorange}large}]\\
+				\hline
+				{\color{myorange}Two} possible {\color{myorange}answers} & {\color{myorange}The suitcase}/{\color{myorange}the trophy}
+			\end{tabular}
+		\end{center}
+		\item Characteristics:
 		\begin{itemize}
-		\item Sentence containing two nouns, \\one ambiguous {\color{myorange}pronoun} and a {\color{myorange}special word}.
-		\item Question asking about the referent of the pronoun.
-		\item Two possible answers corresponding to\\ the noun phrases in the sentence.
-	%	\item The correct answer to the question changes when \\ the special word is switched
+			\item Easy to answer for an adult English speaker.
+			\item Always contains {\color{myorange}special word}.
+			\item \textit{Google-proof} - statistical methods over large text corpora should not be able to resolve a WS.
+		\end{itemize}
 	\end{itemize}
-	\item Characteristics
-	 \begin{itemize}
-		\item Easy to answer for an adult English speaker.
-		\item Always contains {\color{myorange}special word}.
-		\item \textit{Google-proof} - statistical methods over large text corpora should not be able to resolve a WS.
-	\end{itemize}
-\end{itemize}
-
-
+	%	\item Structure of a Winograd Schema
+	%		\begin{itemize}
+	%		\item Sentence containing two nouns, \\one ambiguous {\color{myorange}pronoun} and a {\color{myorange}special word}.
+	%		\item Question asking about the referent of the pronoun.
+	%		\item Two possible answers corresponding to\\ the noun phrases in the sentence.
+	%	%	\item The correct answer to the question changes when \\ the special word is switched
+	%	\end{itemize}
+	%	\item Characteristics
+	%	 \begin{itemize}
+	%		\item Easy to answer for an adult English speaker.
+	%		\item Always contains {\color{myorange}special word}.
+	%		\item \textit{Google-proof} - statistical methods over large text corpora should not be able to resolve a WS.
+	%	\end{itemize}
+	%\end{itemize}
+	
+	
 \end{block}
+\vspace{-1cm}
 \begin{block}{Machine-Learning vs Knowledge-Based Approaches}
-
-\begin{figure}[h!]
-	\centering
-	\setlength{\tabcolsep}{25pt}
-	\renewcommand{\arraystretch}{1}
-	{\footnotesize
-		\begin{tabularx}{\columnwidth}{ l| c c c c }
-			\hline
-			\makecell[c]{\textbf{Technique}}   &{\makecell{\textbf{PDPs}\\ Size \\  Correct}} &{\makecell{\textbf{WSC}\\Size  \\  Correct}} &{\makecell[l]{{\textbf{WSC*}}\\Size  \\  Correct}} &\makecell[c]{\textbf{Remarks}} \\ \hline 
-			
-			\makecell{Supervised ranking\\ SVM model \cite{RahmanN12}} & NA &\makecell{NA} & \makecell{282 - 30\% \\ 205 - 73\% } &{\makecell[l]{ -provided additional dataset set \\
-					-no evaluation on WSC dataset  }}  \\\hline
-			
-			\makecell{Classification task\\with NN \cite{W18-4105}} & NA &{\makecell{  282 - 100\% \\ 157 - 56\%}} & \makecell{ 282 - 30\% \\ 177 - 63\%}  &\makecell[l]{-first to use substitution of the \\ pronoun with the antecedents}\\\hline
-			
-			\makecell{Knowledge Enhanced\\Embeddings (KEE) \cite{DBLP:journals/corr/LiuJLZWH16}}  &\makecell{ 60-100\% \\ 40 - 66.7\%}  & \makecell{NA} & NA &\makecell[l]{-best results in the 2016\\ WSC competition}\\\hline
-			
-			\makecell{Google's language\\ models  \cite{DBLP:journals/corr/abs-1806-02847}} &\makecell{ 60-100\% \\ 42 - 70\% }& \makecell{273 - 100\% \\  173 - 63.7\%} & NA & \makecell[l]{-no reasoning involved in the\\discovery of the correct answer \\-state-of-the-art for PDPs}\\\hline
-			
-			\makecell{OpenAI language\\ models \cite{radford2019language}} & NA &\makecell{273 - 100\% \\ 193 - 70.70\%} & NA &\makecell[l]{-current state-of-the-art for WSC\\ -requires a lot of data for training\\-results are not reproducible }\\ \Xhline{3\arrayrulewidth}
-			
-			\makecell{Graphs with \\Relevance theory \cite{Peter}} & NA  & \makecell{4 - 2.6\% \\ 4 - 100\%} & NA &\makecell[l]{-manual construction of graphs\\-first representation of WS\\ as dependency graph}\\\hline
-			
-			\makecell{2 identified \\categories \cite{DBLP:conf/ijcai/SharmaVAB15}} & NA  & \makecell{71 -25\% \\ 49 - 69\%} & NA &\makecell[l]{-first attempt of identifying\\commonsense knowledge types \\-developed the KParser} \\\hline
-			
-			\makecell{Semantic relations\\ categories \cite{2018CommonsenseKT}} & NA &\makecell{100 - 34\% \\ 100 - 100\%} &  \makecell{138 - 14\% \\ 111 - 80\%} &\makecell[l]{-provided Reasoning Algorithm\\ -identified 12 commonsense types\\ which capture the entire WSC}  \\\hline
-			
-			\makecell{Knowledge hunting\\ framework \cite{DBLP:conf/emnlp/EmamiCTSC18}}& NA & \makecell{273 - 100\% \\ 119 - 43.5\%} & NA & \makecell[l]{-refined query generation\\-developed an algorithm for \\scoring the retrieved sentences}\\\hline
-			
-		\end{tabularx}
-	}
-\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\setlength{\tabcolsep}{25pt}
+		\renewcommand{\arraystretch}{1}
+		{\footnotesize
+			\begin{tabularx}{\columnwidth}{ l | c | c | c | l }
+				\hline
+				\makecell[c]{\textbf{Technique}}   &{\makecell{\textbf{PDPs}\\ Size \\  Correct}} &{\makecell{\textbf{WSC}\\Size  \\  Correct}} &{\makecell{\textbf{WSC*}\\Size  \\  Correct}} &\makecell[c]{\textbf{Remarks}} \\ \hline 
+				
+				\makecell{Supervised ranking\\ SVM model \cite{RahmanN12}} & NA &\makecell{NA} & \makecell{282 - 30\% \\ 205 - 73\% } &{\makecell[l]{ -provided additional dataset set \\
+						-no evaluation on WSC dataset  }}  \\\hline
+				
+				\makecell{Classification task\\with NN \cite{W18-4105}} &\makecell{NA}  &{\makecell{  282 - 100\% \\ 157 - 56\%}} & \makecell{ 282 - 30\% \\ 177 - 63\%}  &{\makecell[l]{-first to use substitution of the \\ pronoun with the antecedents}}\\\hline
+				
+				\makecell{Knowledge Enhanced\\Embeddings (KEE) \cite{DBLP:journals/corr/LiuJLZWH16}}  &\makecell{ 60-100\% \\ 40 - 66.7\%}  & \makecell{NA} & \makecell{NA} &\makecell[l]{-best results in the 2016\\ WSC competition}\\\hline
+				
+				\makecell{Google's language\\ models  \cite{DBLP:journals/corr/abs-1806-02847}} &\makecell{ 60-100\% \\ 42 - 70\% }& \makecell{273 - 100\% \\  173 - 63.7\%} & NA & \makecell[l]{-no reasoning involved in the\\discovery of the correct answer \\-state-of-the-art for PDPs}\\\hline
+				
+				\makecell{OpenAI language\\ models \cite{radford2019language}} & NA &\makecell{273 - 100\% \\ 193 - 70.70\%} & NA &\makecell[l]{-current state-of-the-art for WSC\\ -requires a lot of data for training\\-results are not reproducible }\\ \Xhline{3\arrayrulewidth}
+				
+				\makecell{Graphs with \\Relevance theory \cite{Peter}} & NA  & \makecell{4 - 2.6\% \\ 4 - 100\%} & NA &\makecell[l]{-manual construction of graphs\\-first representation of WS\\ as dependency graph}\\\hline
+				
+				\makecell{2 identified \\categories \cite{DBLP:conf/ijcai/SharmaVAB15}} & NA  & \makecell{71 -25\% \\ 49 - 69\%} & NA &\makecell[l]{-first attempt of identifying\\commonsense knowledge types \\-developed the KParser} \\\hline
+				
+				\makecell{Semantic relations\\ categories \cite{2018CommonsenseKT}} & NA &\makecell{100 - 34\% \\ 100 - 100\%} &  \makecell{138 - 14\% \\ 111 - 80\%} &\makecell[l]{-provided Reasoning Algorithm\\ -identified 12 commonsense types\\ which capture the entire WSC}  \\\hline
+				
+				\makecell{Knowledge hunting\\ framework \cite{DBLP:conf/emnlp/EmamiCTSC18}}& NA & \makecell{273 - 100\% \\ 119 - 43.5\%} & NA & \makecell[l]{-refined query generation\\-developed an algorithm for \\scoring the retrieved sentences}\\\hline
+				
+			\end{tabularx}
+		}
+	\end{figure}
+	*Additional dataset with 943 WS provided in \cite{DBLP:conf/emnlp/RahmanN12} .
 \end{block}
+\vspace{-1cm}
 \begin{block}{References}
-
-\bibliographystyle{plain}
-\tiny{
-\bibliography{literatur}
-}
+	
+	\bibliographystyle{plain}
+	\tiny{
+		\bibliography{literatur}
+	}
 \end{block}
-
-
-
 
 
 \column{.49\textwidth}
 
 \begin{block}{Knowledge Types Identification and Reasoning\\(Sharma and Baral, 2018)}
-\vspace{0.8cm}
+\vspace{0.4cm}
 \begin{itemize}
-	\item Identified 12 {\color{myorange}knowledge types} which cover the entire WSC dataset.
-	\item The categorization is based on the structure of the Winograd sentence.
-	\item 10 of the knowledge types are based on different interactions between entities, actions and properties 
-	\item Developed a {\color{myorange}logical reasoning algorithm}. 
-	\item Evaluated on 100 problems from WSC and achieved {\color{myorange}100\%} accuracy
+	\item Identified 12 {\color{myorange}knowledge types} which cover entire WSC dataset.
+	\item Categorization based on the structure of the Winograd sentence.
+	\item 10 knowledge types based on interaction between entities~and~actions.  
+	\item Provided a {\color{myorange}logical reasoning algorithm} in ASP.
+	\item Evaluated on 100 problems from WSC and achieved {\color{myorange}100\%} accuracy.
 
 
 \begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
-Extracted knowledge: ``weak y prevents y lifts".\\
-Knowledge type ``Property prevents Action"\\
-ASP encoding:\\
+Extracted knowledge: ``small y prevents y fits". \\
+Knowledge type ``Property prevents Action".\\
 \begin{lstlisting}[language = Prolog, style=SC, numbers=right,
 numberstyle=\tiny]
-has_k(weak_1,is_trait_of,y_2).
-has_k(weak_1,instance_of,weak).
-has_k(y_2,instance_of,entity).
-has_k(weak_1,prevents,lifts_5).
-has_k(lifts_5,instance_of,lift).
-has_k(lifts_5,agent,y_2).
+%entity y has a trait small
+has_k(small,is_trait_of,y). 		
+%having trait small prevents the entity to fit another entity
+has_k(small,prevents,fits).	 	
+%entity y is the recipient of the action fit
+has_k(fits,recipient,y).		
 \end{lstlisting}
 \end{beamercolorbox}
-\item The reasoning algorithm {\color{myorange}does not consider} rule 4 in the reasoning process.
+\item Rule 4 {\color{myorange}has no effect} in the reasoning procedure!
+
 \end{itemize}
+\vspace{1cm}
+%\begin{block} {Winograd Schemas from the Physical Category}
+	\textbf{The trophy doesn't fit into the brown suitcase because it's too small.} 
+	\vspace{1cm}
+	\begin{figure}[width=\columnwidth]
+		\centering
+		\tikzset{
+			treenode/.style = {shape=rectangle, rounded corners,
+				draw, align=center,
+				top color=white, bottom color=blue!20},
+			root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
+			env/.style      = {treenode, font=\ttfamily\normalsize},
+			dummy/.style    = {circle,draw},
+			level 1/.style={sibling distance=15cm, level distance = 2.5em},
+			level 2/.style={sibling distance=6cm,level distance = 4.5em},
+			blueRed/.style={env, top color=blue, bottom color=red} 
+		}
+		%\begin{document}
+		\begin{tikzpicture}
+		[
+		grow                    = down,
+		sibling distance        = 50em,
+		level distance          = 5em,
+		edge from parent/.style = {draw, -latex},
+		every node/.style       = {font=\footnotesize},
+		sloped
+		]
+		\node [root] {is}
+		child { node [env, blue] {it}
+			child {node [env] {small}
+				edge from parent node [below] {trait} }
+			edge from parent node [above] {agent}}
+		child { node [env, bottom color=red!30] {fit} 
+			child {node [env]  {does}
+				edge from parent node [above] {support verb} }	
+			child {node [env, blue]  {{\small{trophy}}}
+				edge from parent node [above] {agent} }
+			child {node [env, blue]  {suitcase}
+				edge from parent node [above] {recipient}}
+			child {node [env]  {not}
+				edge from parent node [above] {negation} }
+			edge from parent node [above] {cause}};
+		
+		\end{tikzpicture}
+	\end{figure}
+
+%	\textbf{The man couldn't lift his son because he was so weak.} \\
+%	\begin{figure}
+%		\centering
+%		\tikzset{
+%			treenode/.style = {shape=rectangle, rounded corners,
+%				draw, align=center,
+%				top color=white, bottom color=blue!20},
+%			root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
+%			env/.style      = {treenode, font=\ttfamily\normalsize},
+%			dummy/.style    = {circle,draw},
+%			level 1/.style={sibling distance=15cm, level distance = 2.5em},
+%			level 2/.style={sibling distance=6cm,level distance = 4.5em},
+%			blueRed/.style={env, top color=blue, bottom color=red} 
+%		}
+%		%\begin{document}
+%		\begin{tikzpicture}
+%		[
+%		grow                    = down,
+%		sibling distance        = 50em,
+%		level distance          = 5em,
+%		edge from parent/.style = {draw, -latex},
+%		every node/.style       = {font=\footnotesize},
+%		sloped
+%		]
+%		\node [root] {was}
+%		child { node [env, blue] {he}
+%			child {node [env] {weak}
+%				edge from parent node [below] {trait} }
+%			edge from parent node [above] {agent}}
+%		child { node [env, bottom color=red!30] {lift} 
+%			child {node [env]  {could}
+%				edge from parent node [above] {modal verb} }	
+%			child {node [env, blue]  {man}
+%				edge from parent node [above] {agent} }
+%			child {node [env, blue]  {son}
+%				edge from parent node [above] {recipient}}
+%			child {node [env]  {not}
+%				edge from parent node [above] {negation} }
+%			edge from parent node [above] {cause}};
+%		\end{tikzpicture}
+%	\end{figure}
+
+\begin{block}{Reasoning algorithm}
+
+
+ Change of the formalization of the background knowledge \\such that it has effect in the reasoning procedure.
+\begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
+\begin{lstlisting}[language = Prolog, style =SC, numbers=right,
+numberstyle=\tiny]
+%entity y is small if we know it could not fit another entity
+has_k(small,is_trait_of,y) :- has_k(fit, recipient, y), 
+			not has_k(fit,modifier,could).
+%entity y should fit another entity 
+has_k(fit,recipient,y).
+\end{lstlisting}
+\end{beamercolorbox}
+\begin{itemize}
+	\item  Rule 1 {\color{myorange}has effect} in the reasoning procedure!
+	\item In rule 5, switching \textbf{recipient} with \textbf{agent} leads to no answer!
+\end{itemize}
+
+\end{block}
+\vspace{-1cm}
 
 \begin{block}{Categorization of Winograd Schemas}
 \justify 
 \begin{itemize}
 	\item Inductively analyzed the WSC dataset and identified {\color{myorange}6 categories}.
-	\item The categorization is based on the {\color{myorange}content} of the Winograd sentence.
+	\item Categorization based on the {\color{myorange}content} of the Winograd sentence.
 	\item Two annotators annotated the entire WSC corpus with these categories.
 	\item Calculated Cohen's kappa - measure for inter-rater agreement $\kappa=0.66$
 \end{itemize}
@@ -268,111 +400,20 @@ has_k(lifts_5,agent,y_2).
 		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are {\color{myorange}[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\ \hline
 	\end{tabular} } 
 
-\begin{block} {Winograd Schemas from the Physical Category}
-\textbf{The trophy doesn't fit into the brown suitcase because it's too small.} 
-\vspace{1cm}
-\begin{figure}[width=\columnwidth]
-	\centering
-	\tikzset{
-		treenode/.style = {shape=rectangle, rounded corners,
-			draw, align=center,
-			top color=white, bottom color=blue!20},
-		root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
-		env/.style      = {treenode, font=\ttfamily\normalsize},
-		dummy/.style    = {circle,draw},
-		level 1/.style={sibling distance=18cm, level distance = 3em},
-		level 2/.style={sibling distance=7cm,level distance = 5em},
-		blueRed/.style={env, top color=blue, bottom color=red} 
-	}
-	%\begin{document}
-	\begin{tikzpicture}
-	[
-	grow                    = down,
-	sibling distance        = 50em,
-	level distance          = 5em,
-	edge from parent/.style = {draw, -latex},
-	every node/.style       = {font=\footnotesize},
-	sloped
-	]
-	\node [root] {is-3}
-	child { node [env, blue] {it-11}
-		child {node [env] {small-14}
-			edge from parent node [below] {trait} }
-		edge from parent node [above] {agent}}
-	child { node [env, bottom color=red!30] {fit-5} 
-		child {node [env]  {does-3}
-			edge from parent node [above] {support verb} }	
-		child {node [env, blue]  {{\small{trophy-2}}}
-			edge from parent node [above] {agent} }
-		child {node [env, blue]  {suitcase-9}
-			edge from parent node [above] {recipient}}
-		child {node [env]  {not-4}
-			edge from parent node [above] {negation} }
-		edge from parent node [above] {cause}};
-	
-	\end{tikzpicture}
-\end{figure}
-
-\textbf{The man couldn't lift his son because he was so weak.} \\
-\begin{figure}
-	\centering
-	\tikzset{
-		treenode/.style = {shape=rectangle, rounded corners,
-			draw, align=center,
-			top color=white, bottom color=blue!20},
-		root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
-		env/.style      = {treenode, font=\ttfamily\normalsize},
-		dummy/.style    = {circle,draw},
-		level 1/.style={sibling distance=18cm, level distance = 3em},
-		level 2/.style={sibling distance=7cm,level distance = 5em},
-		blueRed/.style={env, top color=blue, bottom color=red} 
-	}
-	%\begin{document}
-	\begin{tikzpicture}
-[
-grow                    = down,
-sibling distance        = 50em,
-level distance          = 5em,
-edge from parent/.style = {draw, -latex},
-every node/.style       = {font=\footnotesize},
-sloped
-]
-\node [root] {was-10}
-child { node [env, blue] {he-9}
-	child {node [env] {weak-11}
-		edge from parent node [below] {trait} }
-	edge from parent node [above] {agent}}
-child { node [env, bottom color=red!30] {lift-5} 
-	child {node [env]  {could-3}
-		edge from parent node [above] {modal verb} }	
-	child {node [env, blue]  {man-2}
-		edge from parent node [above] {agent} }
-	child {node [env, blue]  {son-7}
-		edge from parent node [above] {recipient}}
-	child {node [env]  {not-4}
-		edge from parent node [above] {negation} }
-	edge from parent node [above] {cause}};
-	\end{tikzpicture}
-\end{figure}
-
-\end{block}
-\vspace{-3cm}
 \end{block}
 \end{block}
-
-\begin{block}{Reasoning algorithm}
-Change of the formalization of the background knowledge such that it contributes to the reasoning procedure.
-\begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
-\begin{lstlisting}[language = Prolog,  caption={Additional knowledge},label=code2,numbers=left,
-numberstyle=\tiny]
-has_k(small_1,is_trait_of,y_2) :- has_k(fits_5, recipient, y_2), 
-				not has_k(fits_5,modifier,could_3).
-has_k(y_2,instance_of,entity).
-has_k(fits_5,recipient,y_2).
-\end{lstlisting}
-
-\end{beamercolorbox}
+\vspace{-1.5cm}
+\begin{block}{Conclusions and Outlook}
+\begin{itemize}
+ \item  Most knowledge-based approaches, so far, have concentrated on the semantic structure of the WS sentence. 
+\item None have specified domain specific categories, i.e., the information about the relation between entities and their properties within a certain domain.
+\item How to identify the most necessary and the least possible knowledge for solving a WS?
+\item An approach, where knowledge is provided only 'by demand' might be more efficient and adequate.
+ 
+\end{itemize}
 \end{block}
+
+
 \end{columns}
 
 \end{frame}

@@ -49,9 +49,28 @@ Here is an example of a WS that is not Google proof:\\
 	\item[\textbf{A:}] \textbf{The mistakes/the books.} 
 \end{itemize} 
 
-%TODO check this failed example, why it's failed
 
-\ref{ex:Google} has been provided as a failed example\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSfailed.html} because the term \textit{foolish mistake} is commonly used and can be returned as an answer when querying Google. Additional feature is that resolving a WS should be easy  for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
+\ref{ex:Google} has been provided as a failed example\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSfailed.html} because the term \textit{foolish mistake} is commonly used and can be returned as an answer when querying Google.
+To test the \textit{Google-proofness} of \ref{ex:Google}, we estimate the Pointwise Mutual Information (PMI) between the special word and each of the possible antecedents as follows \cite{google, Church}:
+\begin{equation}
+\text{PMI}\left(x,y\right) = \log_2\frac{P\left(x,y\right)}{P\left(x\right)P\left(y\right)},
+\end{equation}
+where $P\left(x,y\right)=C\left(x,y\right)/N$ denotes the probability that $x$ and $y$ can co-occur; $C\left(x,y\right)$ is the number of times $x$ and $y$ co-occur in the corpus and $N$ is the total number of words in the corpus (\cite{google} estimates $N$ to be $10^{12}$ in 2012). Therefore,
+\begin{equation}
+	\text{PMI}\left(x,y\right)=\log_2\frac{C\left(x,y\right)\times N}{C\left(x\right)C\left(y\right)}.
+\end{equation}
+\begin{itemize}
+	\item $\text{PMI}\left(\text{foolish},\text{books}\right)=\log_2\frac{50.900.000\times10^{12}}{84.300.000\times12.290.000.000}=5.618504299196904$.
+	\item $\text{PMI}\left(\text{foolish},\text{mistakes}\right)=\log_2\frac{14.300.000\times10^{12}}{84.300.000\times765.000.000}=7.792735147580765$.
+	\item $\text{PMI}\left(\text{worthless},\text{books}\right)=\log_2\frac{35.800.000\times10^{12}}{56.400.000\times12.290.000.000}=5.690635698930574$.
+	\item $\text{PMI}\left(\text{worthless},\text{mistakes}\right)=\log_2\frac{10.300.000\times10^{12}}{56.400.000\times765.000.000}=7.899201806527974$.
+\end{itemize}
+The result of these calculations shows that in the first case, when the special word is \textit{foolish}, the frequency of co-occurring with \textit{mistakes}
+is higher then the frequency of \textit{foolish} co-occurring with \textit{books}. Hence, simple Google query like this would return enough information to correctly resolve the problem.
+However, in the case of the other half of this WS, when the special word is \textit{worthless}, the frequency of \textit{worthless} co-occurring with \textit{mistakes} is higher, which leads to the wrong answer. Instead, when the special word is \textit{worthless}, the correct answer is \textit{the books}. 
+Therefore, we can conclude that the second half of this WS (special word is \textit{worthless}) is indeed Google proof, whereas the first half (special word is \textit{foolish}) is not Google proof.
+
+ Additional feature is that resolving a WS should be easy  for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
 For the execution and evaluation part of the WSC, two distinct datasets have been formulated and published by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}.
 The first dataset consists of PDPs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition. 
 The second dataset consists of WSs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} which have been constructed by the organizers of the competition.

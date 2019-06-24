@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: dc-poster.aux
 The style file: plain.bst
-Illegal, another \bibstyle command---line 29 of file dc-poster.aux
+Illegal, another \bibstyle command---line 30 of file dc-poster.aux
  : \bibstyle
  :          {plain}
 I'm skipping whatever remains of this command
@@ -26,10 +26,12 @@ A bad cross reference---entry "DBLP:conf/ijcai/SharmaVAB15"
 refers to entry "DBLP:conf/ijcai/2015", which doesn't exist
 A bad cross reference---entry "DBLP:conf/emnlp/EmamiCTSC18"
 refers to entry "DBLP:conf/emnlp/2018", which doesn't exist
+A bad cross reference---entry "DBLP:conf/emnlp/RahmanN12"
+refers to entry "DBLP:conf/emnlp/2012", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/kr/2014"
+Warning--I didn't find a database entry for "DBLP:conf/emnlp/2012"
 Warning--I didn't find a database entry for "DBLP:conf/ijcai/2015"
 Warning--I didn't find a database entry for "DBLP:conf/emnlp/2018"
-Warning--I didn't find a database entry for "DBLP:conf/emnlp/2012"
 Warning--empty journal in DBLP:journals/corr/LiuJLZWH16
 Warning--empty journal in DBLP:journals/corr/abs-1806-02847
-(There were 8 error messages)
+(There were 9 error messages)

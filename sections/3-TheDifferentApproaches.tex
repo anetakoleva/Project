@@ -32,7 +32,11 @@ After that, a neural model designed by Optiz and Frank \cite{W18-4105}, called a
 For the training of the network, the additional dataset provided in \cite{DBLP:conf/emnlp/RahmanN12} was used. Since this set was small and in order to prevent the model to memorize the noun phrase candidates, an anonymization technique was used. With this technique, during training the model omitted the noun phrase candidates. This forced the model to focus to the rest of the sentence in order to identify a more general meaning. During the evaluation, the test on data which was anonymized had significantly better results than when anonymization was not applied. In contrast to \cite{DBLP:conf/emnlp/RahmanN12}, the model was tested on both the original Winograd dataset and the test set from the additional dataset. The model achieved 56\% accuracy on the Winograd dataset and 63\% accuracy on the additional dataset.
 
 \paragraph{Knowledge Enhanced Embeddings}
-The implementation by Liu et al. \cite{DBLP:journals/corr/LiuJLZWH16} which competed and had the best results at the WSC held in 2016 also used a deep neural network classifier to predict the answers. In the proposed framework, named Knowledge Enhanced Embeddings (KEE), three commonsense knowledge bases (ConceptNet \cite{articleC}, WordNet \cite{DBLP:journals/cacm/Miller95} and CauseCom \cite{DBLP:journals/corr/Liu0LWH16}) were used to extract commonsense knowledge. The extracted knowledge was then incorporated as knowledge constraint during the word embedding training process. An example of such knowledge constraint is the following semantic similarity inequality: $similarity(happy,glad) > similarity(happy,sad)$. For the training process the skip-gram model \cite{DBLP:journals/corr/abs-1301-3781} was used, which learns to predict the context given a target word. The KEE model was used for feature extraction from the PDP test problems. After feature extraction, two different solvers were employed for extracting the correct answer. The first solver relied on an unsupervised method for calculating the semantic similarity between the extracted embeddings and the antecedent candidates. The second solver used the extracted embeddings for supervised training of a neural network classifier. The experiments were initially conducted only on the PDP set and showed that the two solvers combined achieve 66.7\% accuracy. During the WSC, the KEE model was trained on a small Wikipedia text corpus and the second solver was used, achieving 58.3\% accuracy which was the best result at that time. 
+The implementation by Liu et al. \cite{DBLP:journals/corr/LiuJLZWH16} which competed and had the best results at the WSC held in 2016 also used a deep neural network classifier to predict the answers. In the proposed framework, named Knowledge Enhanced Embeddings (KEE), three commonsense knowledge bases (ConceptNet \cite{articleC}, WordNet \cite{DBLP:journals/cacm/Miller95} and CauseCom \cite{DBLP:journals/corr/Liu0LWH16}) were used to extract commonsense knowledge. The extracted knowledge was then incorporated as knowledge constraint during the word embedding training process. An example of such knowledge constraint is the following semantic similarity inequality: 
+\begin{equation}\notag
+	\text{similarity(happy,glad)} > \text{similarity(happy,sad)}
+\end{equation}
+ For the training process the skip-gram model \cite{DBLP:journals/corr/abs-1301-3781} was used, which learns to predict the context given a target word. The KEE model was used for feature extraction from the PDP test problems. After feature extraction, two different solvers were employed for extracting the correct answer. The first solver relied on an unsupervised method for calculating the semantic similarity between the extracted embeddings and the antecedent candidates. The second solver used the extracted embeddings for supervised training of a neural network classifier. The experiments were initially conducted only on the PDP set and showed that the two solvers combined achieve 66.7\% accuracy. During the WSC, the KEE model was trained on a small Wikipedia text corpus and the second solver was used, achieving 58.3\% accuracy which was the best result at that time. 
 
 \paragraph{Google’s language model}
 The method described by Trinh and Le \cite{DBLP:journals/corr/abs-1806-02847}, uses language models based on neural networks to capture commonsense knowledge. They use unsupervised learning to train neural networks on different large datasets. Based on what was learned during the training phase, the language models are able to assign probabilities to a given text. The idea here is to reduce the coreference resolution problem to a decision which relies on probabilities. In other words, instead of predicting the correct antecedent for the ambiguous pronoun by relying on information about the gender and the number of the pronoun, to assign probability to the sentence where the pronoun is substituted by one of the antecedents. 
@@ -60,8 +64,8 @@ Recently, a similar method which relies on deep learning has been published by R
 Although this method is controversial because the implementation is not publicly available, the authors claim that their language model outperforms the current state-of-the-art approach in different NLP tasks (reading comprehension, summarization of text, translation). For solving the WSC, they used the GPT-2 model in the same setting as Trinh and Le \cite{DBLP:journals/corr/abs-1806-02847} and also achieved better results when applying the partial scoring. The reported accuracy of 70.70\% on the WSC corpus is the current state-of-art result. 
 
 
-\subsection{Knowledge-based approaches}
-The authors of the WSC are from the Knowledge Representation and Reasoning area, so it is not surprising that they suggest the use of knowledge-based systems as a possible way of addressing the WSC. At the core of the knowledge-based approaches lies the idea of formulating rules which can be used for resolving the missing pronoun. To be able to apply the rules during a reasoning process, structured background knowledge is required.
+\subsection{Knowledge based approaches}
+The authors of the WSC are from the Knowledge Representation and Reasoning area, so it is not surprising that they suggest the use of knowledge-based systems as a possible way of addressing the WSC. At the core of the knowledge based approaches lies the idea of formulating rules which can be used for resolving the missing pronoun. To be able to apply the rules during a reasoning process, structured background knowledge is required.
 
 \paragraph{Graphs with Relevance theory}
 One of the earliest proposals that rely on this methodology was by Sch{\"u}ller \cite{DBLP:conf/kr/Schuller14} in which Relevance Theory (RT) \cite{Wilson2002-WILRT} is combined with Knowledge Graphs (KG). Inspired by Schank's model for Knowledge Representation \cite{SCHANK1972552}, Sch{\"u}ller proposed a framework for combining nodes of KG and reasoning on the resulting graph. 
@@ -74,7 +78,7 @@ In Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} the authors recognized two d
 Although in \cite{DBLP:conf/ijcai/SharmaVAB15}, the focus is on a subset of sentences, the results from the evaluation are promising. This leaves open the possibility to identify more types of commonsense reasoning which would help in the extraction of the background knowledge and the reasoning process.
 
 \paragraph{Semantic relations categories}
-The work by Sharma and Baral \cite{2018CommonsenseKT} follows this direction. Although this approach is currently under review, we decided to consider it in more detail because it seems to be a promising knowledge-based approach. In contrast to the two types of reasoning identified by Sharma et. al \cite{DBLP:conf/ijcai/SharmaVAB15}, Sharma and Baral \cite{2018CommonsenseKT} present twelve different knowledge types which capture the entire corpus of the WSC. We now present an overview of the steps in this approach and the results of the conducted evaluation. How the twelve knowledge types were identified and which are they will be discussed in the next chapter. Additional contribution of this work is the provided reasoning algorithm which will also be discussed in the next chapter. 
+The work by Sharma and Baral \cite{2018CommonsenseKT} follows this direction. Although this approach is currently under review, we decided to consider it in more detail because it seems to be a promising knowledge based approach. In contrast to the two types of reasoning identified by Sharma et. al \cite{DBLP:conf/ijcai/SharmaVAB15}, Sharma and Baral \cite{2018CommonsenseKT} present twelve different knowledge types which capture the entire corpus of the WSC. We now present an overview of the steps in this approach and the results of the conducted evaluation. How the twelve knowledge types were identified and which are they will be discussed in the next chapter. Additional contribution of this work is the provided reasoning algorithm which will also be discussed in the next chapter. 
  \\ Following are \labeltext{\textnormal{the steps}}{Steps} in this approach: 
 \begin{enumerate}
 	\item The given Winograd sentence and question are represented as semantic graphs.
@@ -91,26 +95,90 @@ For the additional dataset, 138 sentences which are covered by the identified kn
 \paragraph{Knowledge hunting framework}
 A very recent approach, which achieves state-of-the-art results among the knowledge based approaches, is a knowledge hunting framework proposed by Emami et al. \cite{DBLP:conf/emnlp/EmamiCTSC18}. The focus here is on solving all the instances without relying on any existing knowledge bases or statistical methods for capturing the commonsense knowledge. To this end they have developed a framework which was divided into four stages.
 \begin{enumerate}
-	\item Using syntactic parsing of the given sentence the antecedent candidates, the verb which connects them as well as the verb phrase which contains the missing pronoun are identified.
-	\item Based on the identified elements from the first step, queries are generated. In addition, a semantic similarity algorithm was developed which filters out elements from the generated query sets based on their relevance to other words.
-	%TODO add here about relevance to other words
-	An example of a query set for \ref{Ex1} is the following: \textit{\{"doesn't fit into", "brown", "fit"\}}
-	\item The results from the search engines are processed and only sentences with a structure similar \\to the input sentence are kept.
-	\item Finally, the retrieved sentences are scored according to a scoring system designed by the authors. The scores are assigned to both possible antecedents and the one with the higher score is assumed to be the correct one.
-\end{enumerate}
-%TODO maybe add a running example
+	\item The input Winograd sentence is observed as two separate clauses: a context clause and a query clause. The context clause contains the two antecedents of the ambiguous pronoun and the query clause contains the ambiguous pronoun. By analyzing the semantic representation of the  input sentence, the components from these clauses are extracted. Table \ref{TableEmami} shows an example sentence, which is part of WS \#8 (see Appendix \ref{AppendixB}), and its components:	
 
- The experiments done during the evaluation of this framework show the a correct answer is given for 119 WSs. Furthermore, the precision, recall and F1 score\footnote{These are performance measures, usually used in binary classification tasks. They all rely on confusion matrix in which are presented the outcome of the prediction and the actual values.} are calculated and compared with results from previous approaches (\cite{DBLP:conf/aaai/SharmaB16, DBLP:conf/aaaiss/LiuJLZWH17}). The knowledge-hunting framework outperformed all the previous and achieved higher F1 score and higher recall score. %TODO check this outperfored all
+	\begin{table}[h!]
+			\begin{center}
+	\begin{tabular} {l| c}
+	 Sentence &The man couldn’t lift his son because he was so weak. \\\hline
+	 candidate antecedents \textit{E\textsubscript{1}}, \textit{E\textsubscript{2}} & the man, his son\\\hline
+	 context predicate \textit{Pred\textsubscript{C}} & couldn’t lift \\\hline
+	 target pronoun \textit{P} & he \\\hline
+	 query predicate \textit{Pred\textsubscript{Q}} & was so weak
+	 	
+	\end{tabular}
+	\caption{{\label{TableEmami}}The result of the parsing step.}
+		\end{center}
+	\end{table}
+
+	\item Based on the identified components from the first step, two query sets, \textit{Term\textsubscript{C}} and \textit{Term\textsubscript{Q}}, are generated. The elements in these query sets correspond to the verbs and the adjectives from the context clause and the query clause respectively. In addition, a semantic similarity algorithm was developed which filters out elements from the generated query sets based on their relevance to other words. The relevance is estimated by applying Wu and Palmer \cite{Wu} similarity scores. The elements with the highest similarity scores are kept. 
+	For the previously analyzed sentence the following query sets are generated:
+	
+	\begin{table}[h!]
+		\begin{center}
+	
+		\small
+		\begin{tabular}{l|c |c}
+			Query sets & \textit{Term\textsubscript{C}} & \textit{Term\textsubscript{Q}}\\\hline
+			Generated  & \textit{\{"couldn't lift", "man",  "lifting", "his", "son"\}} &  \textit{\{"weak", "was so weak", "is weak", "tiny"\}}\\\hline
+		
+		 	Filtered& \textit{\{"couldn't lift", "man", "his"\}} & \textit{\{"weak", "was so weak"\}}
+			
+		\end{tabular}
+		\caption{{\label{TableEmami2}}The generated query sets.}
+			
+	\end{center}
+	\end{table}
+	
+	\item The results from the search engines are then processed and only sentences with a structure similar \\to the input sentence are kept. 
+	These sentences are called \textit{evidence-agent} or \textit{evidence-patient}, depending on the pronoun in the sentence and whether it refers to \textit{E\textsubscript{1}} or \textit{E\textsubscript{2}}. Example of such sentences are the following:
+	\begin{table}[h!]
+	\begin{center}
+	
+		\begin{tabular}{l|c }
+			Evidence-agent & \textit{"She was so weak she couldn’t lift"}  \\\hline
+			Evidence-patient  & \textit{“It hurts to lift my leg and its kind of weak”}
+		\end{tabular}
+		\caption{{\label{TableEmami3}}Example of retrieved \textit{evidence} sentences.}
+		
+	\end{center}
+	\end{table}
+		
+	\item A parsing algorithm, developed by the authors, assigns labels to each of the retrieved sentences  as  \textit{evidence-agent} or \textit{evidence-patient}. Then, according to the structural similarity of these sentences to the Winograd sentence a similarity score, named \textit{strength}, is assigned to these sentences. The labeled sentences with the higher sum of the strengths are used to make the prediction decision. For example, if the result of the labeling and scoring of the retrieved sentences is 
+	as in Table \ref{TableEmami4}, 
+	\begin{table}[h!]
+	\begin{center}
+				
+		\begin{tabular}{l | l}
+			Labeled sentences & Sum of strength \\\hline
+			\textit{Evidence-agent} & 97 \\\hline
+			\textit{Evidence-patient} & 70 \\\hline
+			Resolution & Agent
+		\end{tabular}
+			\caption{{\label{TableEmami4}}Result of the labeling and scoring of the retrieved sentences.}
+	\end{center}
+	\end{table}
+	then the retrieved answer would be \textit{E\textsubscript{1}}, which corresponds to \textit{the man}.
+
+	
+\end{enumerate}
+
+ The experiments done during the evaluation of this framework show the a correct answer is given for 119 WSs. Furthermore, the precision, recall and F1 score\footnote{These are performance measures, usually used in binary classification tasks. They all rely on confusion matrix in which are presented the outcome of the prediction and the actual values.} are calculated and compared with results from previous approaches (\cite{DBLP:conf/aaai/SharmaB16, DBLP:conf/aaaiss/LiuJLZWH17}). The knowledge-hunting framework outperformed these approaches achieving higher F1 score and higher recall score.
 
 \paragraph{Observations} 
 Table \ref{Table2} presents a summary of all the previously analyzed approaches. For each approach, the size of the evaluation dataset and the size of correctly answered problems is expressed with both the number of sentences and what percentage this number is for the used dataset. If the evaluation was not provided for any of the datasets, then there is NA for Not Available. The last column contains remarks for each of the approaches stating their main contribution or main drawback. \\ 
 From Table \ref{Table2} it can be observed that almost all of the approaches are evaluated on different or on smaller datasets. 
 For the machine learning approaches this is because of the small number of available problems, which is also the main disadvantage for these approaches. 
-In the case of the knowledge based approaches, the general drawback is that the test set is directly analyzed and the models are build based on these observations. As a consequence, the size of the evaluation sets is significantly smaller in comparison to the machine learning approaches. Moreover, none of these approaches achieves an accuracy close to 90\%, which means there is room for improvement for both the machine learning and the knowledge-based approaches. One additional remark is that to the best of our knowledge, there is no approach which combines the strengths of both the machine learning and the knowledge based approaches. \\
+In the case of the knowledge based approaches, the general drawback is that the test set is directly analyzed and the models are build based on these observations. As a consequence, the size of the evaluation sets is significantly smaller in comparison to the machine learning approaches. Moreover, none of these approaches achieves an accuracy close to 90\%, which means there is room for improvement for both the machine learning and the knowledge based approaches. One additional remark is that to the best of our knowledge, there is no approach which combines the strengths of both the machine learning and the knowledge based approaches. \\
 
 
 \begin{table}[h!]
 	\centering
 	\input{approaches.tex}
+	\textbf{WSC*} - Additional dataset with 943 WSs from Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}
+	
 	\caption{{\label{Table2}}Summary of the analyzed approaches.}
+
 \end{table}
+
+

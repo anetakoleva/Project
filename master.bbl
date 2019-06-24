@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{RWC{\etalchar{+}}19}
+\begin{thebibliography}{WHWY12}
 
 \bibitem[AW72]{article}
 Terry Allen~Winograd.
@@ -12,6 +12,11 @@ David Bender.
 \newblock In {\em Proceedings of the 26th Modern {AI} and Cognitive Science
   Conference 2015, Greensboro, NC, USA, April 25-26, 2015.}, pages 39--45,
   2015.
+
+\bibitem[CH90]{Church}
+Kenneth~Ward Church and Patrick Hanks.
+\newblock Word association norms, mutual information, and lexicography.
+\newblock {\em Comput. Linguist.}, 16(1):22--29, March 1990.
 
 \bibitem[Coh60]{doi:10.1177/001316446002000104}
 Jacob Cohen.
@@ -239,6 +244,18 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
 \newblock In {\em Advances in Neural Information Processing Systems 30: Annual
   Conference on Neural Information Processing Systems 2017, 4-9 December 2017,
   Long Beach, CA, {USA}}, pages 6000--6010, 2017.
+
+\bibitem[WHWY12]{google}
+Lin Wei-Hsuan, Yi-Lun Wu, and Liang-Chih Yu.
+\newblock Online computation of mutual information and word context entropy.
+\newblock {\em International Journal of Future Computer and Communication},
+  pages 167--169, 01 2012.
+
+\bibitem[WP94]{Wu}
+Zhibiao Wu and Martha Palmer.
+\newblock Verbs semantics and lexical selection.
+\newblock In {\em Proceedings of the 32Nd Annual Meeting on Association for
+  Computational Linguistics}, ACL '94, pages 133--138, 1994.
 
 \bibitem[WS02]{Wilson2002-WILRT}
 Deirdre Wilson and Dan Sperber.

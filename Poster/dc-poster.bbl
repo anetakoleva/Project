@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{2018CommonsenseKT}
 C.~Baral A.~Sharma.
@@ -30,6 +30,15 @@ A.~Radford, J.~Wu, R.~Child, D.~Luan, D.~Amodei, and I.~Sutskever.
 \newblock Language models are unsupervised multitask learners, 2019.
 
 \bibitem{RahmanN12}
+A.~Rahman and V.~Ng.
+\newblock Resolving complex cases of definite pronouns: The winograd schema
+  challenge.
+\newblock In {\em Proceedings of the 2012 Joint Conference on Empirical Methods
+  in Natural Language Processing and Computational Natural Language Learning,
+  EMNLP-CoNLL 2012, July 12-14, 2012, Jeju Island, Korea}, pages 777--789,
+  2012.
+
+\bibitem{DBLP:conf/emnlp/RahmanN12}
 A.~Rahman and V.~Ng.
 \newblock Resolving complex cases of definite pronouns: The winograd schema
   challenge.
