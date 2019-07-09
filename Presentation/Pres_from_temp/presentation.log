@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  20 JUN 2019 23:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  9 JUL 2019 16:02
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -1206,7 +1206,7 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 53.
 
 {C:/Users/z003yzhj/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./icclsl
 ides/logo_tud.png> <./icclslides/logo_iccl.pdf> <./icclslides/logo_iccl_cube.pd
-f>] (venn_empty.tex)
+f>] (venn_empty.tex Excluding 'comment' comment.)
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 73.
 
@@ -1224,7 +1224,7 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 73.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [2
 
-] (venn_empty.tex)
+] (venn_empty.tex Excluding 'comment' comment.)
 Overfull \hbox (5.69046pt too wide) in paragraph at lines 73--73
 []| [][][]  
  []
@@ -1422,117 +1422,162 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 151.
 ]
 \openout4 = `presentation.vrb'.
 
- (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 180--180
+ (presentation.vrb ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omsphv.fd")
+Overfull \hbox (16.96857pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+
+Overfull \hbox (19.77545pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+)
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 193--193
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 180.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 193.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 180.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 193.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [10
 
-] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 180--180
+] (presentation.vrb
+Overfull \hbox (16.96857pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+
+Overfull \hbox (19.77545pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+)
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 193--193
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 180.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 193.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 180.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 193.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [11
 
-] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 180--180
+] (presentation.vrb
+Overfull \hbox (16.96857pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+
+Overfull \hbox (19.77545pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+)
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 193--193
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 180.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 193.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 180.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 193.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [12
 
-] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 180--180
+] (presentation.vrb
+Overfull \hbox (16.96857pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+
+Overfull \hbox (19.77545pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+)
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 193--193
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 180.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 193.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 180.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 193.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [13
 
-] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 180--180
+] (presentation.vrb
+Overfull \hbox (16.96857pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+
+Overfull \hbox (19.77545pt too wide) in paragraph at lines 25--25
+|[][]
+ []
+
+)
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 193--193
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 180.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 193.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 180.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 193.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [14
 
 ]
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 201--201
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 215--215
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 201.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 215.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 201.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 215.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [15
 
 ]
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 201--201
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 215--215
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 201.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 215.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 201.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 215.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [16
 
-] (graph_weak.tex) (graph_quest.tex)
-Overfull \hbox (29.89282pt too wide) in paragraph at lines 225--225
-[] 
- []
-
-(kn_type.tex
+] (graph_weak.tex) (graph_quest.tex) (kn_type.tex
 Missing character: There is no t in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -1542,26 +1587,21 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no t in font nullfont!
 )
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 225--225
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 239--239
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 225.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 239.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 225.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 239.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [17
 
-] (graph_weak.tex) (graph_quest.tex)
-Overfull \hbox (29.89282pt too wide) in paragraph at lines 225--225
-[] 
- []
-
-(kn_type.tex
+] (graph_weak.tex) (graph_quest.tex) (kn_type.tex
 Missing character: There is no t in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -1571,26 +1611,21 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no t in font nullfont!
 )
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 225--225
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 239--239
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 225.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 239.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 225.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 239.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [18
 
-] (graph_weak.tex) (graph_quest.tex)
-Overfull \hbox (29.89282pt too wide) in paragraph at lines 225--225
-[] 
- []
-
-(kn_type.tex
+] (graph_weak.tex) (graph_quest.tex) (kn_type.tex
 Missing character: There is no t in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -1600,17 +1635,17 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no t in font nullfont!
 )
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 225--225
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 239--239
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 225.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 239.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 225.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 239.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [19
 
@@ -1618,54 +1653,36 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 225.
 \openout4 = `presentation.vrb'.
 
  (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 246--246
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 262--262
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 246.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 262.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 246.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 262.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [20
 
 ] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 246--246
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 262--262
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 246.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 262.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 246.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 262.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [21
 
 ]
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 270--270
-[]| [][][]  
- []
-
-File: icclslides/logo_tud.png Graphic file (type png)
-<use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 270.
-(pdftex.def)             Requested size: 47.34717pt x 13.895pt.
-File: icclslides/logo_iccl.pdf Graphic file (type pdf)
-<use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 270.
-(pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
-[22
-
-]
-\openout4 = `presentation.vrb'.
-
- (presentation.vrb (categories.tex))
 Overfull \hbox (5.69046pt too wide) in paragraph at lines 286--286
 []| [][][]  
  []
@@ -1677,6 +1694,24 @@ Package pdftex.def Info: icclslides/logo_tud.png  used on input line 286.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
 Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 286.
+(pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
+[22
+
+]
+\openout4 = `presentation.vrb'.
+
+ (presentation.vrb (categories.tex))
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 302--302
+[]| [][][]  
+ []
+
+File: icclslides/logo_tud.png Graphic file (type png)
+<use icclslides/logo_tud.png>
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 302.
+(pdftex.def)             Requested size: 47.34717pt x 13.895pt.
+File: icclslides/logo_iccl.pdf Graphic file (type pdf)
+<use icclslides/logo_iccl.pdf>
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 302.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [23
 
@@ -1697,17 +1732,17 @@ Overfull \hbox (6.97694pt too wide) in paragraph at lines 8--10
  []
 
 )
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 300--300
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 316--316
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 300.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 316.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 300.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 316.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [24
 
@@ -1722,17 +1757,17 @@ Overfull \hbox (6.97694pt too wide) in paragraph at lines 8--10
  []
 
 )
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 300--300
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 316--316
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 300.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 316.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 300.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 316.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [25
 
@@ -1740,32 +1775,32 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 300.
 \openout4 = `presentation.vrb'.
 
  (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 323--323
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 339--339
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 323.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 339.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 323.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 339.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [26
 
 ] (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 323--323
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 339--339
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 323.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 339.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 323.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 339.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [27
 
@@ -1773,17 +1808,17 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 323.
 \openout4 = `presentation.vrb'.
 
  (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 335--335
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 351--351
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 335.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 351.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 335.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 351.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [28
 
@@ -1791,28 +1826,28 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 335.
 \openout4 = `presentation.vrb'.
 
  (presentation.vrb)
-Overfull \hbox (5.69046pt too wide) in paragraph at lines 344--344
+Overfull \hbox (5.69046pt too wide) in paragraph at lines 360--360
 []| [][][]  
  []
 
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 344.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 360.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 344.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 360.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
 [29
 
 ]
 File: icclslides/logo_tud.png Graphic file (type png)
 <use icclslides/logo_tud.png>
-Package pdftex.def Info: icclslides/logo_tud.png  used on input line 353.
+Package pdftex.def Info: icclslides/logo_tud.png  used on input line 369.
 (pdftex.def)             Requested size: 47.34717pt x 13.895pt.
 File: icclslides/logo_iccl.pdf Graphic file (type pdf)
 <use icclslides/logo_iccl.pdf>
-Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 353.
+Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 369.
 (pdftex.def)             Requested size: 101.97424pt x 15.53616pt.
  [30
 
@@ -1826,11 +1861,11 @@ Package pdftex.def Info: icclslides/logo_iccl.pdf  used on input line 353.
 \tf@snm=\write10
 \openout10 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 372.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 372.
  (presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 372.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 372.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 60F02D841B58516DA56982D5BDF5CB7C;279.
 
@@ -1839,22 +1874,25 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 24857 strings out of 492895
- 472163 string characters out of 3133471
+ 24899 strings out of 492895
+ 472798 string characters out of 3133471
  779064 words of memory out of 3000000
- 28033 multiletter control sequences out of 15000+200000
- 32731 words of font info for 67 fonts, out of 3000000 for 9000
+ 28064 multiletter control sequences out of 15000+200000
+ 41678 words of font info for 82 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,24n,78p,804b,1797s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,24n,78p,804b,1723s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helv
-etic/uhvr8a.pfb>
-Output written on presentation.pdf (30 pages, 835552 bytes).
+X 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
+tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvbo8a.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on presentation.pdf (30 pages, 861673 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
+ 263 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)
- 110 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

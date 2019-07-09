@@ -37,5 +37,5 @@
 \contentsline {paragraph}{\nonumberline Conclusion}{35}{section*.31}% 
 \contentsline {paragraph}{\nonumberline Future Work}{35}{section*.32}% 
 \contentsline {chapter}{\nonumberline References}{37}{chapter*.33}% 
-\contentsline {chapter}{\numberline {A}Reasoning Algorithm}{42}{appendix.A}% 
-\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{48}{appendix.B}% 
+\contentsline {chapter}{\numberline {A}Reasoning Algorithm}{41}{appendix.A}% 
+\contentsline {chapter}{\numberline {B}Collection of Winograd Schemas and Annotation Results}{47}{appendix.B}% 

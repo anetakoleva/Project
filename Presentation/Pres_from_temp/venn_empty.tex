@@ -1,6 +1,9 @@
 %\documentclass{article}
 %\usepackage{tikz}
 %\begin{document}
+\begin{comment}
+	content...
+
 	\begin{tikzpicture}
 	\definecolor{Psy}{HTML}{4C4B6B}
 	 \begin{scope}%[blend group=soft light]
@@ -29,4 +32,21 @@
 		 \node at (193:0.5) {WSC};
 	\end{scope}	 
 	\end{tikzpicture}
-%\end{document}
+%
+\end{comment}
+
+\begin{figure}[width]
+	\begin{tikzpicture}[scale = 0.7]
+	\begin{scope}[blend group = soft light]
+	\fill[red!30!white]   ( 90:1.2) circle (2);
+	\fill[green!30!white] (210:1.2) circle (2);
+	\fill[blue!30!white]  (330:1.2) circle (2);
+	\end{scope}
+	\node at ( 90:2)    {NLP};
+	\node at ( 210:2.2)   {Reasoning};
+	\node at ( 330:2.2)   {{Knowledge}};
+	\node [font=\Large] {WSC};
+	\end{tikzpicture}
+\end{figure}
+
+%\end{document}%

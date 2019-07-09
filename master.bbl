@@ -84,18 +84,18 @@ Vladimir Lifschitz.
   Artificial Intelligence, {AAAI} 2008, Chicago, Illinois, USA, July 13-17,
   2008}, pages 1594--1597, 2008.
 
-\bibitem[LJL{\etalchar{+}}16a]{DBLP:journals/corr/Liu0LWH16}
+\bibitem[LJL{\etalchar{+}}16]{DBLP:journals/corr/Liu0LWH16}
 Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Si~Wei, and Yu~Hu.
 \newblock Probabilistic reasoning via deep learning: Neural association models.
 \newblock {\em CoRR}, abs/1603.07704, 2016.
 
-\bibitem[LJL{\etalchar{+}}16b]{DBLP:journals/corr/LiuJLZWH16}
-Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Xiaodan Zhu, Si~Wei, and Yu~Hu.
+\bibitem[LJL{\etalchar{+}}17a]{DBLP:journals/corr/LiuJLZWH16}
+Quan Liu, Hui Jiang, Zhen-Hua Ling, Xiaodan Zhu, Si~Wei, and Yu~Hu.
 \newblock Combing context and commonsense knowledge through neural networks for
   solving winograd schema problems.
-\newblock {\em CoRR}, abs/1611.04146, 2016.
+\newblock 2017.
 
-\bibitem[LJL{\etalchar{+}}17]{DBLP:conf/aaaiss/LiuJLZWH17}
+\bibitem[LJL{\etalchar{+}}17b]{DBLP:conf/aaaiss/LiuJLZWH17}
 Quan Liu, Hui Jiang, Zhen{-}Hua Ling, Xiaodan Zhu, Si~Wei, and Yu~Hu.
 \newblock Combing context and commonsense knowledge through neural networks for
   solving winograd schema problems.
@@ -148,12 +148,6 @@ John McCarthy, Marvin Minsky, Aaron Sloman, Leiguang Gong, Tessa~A. Lau, Leora
   Morgenstern, Erik~T. Mueller, Doug Riecken, Moninder Singh, and Push Singh.
 \newblock An architecture of diversity for commonsense reasoning.
 \newblock {\em {IBM} Systems Journal}, 41(3), 2002.
-
-\bibitem[Mor01]{DBLP:journals/sLogica/Morgenstern01}
-Leora Morgenstern.
-\newblock Mid-sized axiomatizations of commonsense problems: {A} case study in
-  egg cracking.
-\newblock {\em Studia Logica}, 67(3):333--384, 2001.
 
 \bibitem[MPC18]{DBLP:conf/aaai/MaPC18}
 Yukun Ma, Haiyun Peng, and Erik Cambria.

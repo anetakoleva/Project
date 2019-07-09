@@ -153,7 +153,7 @@
 
 \section{Alerts}
 \begin{frame}[fragile] 
-\frametitle{A Simple Method for Commonsense Reasoning\\ (Trinh and Le, 2018)}
+\frametitle{A Simple Method for Commonsense Reasoning~(Trinh and Le, 2018)}
 	\begin{itemize}
 	\normalsize
 	\onslide<1->		\item \alert{Language models} trained on unlabeled data
@@ -162,14 +162,27 @@
 		\item Recurrent Neural Networks
 		\item Trained on large datasets and on a dataset \alert{customized} for WSC
 	\end{itemize}
-	\onslide<3->		\item Substitution ambiguous pronoun
+	\onslide<3->		\item Substitution of the ambiguous pronoun
 	\onslide<3->		\begin{itemize}
 		\normalsize
-		\item The trophy doesn't fit in the suitcase because\\ the \alert{trophy} is too big
-		\item The trophy doesn't fit in the suitcase because\\ the \alert{suitcase} is too big
+		\item The trophy doesn't fit in the suitcase because~the~\alert{trophy}~is~too~big
+		\item The trophy doesn't fit in the suitcase because~the~\alert{suitcase}~is~too~big
 	\end{itemize}
-	\onslide<4->		\item Language models assign probabilities to both sentences
+	\onslide<4->		\item Language models assign scores to both sentences\\
+\end{itemize}
+	\onslide<4->	
 	
+	\begin{flushright}
+		\small {
+		\begin{tabularx}{\textwidth}{X}
+			\makecell[l]{\textit{Score\textsubscript{full}(``the trophy")}$=P$(The trophy doesn't fit into the brown suitcase because \textbf{the trophy} is too small)}\\ 
+			\makecell[l]{\textit{Score\textsubscript{partial}(``the trophy")}$=P$(is too big \textbar The trophy doesn't fit into the brown suitcase because \textbf{the trophy})}\\ 
+		\end{tabularx}
+	}
+	\end{flushright}
+	
+	
+	\begin{itemize}
 	\onslide<5->	\item Evaluation and results
 	\begin{itemize}
 		\normalsize
@@ -185,6 +198,7 @@
 \onslide<1->	\begin{itemize}
 	\normalsize
 	\item Identified 12 \alert{knowledge types} which cover the entire WSC dataset
+	\item Categorization based on the \alert{structure} of the Winograd sentence.
 	\item Developed a \alert{logical reasoning algorithm} 
 	\item Evaluated on 100 problems from WSC and achieved \alert{100\%} accuracy
 	\onslide<2->		\item Solver
@@ -210,12 +224,12 @@
 	\begin{column}{0.45\textwidth}
 \onslide<2->	\item ``Who was weak?"
 \onslide<2->	\input{graph_quest.tex} 
-	
 	\end{column}
-	\begin{column}{0.30\textwidth}
+
+	\begin{column}{0.45\textwidth}
 \onslide<3->	\item ``weak y \textbf{prevents} y lifts"
 \onslide<3->	\input{kn_type.tex} 
-	\end{column}
+	\end{column}	
 \end{columns}
 %\item Knowledge: 
 
@@ -240,8 +254,10 @@
 			\item Analyze the input Winograd Schema \\and identify the domain
 			\item Search for knowledge \alert{specific} to this domain
 			\item Apply reasoning procedure 
+		
 		\end{enumerate}
 	\end{itemize}
+	\item  Categorization based on the \alert{content} of the Winograd sentence
 \end{itemize}   
 \end{frame}
 
@@ -250,7 +266,7 @@
 \resizebox{\textwidth}{!}{
 	
 	\begin{tabular}{  l | l  }
-		\hline
+		
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so \textbf{[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
 		
@@ -264,7 +280,7 @@
 		
 		6. Multiple knowledge &\textbf{S:}  
 		
-		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\ \hline
+		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\
 	\end{tabular}
 }
 \end{frame}
