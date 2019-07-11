@@ -1,0 +1,67 @@
+%\documentclass{standalone}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows, shapes, trees, positioning}
+
+%\begin{document}
+	
+\tikzset{
+	treenode/.style = {shape=rectangle, rounded corners,
+		draw, align=center,
+		top color=white, bottom color=blue!20},
+	root/.style     = {treenode, font=\ttfamily\normalsize,bottom color=red!30},
+	env/.style      = {treenode, font=\ttfamily\normalsize},
+	dummy/.style    = {circle,draw},
+	level 1/.style={sibling distance=2cm, level distance =8em},
+	level 2/.style={sibling distance=6cm,level distance = 5em}, 
+	level 3/.style={sibling distance=2cm},
+	blueRed/.style={env, top color=blue, bottom color=red} 
+}
+	
+\begin{tikzpicture}
+	[
+	grow                    = down,
+	%sibling distance        = 50em,
+	level distance          = 5em,
+	edge from parent/.style = {draw, -latex},
+	every node/.style       = {font=\footnotesize},
+	sloped
+	]
+		
+	% Theraspist 1
+\node [root] (root) {{weak-12}}
+child {node [env] {weak}
+		edge from parent node [above] {inst\_of}}
+child {node [env]  {{so-11}}
+	child {node [env] (so) {{so}}		
+		edge from parent node [above] {inst\_of} }
+	edge from parent node [above] {modifier} }
+;
+
+	% Theraspist 2
+	\node[root]   (lift)   [right=45mm of root] {{lifts-5}}
+	
+	child {node [env, red] (son) {{son-7}}
+		child {node [env] [right=35mm of so] {{his-6}}
+			child {node [env] (person) {{person}}
+				edge from parent node [below] {inst\_of}}
+		edge from parent node [above] {relate\_to}}	
+		edge from parent node [above] {recipient}}
+	child {node [env, red] (man) [right=10mm of so]{{man-2}}
+		edge from parent node [above] {\textbf{agent}} }	
+	child { node [env, red] (he) [right=25mm of son] {{he-9}}
+		edge from parent node [above] {\textbf{agent}}}
+	child {node[env] (S4) [right=10mm of son]  {{lift}}
+		edge from parent node[above, midway] {inst\_of}};
+	
+	\draw[-> ] (root) -- node[above] {prevents} (lift);
+	\draw[-> ] (son) -- node[above] {inst\_of} (person);
+	\draw[-> ] (man) -- node[above] {inst\_of} (person);
+	\draw[-> ] (son) -- node[above] {inst\_of} (person);
+	\draw[-> ] (he) -- node[below] {inst\_of} (person);
+	
+	\draw[-> ] (root) -- node[above] {is\_trait\_of} (man);
+	\draw[-> ] (root) -- node[above] {is\_trait\_of} (he);	
+	
+\end{tikzpicture}
+
+%\end{document}

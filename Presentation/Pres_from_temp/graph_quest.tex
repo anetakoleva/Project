@@ -4,10 +4,10 @@
 	treenode/.style = {shape=rectangle, rounded corners,
 		draw, align=center,
 		top color=white, bottom color=blue!20},
-	root/.style     = {treenode, font=\footnotesize, bottom color=red!30},
-	env/.style      = {treenode, font=\footnotesize},
+	root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
+	env/.style      = {treenode, font=\ttfamily\normalsize},
 	dummy/.style    = {circle,draw},
-	level 1/.style={sibling distance=4.5cm, level distance = 3em},
+	level 1/.style={sibling distance=3cm, level distance = 3em},
 	level 2/.style={sibling distance=1.7cm,level distance = 5em}, 
 	level 3/.style={sibling distance=2cm},
 	blueRed/.style={env, top color=blue, bottom color=red} 
@@ -24,12 +24,12 @@ sloped
 ]
 \node [root] {weak-3}
 child { node [env, blue] {q\_1}
-	child {node [env, gray] {entity}
+	child {node [env] {person}
 		edge from parent node [above] {inst\_of}}
-	child {node [env, gray] {q}
+	child {node [env] {q}
 		edge from parent node [above] {inst\_of}} 	
 	edge from parent node [above] {trait\_of}}
-child {node [env, gray] {weak}
+child {node [env] {weak}
 		edge from parent node[above] {inst\_of}};
 
 

@@ -18,6 +18,28 @@
 \usepackage{tabularx}
 \usepackage{makecell}
 \usepackage{comment}
+\newcolumntype{C}{>{${}}c<{{}$}}
+\newcolumntype{d}[1]{D{,}{,}{#1}}
+\usepackage{listings}
+
+\lstdefinestyle{SC}{
+	language=erlang,
+	xleftmargin=.2\textwidth,
+	xrightmargin=.2\textwidth
+}
+\lstset{ 
+	basicstyle=\scriptsize,
+	showstringspaces=false,
+	showspaces=false,
+	commentstyle=\color{blue},
+	keywordstyle=\bfseries\color{purple},
+	captionpos=b,
+	frame=lines
+}
+
+%\usepackage{natbib}
+
+
 \usetikzlibrary{positioning}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \tikzstyle{ele} = [circle, text centered, minimum width=1em, minimum height=3ex]
@@ -89,19 +111,34 @@
 \begin{frame}
 \frametitle{Winograd Schema Challenge}
 \onslide<1->	\begin{itemize}
-	\small
+	\small{
 	\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
 	\item[Q:] What is too [small/large]?
-	\item[A:] The suitcase/the trophy.
+	\item[A:] The suitcase/the trophy. }
 \end{itemize} 
 \onslide<2->\begin{itemize}
 	\item Winograd Schema: 
-	\begin{itemize}
-		\normalsize
-		\item Sentence containing two nouns, \\one ambiguous \alert{pronoun} and a special word
-		\item Question asking about the referent of the pronoun
-		\item Two possible answers corresponding to\\ the noun phrases in the sentence
-	\end{itemize}
+	\begin{center}
+	\begin{tabular}{ l | c }
+		Sentence containing two nouns &  \alert{trophy}, \alert{suitcase} \\
+		\hline 
+		One ambiguous pronoun & \alert{it} \\  
+		\hline
+		A special word & \alert{small}/\alert{ large}\\
+		\hline
+		Question about the referent of the pronoun & What is too [\alert{small}/\alert{large}]\\
+		\hline
+		Two possible answers & \alert{The suitcase} /\alert{the trophy}\\
+	\end{tabular}
+	\end{center}
+
+
+%	\begin{itemize}
+%		\normalsize
+%		\item Sentence containing two nouns, \\one ambiguous \alert{pronoun} and a special word
+%		\item Question asking about the referent of the pronoun
+%		\item Two possible answers corresponding to\\ the noun phrases in the sentence
+%	\end{itemize}
 	\onslide<3->	 \item Characteristics:
 	\onslide<3->	  \begin{itemize}
 		\normalsize
@@ -150,10 +187,8 @@
 
 \end{frame}
 
-
-\section{Alerts}
 \begin{frame}[fragile] 
-\frametitle{A Simple Method for Commonsense Reasoning\\ (Trinh and Le, 2018)}
+\frametitle{A Simple Method for Commonsense Reasoning~(Trinh and Le, 2018)}
 	\begin{itemize}
 	\normalsize
 	\onslide<1->		\item \alert{Language models} trained on unlabeled data
@@ -162,14 +197,27 @@
 		\item Recurrent Neural Networks
 		\item Trained on large datasets and on a dataset \alert{customized} for WSC
 	\end{itemize}
-	\onslide<3->		\item Substitution ambiguous pronoun
+	\onslide<3->		\item Substitution of the ambiguous pronoun
 	\onslide<3->		\begin{itemize}
 		\normalsize
-		\item The trophy doesn't fit in the suitcase because\\ the \alert{trophy} is too big
-		\item The trophy doesn't fit in the suitcase because\\ the \alert{suitcase} is too big
+		\item The trophy doesn't fit in the suitcase because~the~\alert{trophy}~is~too~big
+		\item The trophy doesn't fit in the suitcase because~the~\alert{suitcase}~is~too~big
 	\end{itemize}
-	\onslide<4->		\item Language models assign probabilities to both sentences
+	\onslide<4->		\item Language models assign scores to both sentences\\
+\end{itemize}
+	\onslide<4->	
 	
+	\begin{flushright}
+		\small {
+		\begin{tabularx}{\textwidth}{X}
+			\makecell[l]{\textit{Score\textsubscript{full}(``the trophy")}$=P$(The trophy doesn't fit into the brown suitcase because \textbf{the trophy} is too small)}\\ 
+			\makecell[l]{\textit{Score\textsubscript{partial}(``the trophy")}$=P$(is too big \textbar The trophy doesn't fit into the brown suitcase because \textbf{the trophy})}\\ 
+		\end{tabularx}
+	}
+	\end{flushright}
+	
+	
+	\begin{itemize}
 	\onslide<5->	\item Evaluation and results
 	\begin{itemize}
 		\normalsize
@@ -179,18 +227,21 @@
 \end{itemize}
 \end{frame}
 
+\section{Knowledge Types} 
+
 \begin{frame}
 \frametitle{Knowledge Types Identification and Reasoning\\(Sharma and Baral, 2018)}	
 
 \onslide<1->	\begin{itemize}
 	\normalsize
 	\item Identified 12 \alert{knowledge types} which cover the entire WSC dataset
+	\item Categorization based on the \alert{structure} of the Winograd sentence
 	\item Developed a \alert{logical reasoning algorithm} 
 	\item Evaluated on 100 problems from WSC and achieved \alert{100\%} accuracy
 	\onslide<2->		\item Solver
 	\onslide<2->		\begin{enumerate}
 		\normalsize
-		\item Semantic graph\footnote{kparser.org} of the input sentence and question
+		\item Semantic graph of the input sentence and question
 		\item Semantic graph representation of background knowledge
 		\item Graph merging
 		\item Project question graph on the merged graph
@@ -201,28 +252,64 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Semantic graph representation}
+	\frametitle{Semantic graph representation\footnote{kparser.org}}
 \onslide<1->\begin{itemize}
 \normalsize
 \item ``The man couldn't lift his son because he was so weak".
 \onslide<1->\input{graph_weak.tex}
 \begin{columns}
-	\begin{column}{0.45\textwidth}
+	\begin{column}{0.40\textwidth}
 \onslide<2->	\item ``Who was weak?"
 \onslide<2->	\input{graph_quest.tex} 
-	
 	\end{column}
+
 	\begin{column}{0.30\textwidth}
 \onslide<3->	\item ``weak y \textbf{prevents} y lifts"
 \onslide<3->	\input{kn_type.tex} 
-	\end{column}
+	\end{column}	
 \end{columns}
 %\item Knowledge: 
-
-
 \end{itemize}
-
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+\begin{columns}
+	\begin{column}{0.70\textwidth}
+	\input{merged.tex}
+	\end{column}	
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+
+\centering
+\input{merged_alert.tex}
+
+\begin{lstlisting}[language = Prolog, style=SC, numbers=right,
+numberstyle=\tiny]
+has_k(weak,is_trait_of,y). 		
+has_k(weak,prevents,lifts).	 	
+has_k(lifts,agent,y).		
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+
+\centering
+\input{merged_alert.tex}
+
+\begin{lstlisting}[language = Prolog, style=SC, numbers=right,
+numberstyle=\tiny]
+has_k(weak,is_trait_of,y). 		
+%has_k(weak,prevents,lifts).	 	
+has_k(lifts,agent,y).		
+\end{lstlisting}
+\end{frame}
+
+\section{Categorization} 
 
 \begin{frame}[fragile]
 \frametitle{Categorization of Winograd Schemas}
@@ -237,20 +324,22 @@
 		\onslide<2->			\item Idea
 		\onslide<2->		\begin{enumerate}
 			\normalsize 
-			\item Analyze the input Winograd Schema \\and identify the domain
+			\item Analyze the input Winograd Schema and identify \\the domain of the \alert{least necessary} knowledge
 			\item Search for knowledge \alert{specific} to this domain
 			\item Apply reasoning procedure 
+		
 		\end{enumerate}
 	\end{itemize}
+	\item  Categorization based on the \alert{content} of the Winograd sentence
 \end{itemize}   
 \end{frame}
 
 
 \begin{frame}{Identified Categories}
-\resizebox{\textwidth}{!}{
+\resizebox{11.8cm}{!}{
 	
 	\begin{tabular}{  l | l  }
-		\hline
+		
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so \textbf{[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
 		
@@ -262,9 +351,9 @@
 		
 		5. Causal &\textbf{S:} Pete envies Martin \textbf{[because/although]} he is very successful.\\&\textbf{Q:} Who is very successful? \\ \hline 
 		
-		6. Multiple knowledge &\textbf{S:}  
-		
-		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\ \hline
+		6. Multiple knowledge &\textbf{S:}  		
+		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\
+	    
 	\end{tabular}
 }
 \end{frame}
@@ -305,19 +394,17 @@
 \onslide<1->	\begin{itemize}
 	\item Knowledge required for both examples is about \alert{physical features} 
 	\item Similar reasoning rules for categorizing the traits
-	\begin{enumerate}
-		\normalsize
-		\item has\_k(small,is\_trait\_of,y) :- has\_k(fits,recipient,y),\\
-		\tab \tab \tab  \alert{not} has\_k(fits,modifier,could).\\
-		\item has\_k(weak, is\_trait\_of,y) :- has\_k(lift,agent,y), \\ 
-		\tab \tab \tab	\alert{not} has\_k(lift,modifier,could).
-	\end{enumerate}
+	
+\begin{lstlisting}[language = Prolog]
+has_k(small,is_trait_of,y) :- has_k(fit, recipient, y), 
+			     not has_k(fit,modifier,could).	
+has_k(weak,is_trait_of,y) :- has_k(lift, agent, y), 
+			     not has_k(lift,modifier,could).		
+\end{lstlisting}
+
 	\onslide<2->		\item Reasoning Algorithm
 	\onslide<2->		\item Change of background knowledge
-	\onslide<2->		\begin{itemize}
-		\normalsize
-		\item has\_k(weak,prevents,lift).
-	\end{itemize} 
+ 
 	
 \end{itemize}
 \end{frame}
@@ -351,6 +438,14 @@
 	\end{LARGE}
 	\vfill
 \end{frame}
+\begin{frame}{References}
+	
+	\bibliographystyle{apalike}
+	\tiny{
+		\bibliography{lit}
+	}
+\end{frame}
+
 \subsection{Pause}
 
 \end{document}

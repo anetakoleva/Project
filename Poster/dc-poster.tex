@@ -156,7 +156,7 @@ Supervisor: Emmanuelle-Anna Dietz \;}
 			\begin{tabular}{ l | c }
 				Sentence containing {\color{myorange}two nouns} &  {\color{myorange}trophy}, {\color{myorange}suitcase} \\
 				\hline 
-				{\color{myorange}One} ambiguous {\color{myorange}pronoun} & {\color{myorange}it} \\  
+				One ambiguous {\color{myorange}pronoun} & {\color{myorange}it} \\  
 				\hline
 				A {\color{myorange}special word} & {\color{myorange}small}/{\color{myorange} large}\\
 				\hline
@@ -189,7 +189,7 @@ Supervisor: Emmanuelle-Anna Dietz \;}
 	
 	
 \end{block}
-\vspace{-1cm}
+\vspace{-0.5cm}
 \begin{block}{Machine-Learning vs Knowledge-Based Approaches}
 	\begin{figure}[h!]
 		\centering
@@ -237,18 +237,18 @@ Supervisor: Emmanuelle-Anna Dietz \;}
 \column{.49\textwidth}
 
 \begin{block}{Knowledge Types Identification and Reasoning\\(Sharma and Baral, 2018)}
-\vspace{0.4cm}
+
 \begin{itemize}
 	\item Identified 12 {\color{myorange}knowledge types} which cover entire WSC dataset.
-	\item Categorization based on the structure of the Winograd sentence.
+	\item Categorization based on the {\color{myorange}structure} of the Winograd sentence.
 	\item 10 knowledge types based on interaction between entities~and~actions.  
 	\item Provided a {\color{myorange}logical reasoning algorithm} in ASP.
 	\item Evaluated on 100 problems from WSC and achieved {\color{myorange}100\%} accuracy.
 
-
+\vspace{0.3cm}
 \begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
 Extracted knowledge: ``small y prevents y fits". \\
-Knowledge type ``Property prevents Action".\\
+Knowledge type: ``Property prevents Action".\\
 \begin{lstlisting}[language = Prolog, style=SC, numbers=right,
 numberstyle=\tiny]
 %entity y has a trait small
@@ -350,11 +350,12 @@ has_k(fits,recipient,y).
 %		\end{tikzpicture}
 %	\end{figure}
 
-\begin{block}{Reasoning algorithm}
+\begin{block}{Reasoning Algorithm}
 
-
- Change of the formalization of the background knowledge \\such that it has effect in the reasoning procedure.
+ Change of the formalization of the background knowledge \\such that it contributes to the reasoning procedure. \\
+ 
 \begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
+ 
 \begin{lstlisting}[language = Prolog, style =SC, numbers=right,
 numberstyle=\tiny]
 %entity y is small if we know it could not fit another entity
@@ -363,14 +364,17 @@ has_k(small,is_trait_of,y) :- has_k(fit, recipient, y),
 %entity y should fit another entity 
 has_k(fit,recipient,y).
 \end{lstlisting}
+
 \end{beamercolorbox}
+
 \begin{itemize}
-	\item  Rule 1 {\color{myorange}has effect} in the reasoning procedure!
+	\item Rule 1 {\color{myorange}has effect} in the reasoning procedure!
+	\item Extend this relation to other problems within one domain (ex. Phyiscal).
 	\item In rule 5, switching \textbf{recipient} with \textbf{agent} leads to no answer!
 \end{itemize}
 
 \end{block}
-\vspace{-1cm}
+\vspace{-0.6cm}
 
 \begin{block}{Categorization of Winograd Schemas}
 \justify 
@@ -386,7 +390,7 @@ has_k(fit,recipient,y).
 	\begin{tabular}{  l | l  }
 		\hline
 		\textbf{Category}  & \textbf{Example} \\ \hline
-		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so {\color{myorange}[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
+		1. Physical &\textbf{S:} The man couldn't lift his son because he is so {\color{myorange}[weak/heavy]}.\\&\textbf{Q:} Who is so [weak/heavy]? \\\hline
 		
 		2. Emotional &\textbf{S:}  Frank felt {\color{myorange}[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
 		
