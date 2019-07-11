@@ -12,7 +12,7 @@ Main challenge for ML approaches: not enough reasoning, it's learning statistic,
 Good approach: knowledge hunting frameworks; maybe recognizing different subsets of sentences
 \end{comment}
 
-\subsection{Machine learning approaches}
+\subsection{Machine Learning Approaches}
 The authors of the WSC were skeptical about the usage of machine learning methods being sufficient to resolve the WSC. Their concern was that these methods do not employ any reasoning which they believe is essential for solving the WSC. 
 Nevertheless, there have been some implementations which rely on these methods and still achieve relatively good results. 
 
@@ -47,7 +47,7 @@ As a first step, a substitution as in \cite{W18-4105}, explained above, is done 
 	\begin{tabularx}{\textwidth}{X}
 		\hline
 		\textit{Score\textsubscript{full}(``the suitcase")}$=P$(The trophy doesn't fit into the brown suitcase because \textbf{the suitcase} is too small)\\ 
-		\textit{Score\textsubscript{partial}(``the suitcase")}$=P$(is too big \textbar The trophy doesn't fit into the brown suitcase because \textbf{the suitcase})\\ \hline
+		\textit{Score\textsubscript{partial}(``the suitcase")}$=P$(is too small \textbar The trophy doesn't fit into the brown suitcase because \textbf{the suitcase})\\ \hline
 		\textit{Score\textsubscript{full}(``the trophy") }$=P$(The trophy doesn't fit into the brown suitcase because \textbf{the trophy} is too small)\\ 
 		\textit{Score\textsubscript{partial}(``the trophy")}$=P$( is too small \textbar The trophy doesn't fit into the brown suitcase because \textbf{the trophy})\\
 		\hline
@@ -64,8 +64,8 @@ Recently, a similar method which relies on deep learning has been published by R
 Although this method is controversial because the implementation is not publicly available, the authors claim that their language model outperforms the current state-of-the-art approach in different NLP tasks (reading comprehension, summarization of text, translation). For solving the WSC, they used the GPT-2 model in the same setting as Trinh and Le \cite{DBLP:journals/corr/abs-1806-02847} and also achieved better results when applying the partial scoring. The reported accuracy of 70.70\% on the WSC corpus is the current state-of-art result. 
 
 
-\subsection{Knowledge based approaches}
-The authors of the WSC are from the Knowledge Representation and Reasoning area, so it is not surprising that they suggest the use of knowledge-based systems as a possible way of addressing the WSC. At the core of the knowledge based approaches lies the idea of formulating rules which can be used for resolving the missing pronoun. To be able to apply the rules during a reasoning process, structured background knowledge is required.
+\subsection{Knowledge Based Approaches}
+The authors of the WSC are from the Knowledge Representation and Reasoning area, so it is not surprising that they suggest the use of knowledge based systems as a possible way of addressing the WSC. At the core of the knowledge based approaches lies the idea of formulating rules which can be used for resolving the missing pronoun. To be able to apply the rules during a reasoning process, structured background knowledge is required.
 
 \paragraph{Graphs with Relevance theory}
 One of the earliest proposals that rely on this methodology was by Sch{\"u}ller \cite{DBLP:conf/kr/Schuller14} in which Relevance Theory (RT) \cite{Wilson2002-WILRT} is combined with Knowledge Graphs (KG). Inspired by Schank's model for Knowledge Representation \cite{SCHANK1972552}, Sch{\"u}ller proposed a framework for combining nodes of KG and reasoning on the resulting graph. 
@@ -78,7 +78,7 @@ In Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15} the authors recognized two d
 Although in \cite{DBLP:conf/ijcai/SharmaVAB15}, the focus is on a subset of sentences, the results from the evaluation are promising. This leaves open the possibility to identify more types of commonsense reasoning which would help in the extraction of the background knowledge and the reasoning process.
 
 \paragraph{Semantic relations categories}
-The work by Sharma and Baral \cite{2018CommonsenseKT} follows this direction. Although this approach is currently under review, we decided to consider it in more detail because it seems to be a promising knowledge based approach. In contrast to the two types of reasoning identified by Sharma et. al \cite{DBLP:conf/ijcai/SharmaVAB15}, Sharma and Baral \cite{2018CommonsenseKT} present twelve different knowledge types which capture the entire corpus of the WSC. We now present an overview of the steps in this approach and the results of the conducted evaluation. How the twelve knowledge types were identified and which are they will be discussed in the next chapter. Additional contribution of this work is the provided reasoning algorithm which will also be discussed in the next chapter. 
+The work by Sharma and Baral \cite{2018CommonsenseKT} follows this direction. Although this approach is currently under review, we decided to consider it in more detail because it seems to be a promising knowledge based approach. In contrast to the two types of reasoning identified by Sharma et al. \cite{DBLP:conf/ijcai/SharmaVAB15}, Sharma and Baral \cite{2018CommonsenseKT} present twelve different knowledge types which capture the entire corpus of the WSC. We now present an overview of the steps in this approach and the results of the conducted evaluation. How the twelve knowledge types were identified and which are they will be discussed in the next chapter. Additional contribution of this work is the provided reasoning algorithm which will also be discussed in the next chapter. 
  \\ Following are \labeltext{\textnormal{the steps}}{Steps} in this approach: 
 \begin{enumerate}
 	\item The given Winograd sentence and question are represented as semantic graphs.
@@ -100,11 +100,11 @@ A very recent approach, which achieves state-of-the-art results among the knowle
 	\begin{table}[h!]
 			\begin{center}
 	\begin{tabular} {l| c}
-	 Sentence &The man couldn’t lift his son because he was so weak. \\\hline
-	 candidate antecedents \textit{E\textsubscript{1}}, \textit{E\textsubscript{2}} & the man, his son\\\hline
-	 context predicate \textit{Pred\textsubscript{C}} & couldn’t lift \\\hline
-	 target pronoun \textit{P} & he \\\hline
-	 query predicate \textit{Pred\textsubscript{Q}} & was so weak
+	 \textbf{Sentence} &The man couldn’t lift his son because he was so weak. \\\hline
+	 \textbf{candidate antecedents} \textit{E\textsubscript{1}}, \textit{E\textsubscript{2}} & the man, his son\\\hline
+	 \textbf{context predicate} \textit{Pred\textsubscript{C}} & couldn’t lift \\\hline
+	 \textbf{target pronoun} \textit{P} & he \\\hline
+	 \textbf{query predicate} \textit{Pred\textsubscript{Q}} & was so weak
 	 	
 	\end{tabular}
 	\caption{{\label{TableEmami}}The result of the parsing step.}
@@ -119,10 +119,10 @@ A very recent approach, which achieves state-of-the-art results among the knowle
 	
 		\small
 		\begin{tabular}{l|c |c}
-			Query sets & \textit{Term\textsubscript{C}} & \textit{Term\textsubscript{Q}}\\\hline
-			Generated  & \textit{\{"couldn't lift", "man",  "lifting", "his", "son"\}} &  \textit{\{"weak", "was so weak", "is weak", "tiny"\}}\\\hline
+			\textbf{Query sets} & \textit{Term\textsubscript{C}} & \textit{Term\textsubscript{Q}}\\\hline
+			\textbf{Generated}  & \textit{\{"couldn't lift", "man",  "lifting", "his", "son"\}} &  \textit{\{"weak", "was so weak", "is weak", "tiny"\}}\\\hline
 		
-		 	Filtered& \textit{\{"couldn't lift", "man", "his"\}} & \textit{\{"weak", "was so weak"\}}
+		 	\textbf{Filtered}& \textit{\{"couldn't lift", "man", "his"\}} & \textit{\{"weak", "was so weak"\}}
 			
 		\end{tabular}
 		\caption{{\label{TableEmami2}}The generated query sets.}
@@ -136,8 +136,8 @@ A very recent approach, which achieves state-of-the-art results among the knowle
 	\begin{center}
 	
 		\begin{tabular}{l|c }
-			Evidence-agent & \textit{"She was so weak she couldn’t lift"}  \\\hline
-			Evidence-patient  & \textit{“It hurts to lift my leg and its kind of weak”}
+			\textbf{Evidence-agent} & \textit{"She was so weak she couldn’t lift"}  \\\hline
+			\textbf{Evidence-patient}  & \textit{“It hurts to lift my leg and its kind of weak”}
 		\end{tabular}
 		\caption{{\label{TableEmami3}}Example of retrieved \textit{evidence} sentences.}
 		
@@ -150,10 +150,10 @@ A very recent approach, which achieves state-of-the-art results among the knowle
 	\begin{center}
 				
 		\begin{tabular}{l | l}
-			Labeled sentences & Sum of strength \\\hline
+			\textbf{Labeled sentences} & \textbf{Sum of strength} \\\hline
 			\textit{Evidence-agent} & 97 \\\hline
 			\textit{Evidence-patient} & 70 \\\hline
-			Resolution & Agent
+			\textbf{Resolution} & Agent
 		\end{tabular}
 			\caption{{\label{TableEmami4}}Result of the labeling and scoring of the retrieved sentences.}
 	\end{center}

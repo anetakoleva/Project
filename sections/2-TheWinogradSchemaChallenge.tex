@@ -1,5 +1,5 @@
 \label{Background}
-In this chapter we introduce the background information about the WSC. In section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. 
+In this chapter we introduce the background information about the WSC. In Section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. 
 Additionally, we explain the dataset of Pronoun Disambiguation Problems (PDPs) and we discuss what makes the WSC so hard for solving. In the next section we review the different state-of-the-art approaches. We start by discussing the machine learning approaches, and we follow it up by describing the knowledge based approaches. Finally, we summarize the observations made from all the reviewed approaches.
 
  
@@ -12,7 +12,7 @@ The WSC was originally presented in 2012 \cite{DBLP:conf/kr/LevesqueDM12} and si
 A Winograd Schema (WS) consists of three main parts:
 
 \begin{enumerate}
-	\item A sentence that consists of:
+	\item A pair of twin sentences, each consisting of:
 	\begin{itemize}
 		\item Two noun phrases of the same semantic class and of the same gender.
 		\item One ambiguous pronoun that could refer to either of the antecedent noun phrases.
@@ -23,7 +23,7 @@ A Winograd Schema (WS) consists of three main parts:
 \end{enumerate}
 
 The WSC dataset currently consists of 150 such problems\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} \footnote{The number of WSC problems varies depending on the format in which they are available.\\In the .xml file there are 285 problems, whereas in the .html file there are 150 WSs} .
-A typical example of a WS is the following one:
+A typical example of a WS is the following~one:\\
 \labeltext{\textit{Example~2.1.1}}{Ex1}:
 \begin{itemize} 
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into \underline{the brown suitcase} because \underline{it} is too small.}
@@ -31,7 +31,7 @@ A typical example of a WS is the following one:
 	\item[\textbf{A:}] \textbf{\underline{The suitcase}/the trophy}
 \end{itemize}
 
-Here, the special word is the adjective at the end of the sentence which can be \textit{small} or \textit{big}. The ambiguous pronoun is \textit{it} and the two antecedents are \textit{trophy} and \textit{suitcase}. The adjective in the question depends on the chosen special word in the sentence. While it is obvious that answering the question in this example is easy for an adult English speaker, it still requires thinking to derive the correct answer. In order to identify the correct referent of \textit{it}, one needs to use world knowledge about the size of objects, more specifically that a small object can fit into a large one, but not the other way around. Hence, if a machine is able to resolve the pronoun correctly, we can conclude that background knowledge was involved. Answering the question in this example is known as a problem of pronoun disambiguation. However, the sentences in the WSs are distinct in that one special word, which when changed causes the other noun phrase to be the correct referent. For example, consider the twin sentence for the WS given in \ref{Ex1}.\\
+Here, the special word is the adjective \textit{small}. The ambiguous pronoun is \textit{it} and the two antecedents are \textit{trophy} and \textit{suitcase}. The adjective in the question depends on the chosen special word in the sentence. While it is obvious that answering the question in this example is easy for an adult English speaker, it still requires thinking to derive the correct answer. In order to identify the correct referent of \textit{it}, one needs to use world knowledge about the size of objects, more specifically that a small object can fit into a large one, but not the other way around. Answering the question in this example is known as a problem of pronoun disambiguation. However, the sentences in the WSs are distinct in that one special word, which when changed causes the other noun phrase to be the correct referent. For example, consider the twin sentence for the WS given in \ref{Ex1}.\\
 \labeltext{\textit{Example~2.1.2}}{Ex11}:
 \begin{itemize} 
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into the brown suitcase because \underline{it} is too large.}
@@ -55,22 +55,21 @@ To test the \textit{Google-proofness} of \ref{ex:Google}, we estimate the Pointw
 \begin{equation}
 \text{PMI}\left(x,y\right) = \log_2\frac{P\left(x,y\right)}{P\left(x\right)P\left(y\right)},
 \end{equation}
-where $P\left(x,y\right)=C\left(x,y\right)/N$ denotes the probability that $x$ and $y$ can co-occur; $C\left(x,y\right)$ is the number of times $x$ and $y$ co-occur in the corpus and $N$ is the total number of words in the corpus (\cite{google} estimates $N$ to be $10^{12}$ in 2012). Therefore,
+where $P\left(x,y\right)=C\left(x,y\right)/N$ denotes the probability that $x$ and $y$ can co-occur next to each other in a text in that order; $C\left(x,y\right)$ is the number of times $x$ and $y$ co-occur in the corpus and $N$ is the total number of words in the corpus (\cite{google} estimates $N$ to be $10^{12}$ in 2012). Therefore,
 \begin{equation}
 	\text{PMI}\left(x,y\right)=\log_2\frac{C\left(x,y\right)\times N}{C\left(x\right)C\left(y\right)}.
 \end{equation}
 \begin{itemize}
-	\item $\text{PMI}\left(\text{foolish},\text{books}\right)=\log_2\frac{50.900.000\times10^{12}}{84.300.000\times12.290.000.000}=5.618504299196904$.
-	\item $\text{PMI}\left(\text{foolish},\text{mistakes}\right)=\log_2\frac{14.300.000\times10^{12}}{84.300.000\times765.000.000}=7.792735147580765$.
-	\item $\text{PMI}\left(\text{worthless},\text{books}\right)=\log_2\frac{35.800.000\times10^{12}}{56.400.000\times12.290.000.000}=5.690635698930574$.
-	\item $\text{PMI}\left(\text{worthless},\text{mistakes}\right)=\log_2\frac{10.300.000\times10^{12}}{56.400.000\times765.000.000}=7.899201806527974$.
+	\item $\text{PMI}\left(\text{foolish},\text{books}\right)=\log_2\frac{49.100\times10^{12}}{73.200.000\times12.090.000.000}=-4.1718$.
+	\item $\text{PMI}\left(\text{foolish},\text{mistakes}\right)=\log_2\frac{111.000\times10^{12}}{73.200.000\times687.000.000 }=1.1423$.
+	\item $\text{PMI}\left(\text{worthless},\text{books}\right)=\log_2\frac{24.500\times10^{12}}{59.200.000\times12.090.000.000}=-4.8685$.
+	\item $\text{PMI}\left(\text{worthless},\text{mistakes}\right)=\log_2\frac{3030\times10^{12}}{59.200.000\times687.000.000}=-3.7465$.
 \end{itemize}
-The result of these calculations shows that in the first case, when the special word is \textit{foolish}, the frequency of co-occurring with \textit{mistakes}
-is higher then the frequency of \textit{foolish} co-occurring with \textit{books}. Hence, simple Google query like this would return enough information to correctly resolve the problem.
-However, in the case of the other half of this WS, when the special word is \textit{worthless}, the frequency of \textit{worthless} co-occurring with \textit{mistakes} is higher, which leads to the wrong answer. Instead, when the special word is \textit{worthless}, the correct answer is \textit{the books}. 
-Therefore, we can conclude that the second half of this WS (special word is \textit{worthless}) is indeed Google proof, whereas the first half (special word is \textit{foolish}) is not Google proof.
-
- Additional feature is that resolving a WS should be easy  for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
+The result of these calculations shows that in the first case, when the special word is \textit{foolish}, the co-occurrence strength of the word \textit{foolish} with the word \textit{mistakes}, measured by $\text{PMI}\left(\text{foolish},\text{mistakes}\right)$,
+is higher then the co-occurrence strength of \textit{foolish} and \textit{books}. Hence, simple Google query like this would return enough information to correctly resolve the problem.
+However, in the case of the other half of this WS, when the special word is \textit{worthless}, the co-occurrence strength of \textit{worthless} with \textit{mistakes} is higher than the co-occurrence strength of \textit{worthless} with \textit{books}, which leads to the wrong answer. Instead, when the special word is \textit{worthless}, the correct answer is \textit{the books}. 
+Therefore, we can conclude that the second half of this WS, where the special word is \textit{worthless}, is indeed Google proof, whereas the first half, where the special word is \textit{foolish}, is not Google proof.
+Another feature of the WSC is that resolving a WS should be easy for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
 For the execution and evaluation part of the WSC, two distinct datasets have been formulated and published by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}.
 The first dataset consists of PDPs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition. 
 The second dataset consists of WSs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} which have been constructed by the organizers of the competition.
@@ -102,7 +101,7 @@ Since the idea of the authors of the WSC was to construct this challenge as an a
 \end{comment}
 
 
-\subsection{Main challenges and limitations}
+\subsection{Main Challenges and Limitations}
 We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC. 
 
 Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. The coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst} achieved an accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
@@ -115,7 +114,7 @@ Regarding the limitations of the WSC, the first and probably most important limi
 A third limitation is the lack of a more detailed evaluation protocol. In the proposal for the WSC competition the evaluation is measuring the accuracy of predicting the correct answers from both the PDPs and WSs datasets. This accuracy is calculated with the following formula: \\
 \begin{center}
 \begin{math}
-	\text{Accuracy} = \frac{\text{WSs answered correctly}}{\text{total number of WSs}} * 100
+	\text{Accuracy} = \frac{\text{num of WSs answered correctly}}{\text{total number of WSs}} * 100
 \end{math}
 \end{center}
 However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that this evaluation does not measure whether commonsense reasoning was involved in the prediction of the correct answer. For this reason, they propose a different evaluation protocol which additionally includes measures of the accuracy on a switchable subset and a consistency score. The switchable subset contains WSs with switched antecedents such as in the following example. \\
@@ -128,7 +127,7 @@ However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that t
 When the antecedents are switched, the correct answer is also changed. If a system relies on the structure of the sentence and on the entity of the pronoun when predicting an answer, that would be reviled when evaluating on this switchable subset.
 The consistency score is the percentage of predicted correct answer after the antecedents have changed. 
 As presented in \cite{DBLP:journals/corr/abs-1811-01778}, the first step in this evaluation protocol is to compute the accuracy on the original WSC dataset. The next step is to compute the accuracy on the switchable subset both before and after switching the antecedents and then computing the consistency score. The last step is to compute the accuracy on the non-Google-proof dataset which consists of WSs as the one in \ref{ex:Google}. If a system relies on statistical information when predicting the answer, it will achieve high accuracy on this dataset. 
-Comparing the achieved results from this new evaluation protocol will give a better understanding on how the systems perform and opportunity to analyze in more details the achieved results. 
+Comparing the achieved results from this new evaluation protocol should provide a better understanding on how the systems perform and opportunity to analyze in more details the achieved results. 
 
 
 

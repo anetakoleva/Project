@@ -14,9 +14,9 @@ We use the KParser for extracting the graph representation of the input sentence
 \end{comment}
 
 
-\section{Commonsense domains}
+\section{Commonsense Domains}
 As discussed before, for correctly resolving the problems from the WSC corpus, a system needs to be able to mimic commonsense reasoning. To do this, additional background knowledge from different domains is required. In order to determine these domains of knowledge in the WSC corpus, we approached the problems inductively and we identified six categories. Two annotators thoroughly analyzed the entire WSC corpus (Appendix \ref{AppendixB}) and agreed on six different categories of knowledge. Five of these categories are associated with knowledge from a specific domain, whereas the sixth category requires knowledge from multiple domains.
-In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the least possible knowledge that is necessary in order to solve the problem. For each WSC problem, the relevant knowledge which is required for resolving  it can be from different domains, however we tried to identify the domain of the least knowledge necessary. To decide which WS belongs to which category, we rely on the context of the sentence and on the adjective or the special word. The identified categories excluding, the annotators used only category per problem. Additionally, the identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
+In a second process, all WSs were annotated with these previously identified categories. The results of the annotation are presented at the end of Appendix \ref{AppendixB}. The annotation was based on the least possible knowledge that is necessary in order to solve the problem. For each WSC problem, the relevant knowledge which is required for resolving  it can be from different domains, however we tried to identify the domain of the least knowledge necessary. To decide which WS belongs to which category, we rely on the context of the sentence and on the adjective or the special word. An annotator may place a problem in only one of the six possible categories. Additionally, the identified categories are specific to the WSC corpus and they are related to what was discovered during the analysis done by the annotators. We now explain the six categories in more detail. 
 
 \paragraph{Physical} To resolve the WSs from this category additional knowledge about some physical feature which is a trait of the ambiguous pronoun is needed.
  
@@ -50,7 +50,7 @@ The activity in the sentence from this WS depends on the physical trait of the p
 \begin{itemize}
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into \underline{the brown suitcase} because \underline{it} is too small.}
 \end{itemize}
-This physical trait is also the special word which can be \textit{small} or \textit{large}. Although there are other properties of the objects in the sentence, only the knowledge about the physical trait of the objects seems to be of crucial importance for correctly answering the question. 
+This physical trait is also the special word which can be \textit{small} or \textit{large}. Although there are other properties of the objects in the sentence, only the knowledge about the physical traits of the objects is of crucial importance for correctly answering the question. 
 For \ref{Ex1}, this knowledge should capture that a small object cannot fit into a large one, while a large one can fit small object.
 
 Similar to this subcategory are the \textit{height/width} and the \textit{weight} subcategories. The WSs in these subcategories have a special word which characterize the ambiguous pronoun with certain height, width or weight such as \textit{short/tall}, \textit{wide/narrow}. Since these are all similar traits, we assume that their characterizations can be formalized in a similar way.
@@ -73,10 +73,10 @@ Formalization of knowledge about change over time and chronology of events is ne
 \labeltext{\textit{Example 4.2}}{time}
 \begin{itemize} \label{Ex2}
 	\item[\textbf{S:}] \textbf{\underline{Thomson} visited \underline{Cooper}'s grave in 1765. At that date \underline{he} had been} \\ \textbf{[dead/travelling] for five years.}
-	\item[\textbf{Q:}] \textbf{ Who had been [dead/travelling] for five years? }
+	\item[\textbf{Q:}] \textbf{ Who had been [dead/traveling] for five years? }
 	\item[\textbf{A:}] \textbf{Cooper/Thomson}
 \end{itemize}
-In order to correctly answer the question from this WS as additional knowledge it is necessary to know what it means for a person to be dead/traveling for five years. For the first half of the WS, when the special word is \textit{dead}: If a person has been dead for five years, then that same person could not be visiting anyone's grave. For the second half of the WS,  when the special word is \textit{traveling} If a person has been traveling for five years, then normally this person would not have a grave. 
+In order to correctly answer the question from this WS as additional knowledge it is necessary to know what it means for a person to be dead/traveling for five years. For the first half of the WS, when the special word is \textit{dead}: If a person has been dead for five years, then that same person could not be visiting anyone's grave. For the second half of the WS,  when the special word is \textit{traveling}: If a person has been traveling for five years, then normally this person would not have a grave. 
 
 \paragraph{Evaluation}
 To evaluate the agreement of the annotation 
@@ -86,7 +86,8 @@ It is defined as follows:
 \begin{equation}
 	\kappa = (p_o-p_e)/(1-p_e)
 \end{equation}
-where $p_o$ is the observed accuracy among the annotators and $p_e$ is the expected accuracy when both annotators assign categories randomly. Each of the two annotators analyzed all the problems from the WSC corpus and annotated them with one of the identified six categories. For the calculation of the Cohen's kappa score, we used the sklearn metrics  package\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen\_kappa\_score} that includes an implementation of~Cohen's~kappa.
+where $p_o$ is the observed accuracy among the annotators and $p_e$ is the expected accuracy when both annotators assign categories randomly. Each of the two annotators analyzed all the problems from the WSC corpus and annotated them with one of the identified six categories. We calculated the observed accuracy $p_o = 0.726$ and the agreement due to chance $p_e = 0.195$. Substituting these values in (4.1) we calculated  the Cohen's kappa score: $\kappa = 0.66$.
+%NOTE: observed accuraccy: all the WS for which both agree (total 109)
 
 \paragraph{Results}
 The calculated Cohen's kappa score for the annotation of the WSs is 0.66. According to the description for relative strength of agreement from Landis and Koch \cite{articleM}, this score is interpreted as substantial agreement. In our case this means, that both annotators largely agree on the annotation of WSs with the provided six categories.
@@ -98,11 +99,11 @@ The calculated Cohen's kappa score for the annotation of the WSs is 0.66. Accord
 \end{table}
 
 Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains the largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While annotator 1 placed 44 WSs in this category, the annotator 2 placed 24 WSs.
-The other 20 WSs were distributed among all other five categories. Therefore, we can conclude that the identified categories are not exclusive, i.e. some of the WSs can belong to more than one category. 
+The other 20 WSs were distributed among all other five categories.  
 
 
 
-\section{Semantic representation and ASP encoding}
+\section{Semantic Representation and ASP Encoding}
 As the \textit{Physical} category was the one on which both annotators agreed on, we will further investigate two WSs that belong to this category. Namely, we observe the WSs from \ref{Ex1} and \ref{ex:Graph} (\#2 and \#8 in Appendix \ref{AppendixB}). 
 We use the KParser for translating the input sentence and question into a graph representation.
 The two semantic graphs\footnote{Slightly simplified such that only relevant information is represented.}, are shown in Figure \ref{Graph1} and Figure \ref{Graph2}. We can observe that the semantic representations of the sentences are indeed very similar. 
