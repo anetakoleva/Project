@@ -3,5 +3,6 @@
 \beamer@subsectionintoc {1}{1}{Winograd Schema Challenge}{4}{0}{1}
 \beamer@subsectionintoc {1}{2}{Competition}{7}{0}{1}
 \beamer@sectionintoc {2}{Previous Approaches}{8}{0}{2}
-\beamer@sectionintoc {3}{Alerts}{10}{0}{3}
-\beamer@subsubsectionintoc {3}{0}{1}{Conclusion}{28}{0}{3}
+\beamer@sectionintoc {3}{Knowledge Types}{15}{0}{3}
+\beamer@sectionintoc {4}{Categorization}{23}{0}{4}
+\beamer@subsubsectionintoc {4}{0}{1}{Conclusion}{31}{0}{4}

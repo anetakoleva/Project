@@ -1,4 +1,35 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: presentation.aux
-I found no \bibdata command---while reading file presentation.aux
-I found no \bibstyle command---while reading file presentation.aux
-(There were 2 error messages)
+The style file: plain.bst
+Illegal, another \bibstyle command---line 97 of file presentation.aux
+ : \bibstyle
+ :          {ieee}
+I'm skipping whatever remains of this command
+Database file #1: lit.bib
+I was expecting a `,' or a `}'---line 89 of file lit.bib
+ :   
+ :   ee = {http://www.aaai.org/ojs/index.php/aimagazine/article/view/2303},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 199 of file lit.bib
+ : year={2018}
+ :            "
+I'm skipping whatever remains of this entry
+Repeated entry---line 299 of file lit.bib
+ : @misc{radford2019language
+ :                          ,
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "DBLP:conf/emnlp/RahmanN12"
+refers to entry "DBLP:conf/emnlp/2012", which doesn't exist
+A bad cross reference---entry "Peter"
+refers to entry "DBLP:conf/kr/2014", which doesn't exist
+A bad cross reference---entry "DBLP:conf/ijcai/SharmaVAB15"
+refers to entry "DBLP:conf/ijcai/2015", which doesn't exist
+A bad cross reference---entry "DBLP:conf/emnlp/EmamiCTSC18"
+refers to entry "DBLP:conf/emnlp/2018", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/kr/2014"
+Warning--I didn't find a database entry for "DBLP:conf/emnlp/2012"
+Warning--I didn't find a database entry for "DBLP:conf/ijcai/2015"
+Warning--I didn't find a database entry for "DBLP:conf/emnlp/2018"
+Warning--empty journal in DBLP:journals/corr/LiuJLZWH16
+Warning--empty journal in DBLP:journals/corr/abs-1806-02847
+(There were 8 error messages)

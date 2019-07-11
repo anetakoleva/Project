@@ -8,10 +8,10 @@
 	treenode/.style = {shape=rectangle, rounded corners,
 		draw, align=center,
 		top color=white, bottom color=blue!20},
-	root/.style     = {treenode, font=\footnotesize, bottom color=red!30},
-	circle/.style      = {treenode, font=\footnotesize},
+	root/.style     = {treenode, font=\ttfamily\normalsize, bottom color=red!30},
+	circle/.style      = {treenode, font=\ttfamily\normalsize},
 	dummy/.style    = {circle,draw},
-	level 1/.style={sibling distance=4.5cm, level distance = 2.2em},
+	level 1/.style={sibling distance=3.5cm, level distance = 2.2em},
 	level 2/.style={sibling distance=1.7cm,level distance = 3em}, 
 	level 3/.style={sibling distance=2cm},
 	blueRed/.style={env, top color=blue, bottom color=red} 
@@ -25,7 +25,7 @@
 \node (l2) [circle,draw,below=10mm of r1] {weak};
 \node (l3) [circle, blue, draw,right=5mm of l2] {y-2};
 
-\node (l4) [circle,draw,below=7mm of l3] {entity};
+\node (l4) [circle,draw,below=7mm of l3] {person};
 
 
 
@@ -34,7 +34,7 @@
 
 \draw[->] (r1) -- node[above] {\tiny{prevents}}  (r2);
 \draw[->] (r1) -- node[below, sloped ] {\tiny{inst\_of}}  (l2);
-\draw[->] (r1) -- node[above, sloped ] {\tiny{is\_trait\_of}} (l3);
+\draw[->] (r1) -- node[above, sloped ] {\tiny{trait\_of}} (l3);
 \draw[->] (r2) -- node[above, sloped ] {\tiny{agent}} (l3);
 \draw[->] (l3) -- node[below, sloped ] {\tiny{inst\_of}} (l4);
 \draw[->] (r2) -- node[below, sloped ] {\tiny{inst\_of}}  (t5);
