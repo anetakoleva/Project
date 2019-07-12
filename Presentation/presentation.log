@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  17 JUN 2019 14:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  12 JUL 2019 10:23
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -1433,7 +1433,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  34317 strings out of 492895
- 687853 string characters out of 3133471
+ 687851 string characters out of 3133471
  748416 words of memory out of 3000000
  37569 multiletter control sequences out of 15000+200000
  542480 words of font info for 60 fonts, out of 3000000 for 9000
