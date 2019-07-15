@@ -38,7 +38,7 @@
 }
 
 %\usepackage{natbib}
-
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
 
 \usetikzlibrary{positioning}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
@@ -48,7 +48,7 @@
 \setbeamertemplate{navigation symbols}{}
 
 \renewcommand{\Myauthor}{Aneta Koleva}
-\renewcommand{\Mytitle}{On Commonsense Domains within  the Winograd Schema Challenge}
+\renewcommand{\Mytitle}{On Commonsense Domains within  \linebreak the Winograd Schema Challenge}
 \usepackage{showexpl} 
 
 \lstloadlanguages{[LaTeX]Tex} 
@@ -128,7 +128,7 @@
 		\hline
 		Question about the referent of the pronoun & What is too [\alert{small}/\alert{large}]\\
 		\hline
-		Two possible answers & \alert{The suitcase} /\alert{the trophy}\\
+		Two possible answers & \alert{the suitcase} /\alert{the trophy}\\
 	\end{tabular}
 	\end{center}
 
@@ -409,33 +409,38 @@ has_k(weak,is_trait_of,y) :- has_k(lift, agent, y),
 
 \subsubsection{Conclusion}
 
-\begin{frame}[fragile] \frametitle{Contributions}
-  \begin{itemize}
-	\normalsize
-	\item Overview of different approaches towards WSC
-	\item None achieves close to ~90\% accuracy 
-	\item We \alert{analyzed} the entire WSC corpus and identified 6 categories
-	\item We identified a mistake in the Reasoning Algorithm \\and proposed a correction    
+\begin{frame}[fragile] 
+\begin{itemize}
+\onslide<1->	\item {\bf \large \textcolor{OrangeRed1}{Contributions}}\\
+	  \begin{itemize}
+		\normalsize
+		\item Overview of different approaches towards WSC
+		\item None achieves close to ~90\% accuracy 
+		\item We \alert{analyzed} the entire WSC corpus and identified 6 categories
+		\item We identified a mistake in the Reasoning Algorithm \\and proposed a correction    
+	\end{itemize}
+ 
+\onslide<2->    \item {\bf \large \textcolor{OrangeRed1}{Future Work}}\\
+    \begin{itemize}
+    	\normalsize
+    	\item Formalization of the characteristics for each category
+    	\item Knowledge-enhanced neural networks \linebreak
+    \end{itemize}	
+
+\onslide<3->\item {\bf \large \textcolor{OrangeRed1}{Thank you!}}
 \end{itemize}
+
 \end{frame}
 
-\begin{frame}[fragile]
- \frametitle{Future Work}
- \begin{itemize}
- 	\normalsize
- 	\item Formalization of the characteristics for each category
- 	\item Knowledge-enhanced neural networks
-\end{itemize}	
-\end{frame}
+%\begin{frame}[fragile]
+% \frametitle{}
+% \begin{itemize}
+% 	\normalsize
+% 	\item Formalization of the characteristics for each category
+% 	\item Knowledge-enhanced neural networks
+%\end{itemize}	
+%\end{frame}
 
-
-\begin{frame}
-	\vfill
-	\begin{LARGE}
-		\hfill Thank you! \hfill 
-	\end{LARGE}
-	\vfill
-\end{frame}
 \begin{frame}{References}
 	
 	\bibliographystyle{apalike}
