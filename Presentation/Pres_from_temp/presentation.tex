@@ -50,6 +50,8 @@
 \renewcommand{\Myauthor}{Aneta Koleva}
 \renewcommand{\Mytitle}{On Commonsense Domains within  \linebreak the Winograd Schema Challenge}
 \usepackage{showexpl} 
+\usepackage{array}
+
 
 \lstloadlanguages{[LaTeX]Tex} 
 \lstset{% 
@@ -183,7 +185,7 @@
 	\item Knowledge-based system with reasoning procedures
 \end{itemize}
 
-\onslide<2->\input{approaches.tex}
+\input{approaches.tex}
 
 \end{frame}
 
@@ -292,6 +294,7 @@ has_k(weak,is_trait_of,y).
 has_k(weak,prevents,lifts).	 	
 has_k(lifts,agent,y).		
 \end{lstlisting}
+\hspace{2.2cm}\centering {\alert{ans(q-1,he-9), ans(q-1,man-2)}}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -305,7 +308,23 @@ has_k(weak,is_trait_of,y).
 %has_k(weak,prevents,lifts).	 	
 has_k(lifts,agent,y).		
 \end{lstlisting}
+\hspace{2.2cm}\centering {\alert{ans(q-1,he-9), ans(q-1,man-2)}}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+
+\centering
+\input{merged_alert_recip.tex}
+
+\begin{lstlisting}[language = Prolog, style=SC]
+has_k(weak,is_trait_of,y). 		
+%has_k(weak,prevents,lifts).	 	
+has_k(lifts,recipient,y).		
+\end{lstlisting}
+\hspace{2.2cm}\centering {\alert{ans(q-1,he-9), ans(q-1,son-7)}}
+\end{frame}
+
 
 \section{Categorization} 
 
@@ -336,7 +355,7 @@ has_k(lifts,agent,y).
 \begin{frame}{Identified Categories}
 \resizebox{11.8cm}{!}{
 	
-	\begin{tabular}{  l | l  }
+\hspace*{-0.6cm}	\begin{tabular}{  l | l  }
 		
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so \textbf{[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
