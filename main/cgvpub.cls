@@ -23,6 +23,7 @@
 %\usepackage{longtable}
 \usepackage{adjustbox}
 \usepackage{appendix}
+\usepackage{booktabs}
 % Schriftart setzen
 \RequirePackage{times}
 
@@ -527,7 +528,7 @@
 	\begin{center}
 		%Institution an der die Arbeit geschrieben wurde
 		\huge
-		\textsc{Dresden University of Technology}
+		\textsc{TU Dresden}
 		
 		\bigskip
 		\Large
@@ -541,7 +542,7 @@
 \begin{center}
 	%Institution an der die Arbeit geschrieben wurde
 	\huge
-	\textsc{Dresden University of Technology}
+	\textsc{TU Dresden}
 	
 	\bigskip
 	\Large
@@ -557,7 +558,7 @@
 \begin{center}
 %Institution an der die Arbeit geschrieben wurde
 \huge
-\textsc{Dresden University of Technology}
+\textsc{TU Dresden}
 
 \bigskip
 \Large
@@ -569,7 +570,7 @@
 \begin{center}
 %Institution an der die Arbeit geschrieben wurde
 \huge
-\textsc{Dresden University of Technology}
+\textsc{TU Dresden}
 
 \bigskip
 \Large

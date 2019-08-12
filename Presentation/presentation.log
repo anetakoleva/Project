@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.1)  12 AUG 2019 20:06
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.6.3)  12 JUL 2019 10:23
+>>>>>>> 31540906083d4f0723cfe156d3a2f72d6ad021d3
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1914,6 +1918,7 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 1EE7AE613326071522D67D0A58E312AE;332.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  25083 strings out of 494798
  469069 string characters out of 6176801
  648479 words of memory out of 5000000
@@ -1932,6 +1937,23 @@ urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
 /uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 Output written on presentation.pdf (34 pages, 859443 bytes).
+=======
+ 34317 strings out of 492895
+ 687851 string characters out of 3133471
+ 748416 words of memory out of 3000000
+ 37569 multiletter control sequences out of 15000+200000
+ 542480 words of font info for 60 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 71i,13n,97p,1830b,737s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb>
+Output written on presentation.pdf (32 pages, 271098 bytes).
+>>>>>>> 31540906083d4f0723cfe156d3a2f72d6ad021d3
 PDF statistics:
  363 PDF objects out of 1000 (max. 8388607)
  263 compressed objects within 3 object streams
