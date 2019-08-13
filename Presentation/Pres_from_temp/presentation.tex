@@ -86,13 +86,13 @@
 	\item Winograd Schema Challenge (Levesque et al., 2012)
 	\begin{itemize}
 		\normalsize
-		\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
-		\item[Q:] What is too [small/large]?
+		\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \only<1>{\alert{small}}\only<2,3>{\alert{large}}.%\alert{[small/large]}.
+		\item[Q:] What is too  \only<1>{small}\only<2,3>{large}?
 		\item[A:] The suitcase/the trophy.
 	\end{itemize}	
 	
 \end{itemize}
-\onslide<2->		\centering
+\onslide<3->		\centering
 \input{venn_empty.tex}
 \end{frame}
 
@@ -164,7 +164,7 @@
 		\begin{itemize}
 			\normalsize
 			\item Pronoun Disambiguation Problems (PDPs) - 60
-			\item Parts of Winograd Schemas - 150
+			\item Parts of Winograd Schemas - 60
 		\end{itemize}
 		\item Four competitors
 		\item Best result: 58\% correctly resolved PDPs
@@ -180,7 +180,7 @@
 
 \begin{frame}
 \frametitle{Previous Approaches}
-\onslide<1->\begin{itemize}
+\begin{itemize}
 	\item Machine learning and deep learning techniques
 	\item Knowledge-based system with reasoning procedures
 \end{itemize}
@@ -237,6 +237,10 @@
 \onslide<1->	\begin{itemize}
 	\normalsize
 	\item Identified 12 \alert{knowledge types} which cover the entire WSC dataset
+	\begin{itemize}
+		\normalsize
+		\item \textit{X causes/prevents/followed by Y}
+	\end{itemize}
 	\item Categorization based on the \alert{structure} of the Winograd sentence
 	\item Developed a \alert{logical reasoning algorithm} 
 	\item Evaluated on 100 problems from WSC and achieved \alert{100\%} accuracy
