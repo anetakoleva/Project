@@ -1,12 +1,12 @@
 \label{Background}
-In this chapter we introduce the background information about the WSC. In Section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}. 
+In this chapter we introduce the background information about the WSC. In Section 2.1 we introduce the structure of the WSC as proposed by Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12}.
 Additionally, we explain the dataset of Pronoun Disambiguation Problems (PDPs) and we discuss what makes the WSC so hard for solving. In the next section we review the different state-of-the-art approaches. We start by discussing the machine learning approaches, and we follow it up by describing the knowledge based approaches. Finally, we summarize the observations made from all the reviewed approaches.
 
- 
+
 \section{The Winograd Schema Challenge}
 \label{section:TheWinogradSchemaChallenge}
 
-The WSC was originally presented in 2012 \cite{DBLP:conf/kr/LevesqueDM12} and since then it has caught the  attention of many researchers from different areas. However, the first and so far only WSC competition was held in 2016 as part of IJCAI \cite{ijcai}. Before the competition, the rules for executing and evaluating the participants were presented by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}. The competition consisted of two rounds, one qualifying and one final, each with 60 questions. For the qualifying round, the questions were randomly chosen from the PDPs dataset and for the final round the questions were from the WSC dataset. In the qualifying round none of the participants achieved accuracy of at least 90\%, which was the requirement for advancing to the final round. 
+The WSC was originally presented in 2012 \cite{DBLP:conf/kr/LevesqueDM12} and since then it has caught the  attention of many researchers from different areas. However, the first and so far only WSC competition was held in 2016 as part of IJCAI \cite{ijcai}. Before the competition, the rules for executing and evaluating the participants were presented by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}. The competition consisted of two rounds, one qualifying and one final, each with 60 questions. For the qualifying round, the questions were randomly chosen from the PDPs dataset and for the final round the questions were from the WSC dataset. In the qualifying round none of the participants achieved accuracy of at least 90\%, which was the requirement for advancing to the final round.
 
 \subsection{Description}
 A Winograd Schema (WS) consists of three main parts:
@@ -24,7 +24,7 @@ A Winograd Schema (WS) consists of three main parts:
 
 The WSC dataset currently consists of 150 such problems\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} \footnote{The number of WSC problems varies depending on the format in which they are available.\\In the .xml file there are 285 problems, whereas in the .html file there are 150 WSs}. A typical example of a WS is the \\following~one:\\
 \labeltext{\textit{Example~2.1.1}}{Ex1}:
-\begin{itemize} 
+\begin{itemize}
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into \underline{the brown suitcase} because \underline{it} is too small.}
 	\item[\textbf{Q:}] \textbf{What is too small?}
 	\item[\textbf{A:}] \textbf{\underline{The suitcase}/the trophy}
@@ -32,21 +32,21 @@ The WSC dataset currently consists of 150 such problems\footnote{https://cs.nyu.
 
 Here, the special word is the adjective \textit{small}. The ambiguous pronoun is \textit{it} and the two antecedents are \textit{trophy} and \textit{suitcase}. The adjective in the question depends on the chosen special word in the sentence. While it is obvious that answering the question in this example is easy for an adult English speaker, it still requires thinking to derive the correct answer. In order to identify the correct referent of \textit{it}, one needs to use world knowledge about the size of objects, more specifically that a small object can fit into a large one, but not the other way around. Answering the question in this example is known as a problem of pronoun disambiguation. However, the sentences in the WSs are distinct in that one special word, which when changed causes the other noun phrase to be the correct referent. For example, consider the twin sentence for the WS given in \ref{Ex1}.\\
 \labeltext{\textit{Example~2.1.2}}{Ex11}:
-\begin{itemize} 
+\begin{itemize}
 	\item[\textbf{S:}] \textbf{\underline{The trophy} does not fit into the brown suitcase because \underline{it} is too large.}
 	\item[\textbf{Q:}] \textbf{What is too large?}
 \end{itemize}
 
-The possible answers are the same as given in \ref{Ex1}, but here the correct answer is \textit{the trophy}. Having the special word in the sentences prevents the solver to rely on sentence structure and word order for finding the answer to the question. 
-Moreover, Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12} explain another feature of the WS sentences, which they call \textit{Google proof}: The idea is to prevent finding the answer by using statistical learning on large corpora of text or by just typing the question and the answers into a search engine, such as Google. 
+The possible answers are the same as given in \ref{Ex1}, but here the correct answer is \textit{the trophy}. Having the special word in the sentences prevents the solver to rely on sentence structure and word order for finding the answer to the question.
+Moreover, Levesque et al. \cite{DBLP:conf/kr/LevesqueDM12} explain another feature of the WS sentences, which they call \textit{Google proof}: The idea is to prevent finding the answer by using statistical learning on large corpora of text or by just typing the question and the answers into a search engine, such as Google.
 Here is an example of a WS that is not Google proof:\\
 \labeltext{\textit{Example~2.1.3}}{ex:Google}:
 
-\begin{itemize} 
+\begin{itemize}
 	\item[\textbf{S:}] \textbf{Tom's \underline{books} are full of \underline{mistakes}. Some of them are quite \underline{[foolish/worthless]}.}
 	\item[\textbf{Q:}] \textbf{What are [foolish/worthless]?}
-	\item[\textbf{A:}] \textbf{The mistakes/the books.} 
-\end{itemize} 
+	\item[\textbf{A:}] \textbf{The mistakes/the books.}
+\end{itemize}
 
 
 \ref{ex:Google} has been provided as a failed example\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSfailed.html} because the term \textit{foolish mistake} is commonly used and can be returned as an answer when querying Google.
@@ -66,18 +66,18 @@ where $P\left(x,y\right)=C\left(x,y\right)/N$ denotes the probability that $x$ a
 \end{itemize}
 The result of these calculations shows that in the first case, when the special word is \textit{foolish}, the co-occurrence strength of the word \textit{foolish} with the word \textit{mistakes}, measured by $\text{PMI}\left(\text{foolish},\text{mistakes}\right)$,
 is higher then the co-occurrence strength of \textit{foolish} and \textit{books}. Hence, simple Google query like this would return enough information to correctly resolve the problem.
-However, in the case of the other half of this WS, when the special word is \textit{worthless}, the co-occurrence strength of \textit{worthless} with \textit{mistakes} is higher than the co-occurrence strength of \textit{worthless} with \textit{books}, which leads to the wrong answer. Instead, when the special word is \textit{worthless}, the correct answer is \textit{the books}. 
+However, in the case of the other half of this WS, when the special word is \textit{worthless}, the co-occurrence strength of \textit{worthless} with \textit{mistakes} is higher than the co-occurrence strength of \textit{worthless} with \textit{books}, which leads to the wrong answer. Instead, when the special word is \textit{worthless}, the correct answer is \textit{the books}.
 Therefore, we can conclude that the second half of this WS, where the special word is \textit{worthless}, is indeed Google proof, whereas the first half, where the special word is \textit{foolish}, is not Google proof.
-Another feature of the WSC is that resolving a WS should be easy for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans. 
+Another feature of the WSC is that resolving a WS should be easy for a human reader. For this reason, human performance is expected to be near 100\%. Indeed, Bender \cite{DBLP:conf/maics/Bender15} conducted a large online experiment and reported 92\% success rate for humans.
 For the execution and evaluation part of the WSC, two distinct datasets have been formulated and published by Morgenstern et al. \cite{DBLP:journals/aim/MorgensternDO16}.
-The first dataset consists of PDPs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition. 
+The first dataset consists of PDPs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/PDPChallenge2016.xml} that are taken from examples found in literature, biographies, essays and news or have been constructed by the organizers of the competition.
 The second dataset consists of WSs\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html} which have been constructed by the organizers of the competition.
 The following is an example of the PDPs:\\
 \labeltext{\textit{Example 2.1.4}}{PDP}:
 
-\begin{itemize}[align=left] 
+\begin{itemize}[align=left]
 	\item [\textbf{Text:}] \textbf{When they had eventually calmed down a bit, and had gotten home, Mr. Farley put the \underline{magic pebble} in an iron \underline{safe}. Some day they might want \underline{to use it}, but really for now, what more could they wish for?}
-	
+
 	\item [\textbf{Snippet:}] \textbf{to use it}
 	\item [\textbf{Answers:}] \textbf{\underline{magic pebble}/safe}
 
@@ -85,12 +85,12 @@ The following is an example of the PDPs:\\
 
 Along with the text, a snippet with the ambiguous pronoun that needs to be resolved and the possible answers are provided. As in \ref{PDP}, a PDP may consist of more than one sentence and it can also have more than two possible answers, but unlike the WSs, these problems do not have twin sentences. Similar to resolving WSs, considerable use of commonsense reasoning is required when answering the PDPs. Since the structure of the PDPs is not always consistent, resolving these problems is more difficult than resolving WSs.
 
-Having the two different sets allows the evaluation of the participating systems in the challenge to be done gradually. 
-If a system successfully answers the questions from the first dataset, then it will be challenged with the WSs set. Morgensten et al. \cite{DBLP:journals/aim/MorgensternDO16} argue that if a system can answer the problems from the PDP set correctly, then it will surely have success when answering the WSs set.  
-Additionally, the PDPs are taken from various literature sources and may include different aspects of commonsense knowledge which would otherwise not be included in the created WSs. 
+Having the two different sets allows the evaluation of the participating systems in the challenge to be done gradually.
+If a system successfully answers the questions from the first dataset, then it will be challenged with the WSs set. Morgensten et al. \cite{DBLP:journals/aim/MorgensternDO16} argue that if a system can answer the problems from the PDP set correctly, then it will surely have success when answering the WSs set.
+Additionally, the PDPs are taken from various literature sources and may include different aspects of commonsense knowledge which would otherwise not be included in the created WSs.
 
 \begin{comment}
-Since the idea of the authors of the WSC was to construct this challenge as an alternative to the Turing test, it can be observed that indeed it captures the main characteristics of a Turing test: 
+Since the idea of the authors of the WSC was to construct this challenge as an alternative to the Turing test, it can be observed that indeed it captures the main characteristics of a Turing test:
 
 \begin{itemize}
 	\item it requires the subject to respond on a non-domain specific set of English sentences
@@ -101,14 +101,14 @@ Since the idea of the authors of the WSC was to construct this challenge as an a
 
 
 \subsection{Main Challenges and Limitations}
-We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC. 
+We now analyze and discuss the main challenges that an approach for addressing the WSC must overcome in order to achieve good results. Furthermore, we will identify and discuss the main limitations~of~the WSC.
 
 Finding the correct noun phrase for an ambiguous pronoun is a known problem in the Natural Language Processing (NLP) research field. The coreference resolution problem depends on different features, such as grammatical role, number, gender, syntactic structure and the distance between the referent and the pronoun. Although existing automatic systems rely on such grammatical features, they do not use world knowledge in the resolution process. Consequently, the Stanford resolver CoreNLP \cite{lee11conllst} achieved an accuracy of around 55\% on the dataset provided by Rahman and Ng \cite{DBLP:conf/emnlp/RahmanN12}, which is just above the random baseline (50\%).
-	
-From the examples given earlier, it is clear that background knowledge is required in order for a human reader to derive the correct answer. Since the sentences from both datasets, PDPs and WSs, are non-domain specific it is difficult to determine what kind of background knowledge is needed. Therefore, the first challenge imposed by the WSC is how to obtain knowledge for commonsense reasoning. 
-The second is how to formalize this knowledge such that all important information are preserved. Lastly, how to reason on top of formalized knowledge is the third main challenge when trying to solve the WSC. 
 
-Regarding the limitations of the WSC, the first and probably most important limitation is the number of available sentences. Because the process of creating new WS is difficult, the number of available sentences is very small. Moreover no training data is provided for any of the datasets which makes it hard to approach the task as a machine learning problem. Another limitation is the constraint posed by the language of the sentences. For some other languages, as explained by Davis \cite{DBLP:journals/corr/Davis16}, the disambiguation of a pronoun for different genders may not be as clear as in English. Nevertheless, there are translation of 144 WSs in Japanese\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/collection\_ja.pdf} and 107 WSs in French \footnote{http://www.llf.cnrs.fr/winograd-fr}. 
+From the examples given earlier, it is clear that background knowledge is required in order for a human reader to derive the correct answer. Since the sentences from both datasets, PDPs and WSs, are non-domain specific it is difficult to determine what kind of background knowledge is needed. Therefore, the first challenge imposed by the WSC is how to obtain knowledge for commonsense reasoning.
+The second is how to formalize this knowledge such that all important information are preserved. Lastly, how to reason on top of formalized knowledge is the third main challenge when trying to solve the WSC.
+
+Regarding the limitations of the WSC, the first and probably most important limitation is the number of available sentences. Because the process of creating new WS is difficult, the number of available sentences is very small. Moreover no training data is provided for any of the datasets which makes it hard to approach the task as a machine learning problem. Another limitation is the constraint posed by the language of the sentences. For some other languages, as explained by Davis \cite{DBLP:journals/corr/Davis16}, the disambiguation of a pronoun for different genders may not be as clear as in English. Nevertheless, there are translation of 144 WSs in Japanese\footnote{https://cs.nyu.edu/faculty/davise/papers/WinogradSchemas/collection\_ja.pdf} and 107 WSs in French \footnote{http://www.llf.cnrs.fr/winograd-fr}.
 
 A third limitation is the lack of a more detailed evaluation protocol. In the proposal for the WSC competition the evaluation is measuring the accuracy of predicting the correct answers from both the PDPs and WSs datasets. This accuracy is calculated with the following formula: \\
 \begin{center}
@@ -118,15 +118,12 @@ A third limitation is the lack of a more detailed evaluation protocol. In the pr
 \end{center}
 However, Trichelair et al. \cite{DBLP:journals/corr/abs-1811-01778} argue that this evaluation does not measure whether commonsense reasoning was involved in the prediction of the correct answer. For this reason, they propose a different evaluation protocol which additionally includes measures of the accuracy on a switchable subset and a consistency score. The switchable subset contains WSs with switched antecedents such as in the following example. \\
 \labeltext{\textit{Example 2.1.4}}{changed}:
-\begin{itemize} 
+\begin{itemize}
 	\item \textbf{S: \underline{Emma} did not pass the ball to \underline{Janie} although she saw that she was open.}
-	\item \textbf{S': \underline{Janie} did not pass the ball to \underline{Emma} although she saw that she was open.} 
+	\item \textbf{S': \underline{Janie} did not pass the ball to \underline{Emma} although she saw that she was open.}
 \end{itemize}
 
 When the antecedents are switched, the correct answer is also changed. If a system relies on the structure of the sentence and on the entity of the pronoun when predicting an answer, that would be reviled when evaluating on this switchable subset.
-The consistency score is the percentage of predicted correct answer after the antecedents have changed. 
-As presented in \cite{DBLP:journals/corr/abs-1811-01778}, the first step in this evaluation protocol is to compute the accuracy on the original WSC dataset. The next step is to compute the accuracy on the switchable subset both before and after switching the antecedents and then computing the consistency score. The last step is to compute the accuracy on the non-Google-proof dataset which consists of WSs as the one in \ref{ex:Google}. If a system relies on statistical information when predicting the answer, it will achieve high accuracy on this dataset. 
-Comparing the achieved results from this new evaluation protocol should provide a better understanding on how the systems perform and opportunity to analyze in more details the achieved results. 
-
-
-
+The consistency score is the percentage of predicted correct answer after the antecedents have changed.
+As presented in \cite{DBLP:journals/corr/abs-1811-01778}, the first step in this evaluation protocol is to compute the accuracy on the original WSC dataset. The next step is to compute the accuracy on the switchable subset both before and after switching the antecedents and then computing the consistency score. The last step is to compute the accuracy on the non-Google-proof dataset which consists of WSs as the one in \ref{ex:Google}. If a system relies on statistical information when predicting the answer, it will achieve high accuracy on this dataset.
+Comparing the achieved results from this new evaluation protocol should provide a better understanding on how the systems perform and opportunity to analyze in more details the achieved results.

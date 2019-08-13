@@ -1,0 +1,111 @@
+\documentclass[hyperref,german,masterofscience]{cgvpub}
+%weitere Optionen zum Ergänzen (in eckigen Klammern):
+% 
+% bibnum	numerische Literaturschlüssel
+% final 	für Abgabe	
+% lof			Abbildungsverzeichis
+% lot			Tabellenverzeichnis
+% noproblem	keine Aufgabenstellung
+% notoc			kein Inhaltsverzeichnis
+% twoside		zweiseitig
+\usepackage{enumitem}
+\usepackage[all]{nowidow}
+\usepackage{tikz-qtree}
+
+\makeatletter
+\newcommand{\labeltext}[3][]{%
+	\@bsphack%
+	\csname phantomsection\endcsname% in case hyperref is used
+	\def\tst{#1}%
+	\def\labelmarkup{\emph}% How to markup the label itself
+	%\def\refmarkup{\labelmarkup}% How to markup the reference
+	\def\refmarkup{}%
+	\ifx\tst\empty\def\@currentlabel{\refmarkup{#2}}{\label{#3}}%
+	\else\def\@currentlabel{\refmarkup{#1}}{\label{#3}}\fi%
+	\@esphack%
+	\labelmarkup{#2}% visible printed text.
+}
+\makeatother
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers} }
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{pifont}
+
+\newcommand{\bluecheck}{{\color{blue}\checkmark}}
+\newcommand{\redcheck}{{\color{red}\ding{56}}}
+\renewcommand{\lstlistingname}{Code}
+
+\lstdefinestyle{SC}{
+	language=erlang,
+	xleftmargin=.2\textwidth,
+	xrightmargin=.2\textwidth
+}
+\lstset{ 
+	basicstyle=\scriptsize,
+	showstringspaces=false,
+	showspaces=false,
+	commentstyle=\color{blue},
+	keywordstyle=\bfseries\color{purple},
+	captionpos=b,
+	frame=lines
+}
+
+\usetikzlibrary{arrows, shapes, trees, positioning}
+
+\renewcommand{\bibname}{References}
+\author{Aneta Koleva}
+\title{On Commonsense Domains \\
+	within the Winograd Schema Challenge}
+%\birthday{1. Januar 1234}
+%\placeofbirth{Dresden}
+\matno{4734043}
+\betreuer{Prof. Dr. Sebastian Rudolph \hspace{10mm}  Dr. Emmanuelle Dietz}
+%\bibfiles{literatur.bib}
+
+
+%\acknowledgments{Die Danksagung...}
+
+%What was done?
+%Why did you do it?
+%What did you find?
+%Why are these findings useful and important?
+
+\abstracten{We investigate how to formalize commonsense reasoning in machines by analyzing the Winograd Schema Challenge (WSC). WSC is a complex coreference resolution task and requires applying knowledge on commonsense reasoning. In addition, to identify the main challenges of the WSC, we provide a survey of the different state-of-the-art approaches and their methods for addressing the WSC. After that, we perform an elaborate analysis of the WSC problems and identify six categories of commonsense knowledge required for resolving them. We discuss two examples where commonsense knowledge about the physical domain is necessary. These categories might be helpful for further developments in the formal specification of characterizing meta-knowledge, that is required to solve the WSC.
+}
+%\abstractde{Zusammenfassung Text Deutsch}
+\begin{document}
+\chapter{Introduction}
+
+\input{../sections/1-introduction}
+
+\chapter{Background}
+
+\input{../sections/2-TheWinogradSchemaChallenge}
+
+\input{../sections/3-TheDifferentApproaches}
+
+\chapter{An approach to Commonsense Knowledge Types Identification}
+\input{../sections/3_1-KnowledgeTypes}
+
+\chapter{Categorization of Commonsense Knowledge}
+
+\input{../sections/4-ConceptualFramework}
+\input{../sections/6-Discussion}
+
+\chapter{Conclusion and Future Work}
+\input{../sections/5-Conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{literatur} 
+
+
+
+\appendix
+\chapter{Reasoning Algorithm}
+\input{../Files/appendices/appendix1.tex}
+\chapter{Collection of Winograd Schemas and Annotation Results}
+\input{../Files/appendices/appendix2.tex}
+
+\end{document}

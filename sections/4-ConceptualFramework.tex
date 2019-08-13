@@ -31,7 +31,7 @@ In a second process, all WSs were annotated with these previously identified cat
 \paragraph{Multiple knowledge} Lastly, this category contains all the WSs which do not belong to any of the other categories. For resolving these WSs knowledge from different domains is required.
 
 \begin{table} [h!]
-	\input{types.tex} 
+	\input{../Files/my_cat/types.tex} 
 	\caption{{\label{types}}Types of knowledge.}
 \end{table}
 
@@ -58,7 +58,7 @@ Similar to this subcategory are the \textit{height/width} and the \textit{weight
 
 For solving the WSs from the \textit{space} subcategory, spatial reasoning and in some cases spatial-temporal reasoning is needed. Since the knowledge required for resolving the WSs from this subcategory has to include rules for navigating and understanding time and space, we consider the knowledge needed for this category to be the hardest one to formalize among the subcategories of the \textit{Physical} category.
 For example, consider the following WS:\\
-\labeltext{\textit{Example 4.1.1}}{space} 
+\labeltext{\textit{Example 4.1}}{space} 
 \begin{itemize} 
 	\item[\textbf{S:}] \textbf{\underline{Tom} threw his schoolbag down to \underline{Ray} after \underline{he} reached the [top/bottom] of the stairs.}
 	\item[\textbf{Q:}] \textbf{Who reached the [top/bottom] of the stairs?}
@@ -70,7 +70,7 @@ The sentence in \ref{space} contains information about a specific location in sp
 The WSs from the \textit{time} subcategory require temporal reasoning. 
 Formalization of knowledge about change over time and chronology of events is needed for solving these WSs. For annotating these WSs we relied on the context and we identified events which happened at different points in time. The following is an example of WS that belongs to this subcategory:
 
-\labeltext{\textit{Example 4.1.2}}{time}
+\labeltext{\textit{Example 4.2}}{time}
 \begin{itemize} \label{Ex2}
 	\item[\textbf{S:}] \textbf{\underline{Thomson} visited \underline{Cooper}'s grave in 1765. At that date \underline{he} had been} \\ \textbf{[dead/travelling] for five years.}
 	\item[\textbf{Q:}] \textbf{ Who had been [dead/traveling] for five years? }
@@ -94,11 +94,12 @@ The calculated Cohen's kappa score for the annotation of the WSs is 0.66. Accord
 
 \begin{table}[h!]
 	\centering
-	\input{categories.tex}
+	\input{../Files/categories/categories.tex}
 	\caption{{\label{kappa}}Annotation results.}
 \end{table}
 
-Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains the largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While annotator 1 placed 44 WSs in this category, the annotator 2 placed 24 WSs. The other 20 WSs were distributed among all other five~categories.  
+Table \ref{kappa} shows the number of WSs  and the percentage of the total number of WSs for each category, as annotated by the two annotators. The result of the evaluation of the WSs annotation indicates that all of the identified categories were recognized by the two annotators. Although not a large number of WSs are in the \textit{Emotions} and \textit{Causal} categories, there is a strong agreement between the annotators about the WSs belonging in these two categories. For the \textit{Causal} category, this indicates that even though many of the WSs seem causal, it is not so difficult to discriminate the sentences in which the cause and effect are explicit. The \textit{Physical} category contains the largest number of WSs for which both annotators agree. Indeed, the observation of the semantic graphs for WSs from this category showed that there is a similarity in the knowledge that is represented with these WSs. As discussed earlier, the identification of the WSs which belong in the \textit{Interactions} category was quite difficult. This is clearly shown in the large difference between the annotators in the annotation results. While annotator 1 placed 44 WSs in this category, the annotator 2 placed 24 WSs.
+The other 20 WSs were distributed among all other five categories.  
 
 
 
@@ -113,7 +114,7 @@ Figure \ref{Graph1} represents the semantic graph for the sentence:
 \end{itemize}
 \begin{figure} [h!]
 	\centering
-	\input{graph1.tex}
+	\input{../Files/graph_trophy/graph1.tex}
 	\caption{\label{Graph1}``The trophy doesn't fit into the brown suitcase because it's too small."}
 \end{figure}
 
@@ -125,8 +126,8 @@ Figure \ref{Graph2} shows the semantic graph for the sentence:
 
 
 \begin{figure}[h!]
-	\centering
-	\input{graph11.tex}
+	\centering../
+	\input{../Files/graph_weak/graph11.tex}
 	\caption{\label{Graph2}``The man couldn't lift his son because he was so weak."}
 \end{figure}
 

@@ -10,7 +10,7 @@
 	\vspace{-1.2cm}
 	Levesque (2011) proposes a new test for assessing computer intelligence that requires the use of commonsense reasoning.\medskip \\
 	\begin{beamercolorbox}[rounded=true,sep=0.3cm]{expcol}
-		
+
 		\begin{itemize}
 			\item[S:] \underline{The trophy} does not fit into \underline{the brown suitcase}\\ because {\color{myorange}it} is too {\color{myorange}[small/large]}.
 			\item[Q:] What is too [small/large]?
@@ -18,7 +18,7 @@
 		\end{itemize}
 	\end{beamercolorbox}
  Add (least necessary) background knowledge and apply to~reasoning algorithm.
-	
+
 	\begin{figure}[width]
 		\begin{tikzpicture}[scale = 2]
 		\begin{scope}[blend group = soft light]
@@ -32,7 +32,7 @@
 		\node [font=\Large] {WSC};
 		\end{tikzpicture}
 	\end{figure}
-	
+
 \end{block}
 
 \vspace{-1.8cm}
@@ -74,8 +74,8 @@
 	%		\item \textit{Google-proof} - statistical methods over large text corpora should not be able to resolve a WS.
 	%	\end{itemize}
 	%\end{itemize}
-	
-	
+
+
 \end{block}
 \vspace{-0.5cm}
 \begin{block}{Machine-Learning vs Knowledge-Based Approaches}
@@ -87,26 +87,26 @@
 			\begin{tabularx}{\columnwidth}{ l | c | c | c | l }
 				\hline
 				\makecell[c]{\textbf{Technique}}   &{\makecell{\textbf{PDPs}\\ Size \\  Correct}} &{\makecell{\textbf{WSC}\\Size  \\  Correct}} &{\makecell{\textbf{WSC*}\\Size  \\  Correct}} &\makecell[c]{\textbf{Remarks}} \\ \hline
-				
+
 				\makecell{Supervised ranking\\ SVM model \cite{RahmanN12}} & NA &\makecell{NA} & \makecell{282 - 30\% \\ 205 - 73\% } &{\makecell[l]{ -provided additional dataset set \\
 						-no evaluation on WSC dataset  }}  \\\hline
-				
+
 				\makecell{Classification task\\with NN \cite{W18-4105}} &\makecell{NA}  &{\makecell{  282 - 100\% \\ 157 - 56\%}} & \makecell{ 282 - 30\% \\ 177 - 63\%}  &{\makecell[l]{-first to use substitution of the \\ pronoun with the antecedents}}\\\hline
-				
+
 				\makecell{Knowledge Enhanced\\Embeddings (KEE) \cite{DBLP:journals/corr/LiuJLZWH16}}  &\makecell{ 60-100\% \\ 40 - 66.7\%}  & \makecell{NA} & \makecell{NA} &\makecell[l]{-best results in the 2016\\ WSC competition}\\\hline
-				
+
 				\makecell{Google's language\\ models  \cite{DBLP:journals/corr/abs-1806-02847}} &\makecell{ 60-100\% \\ 42 - 70\% }& \makecell{273 - 100\% \\  173 - 63.7\%} & NA & \makecell[l]{-no reasoning involved in the\\discovery of the correct answer \\-state-of-the-art for PDPs}\\\hline
-				
+
 				\makecell{OpenAI language\\ models \cite{radford2019language}} & NA &\makecell{273 - 100\% \\ 193 - 70.70\%} & NA &\makecell[l]{-current state-of-the-art for WSC\\ -requires a lot of data for training\\-results are not reproducible }\\ \Xhline{3\arrayrulewidth}
-				
+
 				\makecell{Graphs with \\Relevance theory \cite{Peter}} & NA  & \makecell{4 - 2.6\% \\ 4 - 100\%} & NA &\makecell[l]{-manual construction of graphs\\-first representation of WS\\ as dependency graph}\\\hline
-				
+
 				\makecell{2 identified \\categories \cite{DBLP:conf/ijcai/SharmaVAB15}} & NA  & \makecell{71 -25\% \\ 49 - 69\%} & NA &\makecell[l]{-first attempt of identifying\\commonsense knowledge types \\-developed the KParser} \\\hline
-				
+
 				\makecell{Semantic relations\\ categories \cite{2018CommonsenseKT}} & NA &\makecell{100 - 34\% \\ 100 - 100\%} &  \makecell{138 - 14\% \\ 111 - 80\%} &\makecell[l]{-provided Reasoning Algorithm\\ -identified 12 commonsense types\\ which capture the entire WSC}  \\\hline
-				
+
 				\makecell{Knowledge hunting\\ framework \cite{DBLP:conf/emnlp/EmamiCTSC18}}& NA & \makecell{273 - 100\% \\ 119 - 43.5\%} & NA & \makecell[l]{-refined query generation\\-developed an algorithm for \\scoring the retrieved sentences}\\\hline
-				
+
 			\end{tabularx}
 		}
 	\end{figure}
@@ -114,7 +114,7 @@
 \end{block}
 \vspace{-1cm}
 \begin{block}{References}
-	
+
 	\bibliographystyle{plain}
 	\tiny{
 		\bibliography{literatur}
@@ -140,11 +140,11 @@ Knowledge type: ``Property prevents Action".\\
 \begin{lstlisting}[language = Prolog, style=SC, numbers=right,
 numberstyle=\tiny]
 %entity y has a trait small
-has_k(small,is_trait_of,y). 		
+has_k(small,is_trait_of,y).
 %having trait small prevents the entity to fit another entity
-has_k(small,prevents,fits).	 	
+has_k(small,prevents,fits).
 %entity y is the recipient of the action fit
-has_k(fits,recipient,y).		
+has_k(fits,recipient,y).
 \end{lstlisting}
 \end{beamercolorbox}
 \item Rule 4 {\color{myorange}has no effect} in the reasoning procedure!
@@ -184,7 +184,7 @@ has_k(fits,recipient,y).
 			edge from parent node [above] {agent}}
 		child { node [env, bottom color=red!30] {fit}
 			child {node [env]  {does}
-				edge from parent node [above] {support verb} }	
+				edge from parent node [above] {support verb} }
 			child {node [env, blue]  {{\small{trophy}}}
 				edge from parent node [above] {agent} }
 			child {node [env, blue]  {suitcase}
@@ -192,7 +192,7 @@ has_k(fits,recipient,y).
 			child {node [env]  {not}
 				edge from parent node [above] {negation} }
 			edge from parent node [above] {cause}};
-		
+
 		\end{tikzpicture}
 	\end{figure}
 
@@ -227,7 +227,7 @@ has_k(fits,recipient,y).
 %			edge from parent node [above] {agent}}
 %		child { node [env, bottom color=red!30] {lift}
 %			child {node [env]  {could}
-%				edge from parent node [above] {modal verb} }	
+%				edge from parent node [above] {modal verb} }
 %			child {node [env, blue]  {man}
 %				edge from parent node [above] {agent} }
 %			child {node [env, blue]  {son}
@@ -257,7 +257,7 @@ has_k(fit,recipient,y).
 
 \begin{itemize}
 	\item Rule 1 {\color{myorange}has effect} in the reasoning procedure!
-	\item Extend this relation to other problems within one domain (ex. Phyiscal).
+	\item Extend this relation to other problems within one domain (e.g. Physical).
 	\item In rule 5, switching \textbf{recipient} with \textbf{agent} leads to no answer!
 \end{itemize}
 
@@ -274,21 +274,21 @@ has_k(fit,recipient,y).
 \end{itemize}
 
 \vspace{1cm}
-\resizebox{\textwidth}{!}{	
+\resizebox{\textwidth}{!}{
 	\begin{tabular}{  l | l  }
 		\hline
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} The man couldn't lift his son because he is so {\color{myorange}[weak/heavy]}.\\&\textbf{Q:} Who is so [weak/heavy]? \\\hline
-		
+
 		2. Emotional &\textbf{S:}  Frank felt {\color{myorange}[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
-		
+
 		3. Interactions &\textbf{S:} Joan made sure to thank Susan for all the help she had {\color{myorange}[given/received]}. \\&\textbf{Q:} Who had [given/received] help?\\ \hline
-		
+
 		4. Comparison &\textbf{S:} Joe's uncle can still beat him at tennis, even though he is 30 years {\color{myorange}[older/younger]}.\\&\textbf{Q:} Who is [older/younger]?\\ \hline
-		
+
 		5. Causal &\textbf{S:} Pete envies Martin {\color{myorange}[because/although]} he is very successful.\\&\textbf{Q:} Who is very successful? \\ \hline
-		
-		6. Multiple knowledge &\textbf{S:}  		
+
+		6. Multiple knowledge &\textbf{S:}
 		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are {\color{myorange}[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\ \hline
 	\end{tabular} }
 

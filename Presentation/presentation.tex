@@ -1,101 +1,164 @@
-\documentclass[smaller,dvipsnames,ratio=169]{beamer}
-
-\usetheme[numbering=fraction,%
-          block=fill,%
-          sectionpage=progressbar,%
-          subsectionpage=progressbar,%
-  ]{metropolis} % Use metropolis theme
-\setbeamercovered{invisible}
-\usepackage{graphicx}
-\graphicspath{ {.} }
-
-%\usepackage[round]{natbib} 
-%\bibliographystyle{plainnat}
-%\usepackage{natbib}
-%\bibliography{literature.bib}
-
-\usepackage[utf8]{inputenc}
-\usepackage{xcolor}
-\usepackage{xspace}
-\usepackage{comment}
-\usepackage{booktabs}
+\documentclass[c,8pt,xcolor...,x11names]{beamer}
+\usepackage{icclslides}
+\usepackage[latin1]{inputenc}
+\usepackage[british]{babel}
 \usepackage{amssymb}
-\usepackage{smartdiagram}
+\usepackage{latexsym}
+\usepackage{rotate}
 \usepackage{tikz}
-  \usetikzlibrary{arrows} % required in the preamble
+\usepackage{verbatim}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{ulem}
+% \usepackage{arydshln}
+\usepackage{pdfpages}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{comment}
+\newcolumntype{C}{>{${}}c<{{}$}}
+\newcolumntype{d}[1]{D{,}{,}{#1}}
 \usepackage{listings}
-\usepackage{todonotes}
 
-\title{On Commonsense Domains within\\ the Winograd Schema Challenge
+\lstdefinestyle{SC}{
+	language=erlang,
+	xleftmargin=.2\textwidth,
+	xrightmargin=.2\textwidth
 }
-\subtitle{Research Project}
-\author[author1]{Aneta~Koleva\\[10mm]{\small Supervisors: Prof. Sebastian Rudolph \hspace{10mm} Dr. Emmanuelle Dietz}}
+\lstset{ 
+	basicstyle=\scriptsize,
+	showstringspaces=false,
+	showspaces=false,
+	commentstyle=\color{blue},
+	keywordstyle=\bfseries\color{purple},
+	captionpos=b,
+	frame=lines
+}
 
-\institute{Dresden University of Technology\\[2mm] } 
-\date{28-03-2019}
+%\usepackage{natbib}
 
-\begin{document}
 
-  \maketitle
+\usetikzlibrary{positioning}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\tikzstyle{ele} = [circle, text centered, minimum width=1em, minimum height=3ex]
 
-  %\section{Introduction}
+%% Uncomment to activate navigation symbols in the lower right of the pages:
+\setbeamertemplate{navigation symbols}{}
 
-  \begin{frame}{Motivation}
-  	
+\renewcommand{\Myauthor}{Aneta Koleva}
+\renewcommand{\Mytitle}{On Commonsense Domains within  the Winograd Schema Challenge}
+\usepackage{showexpl} 
+
+\lstloadlanguages{[LaTeX]Tex} 
+\lstset{% 
+     basicstyle=\ttfamily\small, 
+     commentstyle=\itshape\ttfamily\small, 
+     showspaces=false, 
+     showstringspaces=false, 
+     breaklines=true, 
+     breakautoindent=true, 
+     captionpos=t 
+} 
+
+\begin{document} 
+\begin{frame}
+\customtitle
+\begin{list2}
+\item Winograd Schema Challenge
+\item Previous Approaches
+\item Knowledge Types Identification and Reasoning
+\item Categorization of Winograd Schemas
+\item Conclusion
+\end{list2}
+\end{frame}
+
+
+\section{Motivation} 
+
+
+\begin{frame}
+  \frametitle{Motivation}
 	\onslide<1->\begin{itemize} 	
-		\item Winograd Schema Challenge (Levesque et. al, 2012)
-			\begin{itemize}
-				\normalsize
-				\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
-				\item[Q:] What is too [small/large]?
-				\item[A:] The suitcase/the trophy.
-			\end{itemize}	
-		
-	\end{itemize}
-\onslide<2->		\centering
-					\input{venn_empty.tex}
-\end{frame}
-
-\begin{frame}{Outline}
-	\tableofcontents
-\end{frame}
-
-\section{Description}
-
-\begin{frame}{Winograd Schema Challenge} 
-		%\footnote{Levesque et. al, The Winograd Schema Challenge, 2012}}
-\onslide<1->	\begin{itemize}
-		\small
-		\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
-		\item[Q:] What is too [small/large]?
-		\item[A:] The suitcase/the trophy
-	\end{itemize} 
-\onslide<2->\begin{itemize}
-	\item Winograd Schema: 
+	\item Winograd Schema Challenge (Levesque et al., 2012)
 	\begin{itemize}
 		\normalsize
-		\item Sentence containing two nouns, \\one ambiguous \alert{pronoun} and a special word
-		\item Question asking about the referent of the pronoun
-		\item Two possible answers corresponding to\\ the noun phrases in the sentence
+		\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
+		\item[Q:] What is too [small/large]?
+		\item[A:] The suitcase/the trophy.
+	\end{itemize}	
+	
+\end{itemize}
+\onslide<2->		\centering
+\input{Files/venn_diagram/venn_empty.tex}
+\end{frame}
+
+\begin{comment}
+	content...
+
+\begin{frame}
+\vfill
+\begin{LARGE}
+\hfill Structure of a {\sc Beamer} Document \hfill 
+\end{LARGE}
+\vfill
+\end{frame}
+\end{comment}
+
+\subsection{Winograd Schema Challenge}
+
+\begin{frame}
+\frametitle{Winograd Schema Challenge}
+\onslide<1->	\begin{itemize}
+	\small{
+	\item[S:] The trophy does not fit into the brown suitcase\\ because \alert{it} is too \alert{[small/large]}.
+	\item[Q:] What is too [small/large]?
+	\item[A:] The suitcase/the trophy. }
+\end{itemize} 
+\onslide<2->\begin{itemize}
+	\item Winograd Schema: 
+	\begin{center}
+	\begin{tabular}{ l | c }
+		Sentence containing two nouns &  \alert{trophy}, \alert{suitcase} \\
+		\hline 
+		One ambiguous pronoun & \alert{it} \\  
+		\hline
+		A special word & \alert{small}/\alert{ large}\\
+		\hline
+		Question about the referent of the pronoun & What is too [\alert{small}/\alert{large}]\\
+		\hline
+		Two possible answers & \alert{The suitcase} /\alert{the trophy}\\
+	\end{tabular}
+	\end{center}
+
+
+%	\begin{itemize}
+%		\normalsize
+%		\item Sentence containing two nouns, \\one ambiguous \alert{pronoun} and a special word
+%		\item Question asking about the referent of the pronoun
+%		\item Two possible answers corresponding to\\ the noun phrases in the sentence
+%	\end{itemize}
+	\onslide<3->	 \item Characteristics:
+	\onslide<3->	  \begin{itemize}
+		\normalsize
+		\item Easy to answer for an adult English speaker
+		\item Always contains \alert{special word}
+		\item Google proof
 	\end{itemize}
-\onslide<3->	 \item Characteristics:
-\onslide<3->	  \begin{itemize}
-	  	\normalsize
-	  	\item Easy to answer for an adult English speaker
-	  	\item Always contains \alert{special word}
-	  	\item Google proof
-	  \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Competition}
-	
+\subsection{Competition}
+
+\begin{frame}
+\frametitle{Competition}
+	\begin{itemize}
+	\normalsize
+	\item Competition in 2016 at IJCAI-16
 	\begin{itemize}
 		\normalsize
-		\item Competition in 2016 at IJCAI-16
-		\begin{itemize}
-			\normalsize
-			\item Two time-constraint rounds - 210 min. each
+		\item Two time-constraint rounds - 210 min. each
 		\begin{itemize}
 			\normalsize
 			\item Pronoun Disambiguation Problems (PDPs) - 60
@@ -105,136 +168,182 @@
 		\item Best result: 58\% correctly resolved PDPs
 		\item There was no second round
 		
-		\end{itemize}
-	
-	\item Current \alert{state-of-the-art} (Radford et. al, 2019) achieves 70.7\% accuracy\\ on the WSs dataset
 	\end{itemize}
 	
+	\item Current \alert{state-of-the-art} (Radford et al., 2019) achieves \\ 70.7\% accuracy on the WSs dataset
+\end{itemize}
 \end{frame}
 
-
-\begin{comment}
-\begin{itemize}
-\item [Text:] When they had eventually calmed down a bit, and had gotten home, Mr. Farley put the magic pebble in an iron safe. Some day they might want to use it, but really for now, what more could they wish for?
-
-\item [Snippet:] to use it
-\item [Answers:] magic pebble/safe
-
-\end{itemize}
-
-\end{comment}
 \section{Previous Approaches}
 
-\begin{frame}{Previous Approaches}
-	\begin{itemize}
-		\item Machine learning and deep learning
-		\begin{itemize}
-			\normalsize
-			\item Supervised ranking SVM 
-			\item Supervised classification Task 
-			\item Knowledge enhanced embeddings 
-			\item Google's language models 
-			\item Open AI language model 
-		\end{itemize}			
-		\item Knowledge-based
-		\begin{itemize}
-			\normalsize
-			\item Knowledge graphs with Relevance Theory 
-			\item Semantic parsing and knowledge hunting 
-			\item Parsing query results and assigning scores 
-			\item Knowledge types identification 
-		\end{itemize}
-	\end{itemize}
+\begin{frame}
+\frametitle{Previous Approaches}
+\onslide<1->\begin{itemize}
+	\item Machine learning and deep learning techniques
+	\item Knowledge-based system with reasoning procedures
+\end{itemize}
+
+\onslide<2->\input{Files/table_approaches/approaches.tex}
+
 \end{frame}
 
-\begin{frame}{A Simple Method for Commonsense Reasoning\\ (Trinh and Le, 2018)}
+\begin{frame}[fragile] 
+\frametitle{A Simple Method for Commonsense Reasoning~(Trinh and Le, 2018)}
 	\begin{itemize}
+	\normalsize
+	\onslide<1->		\item \alert{Language models} trained on unlabeled data
+	\onslide<2->		\begin{itemize}
 		\normalsize
-\onslide<1->		\item \alert{Language models} trained on unlabeled data
-\onslide<2->		\begin{itemize}
-			\normalsize
-			\item Recurrent Neural Networks
-			\item Trained on large datasets and on a dataset \alert{customized} for WSC
-		\end{itemize}
-\onslide<3->		\item Substitution ambiguous pronoun
-\onslide<3->		\begin{itemize}
-			\normalsize
-			\item The trophy doesn't fit in the suitcase because\\ the \alert{trophy} is too big
-			\item The trophy doesn't fit in the suitcase because\\ the \alert{suitcase} is too big
-    	\end{itemize}
-\onslide<4->		\item Language models assign probabilities to both sentences
-
-\onslide<5->	\item Evaluation and results
-		\begin{itemize}
-			\normalsize
-			\item PDPs 70\% accuracy
-			\item WSC \alert{63.7\%} accuracy
-		\end{itemize}
+		\item Recurrent Neural Networks
+		\item Trained on large datasets and on a dataset \alert{customized} for WSC
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Knowledge Types Identification and Reasoning \\(Anonymous Authors,2019)}
+	\onslide<3->		\item Substitution of the ambiguous pronoun
+	\onslide<3->		\begin{itemize}
+		\normalsize
+		\item The trophy doesn't fit in the suitcase because~the~\alert{trophy}~is~too~big
+		\item The trophy doesn't fit in the suitcase because~the~\alert{suitcase}~is~too~big
+	\end{itemize}
+	\onslide<4->		\item Language models assign scores to both sentences\\
+\end{itemize}
+	\onslide<4->	
 	
-\onslide<1->	\begin{itemize}
+	\begin{flushright}
+		\small {
+		\begin{tabularx}{\textwidth}{X}
+			\makecell[l]{\textit{Score\textsubscript{full}(``the trophy")}$=P$(The trophy doesn't fit into the brown suitcase because \textbf{the trophy} is too small)}\\ 
+			\makecell[l]{\textit{Score\textsubscript{partial}(``the trophy")}$=P$(is too big \textbar The trophy doesn't fit into the brown suitcase because \textbf{the trophy})}\\ 
+		\end{tabularx}
+	}
+	\end{flushright}
+	
+	
+	\begin{itemize}
+	\onslide<5->	\item Evaluation and results
+	\begin{itemize}
 		\normalsize
-		\item Identified 12 \alert{knowledge types} which cover the entire WSC dataset
-		\item Developed a \alert{logical reasoning algorithm} 
-		\item Evaluated on 100 problems from WSC and achieved \alert{100\%} accuracy
-\onslide<2->		\item Solver
-\onslide<2->		\begin{enumerate}
-			\normalsize
-			\item Semantic graph\footnote{kparser.org} of the input sentence and question
-			\item Semantic graph representation of background knowledge
-			\item Graph merging
-			\item Project question graph on the merged graph
-			\item Answer - the node from the merged graph which is from the same domain as the unknown node from the question graph
-		\end{enumerate}
+		\item PDPs 70\% accuracy
+		\item WSC \alert{63.7\%} accuracy
 	\end{itemize}
-		%\input{Figure4.png}
+\end{itemize}
+\end{frame}
+
+\section{Knowledge Types} 
+
+\begin{frame}
+\frametitle{Knowledge Types Identification and Reasoning\\(Sharma and Baral, 2018)}	
+
+\onslide<1->	\begin{itemize}
+	\normalsize
+	\item Identified 12 \alert{knowledge types} which cover the entire WSC dataset
+	\item Categorization based on the \alert{structure} of the Winograd sentence
+	\item Developed a \alert{logical reasoning algorithm} 
+	\item Evaluated on 100 problems from WSC and achieved \alert{100\%} accuracy
+	\onslide<2->		\item Solver
+	\onslide<2->		\begin{enumerate}
+		\normalsize
+		\item Semantic graph of the input sentence and question
+		\item Semantic graph representation of background knowledge
+		\item Graph merging
+		\item Project question graph on the merged graph
+		\item Answer - the node from the merged graph which is from the same domain as the unknown node from the question graph
+	\end{enumerate}
+\end{itemize}
+%\input{Figure4.png}
 \end{frame}
 
 \begin{frame}
+	\frametitle{Semantic graph representation\footnote{kparser.org}}
+\onslide<1->\begin{itemize}
+\normalsize
+\item ``The man couldn't lift his son because he was so weak".
+\onslide<1->\input{Files/graph_weak/graph_weak.tex}
+\begin{columns}
+	\begin{column}{0.40\textwidth}
+\onslide<2->	\item ``Who was weak?"
+\onslide<2->	\input{Files/graph_quest/graph_quest.tex} 
+	\end{column}
+
+	\begin{column}{0.30\textwidth}
+\onslide<3->	\item ``weak y \textbf{prevents} y lifts"
+\onslide<3->	\input{Files/my_types/kn_type.tex} 
+	\end{column}	
+\end{columns}
+%\item Knowledge: 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+\begin{columns}
+	\begin{column}{0.70\textwidth}
+	\input{Files/graph_merged/merged.tex}
+	\end{column}	
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+
+\centering
+\input{Files/graph_merged/merged_alert.tex}
+
+\begin{lstlisting}[language = Prolog, style=SC, numbers=right,
+numberstyle=\tiny]
+has_k(weak,is_trait_of,y). 		
+has_k(weak,prevents,lifts).	 	
+has_k(lifts,agent,y).		
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reasoning procedure}
+
+\centering
+\input{Files/graph_merged/merged_alert.tex}
+
+\begin{lstlisting}[language = Prolog, style=SC, numbers=right,
+numberstyle=\tiny]
+has_k(weak,is_trait_of,y). 		
+%has_k(weak,prevents,lifts).	 	
+has_k(lifts,agent,y).		
+\end{lstlisting}
+\end{frame}
+
+\section{Categorization} 
+
+\begin{frame}[fragile]
+\frametitle{Categorization of Winograd Schemas}
+
+\onslide<1->	\begin{itemize}		
+	\normalsize
+	\item Motivation
 	\begin{itemize}
 		\normalsize
-		\item Representation of the knowledge ``\textit{weak y \textbf{prevents} y lifts}"
-	\end{itemize}
-	
-		\centering
-		\includegraphics[scale=0.3]{Figure4_c.png}  
-	
-   
-\end{frame}
-
-\section{Methodology}
-
- \begin{frame}{Categorization of Winograd Schemas}
-\onslide<1->	\begin{itemize}		
-		\normalsize
-		\item Motivation
-		\begin{itemize}
-			\normalsize
-			\item Current state-of-the-art has a poor performance
-			\item Background knowledge is crucial for predicting\\ the correct answer 
-\onslide<2->			\item Idea
-\onslide<2->		\begin{enumerate}
+		\item Current state-of-the-art has a poor performance
+		\item Background knowledge is crucial for predicting\\ the correct answer 
+		\onslide<2->			\item Idea
+		\onslide<2->		\begin{enumerate}
 			\normalsize 
-			\item Analyze the input Winograd Schema \\and identify the domain
+			\item Analyze the input Winograd Schema and identify \\the domain of the \alert{least necessary} knowledge
 			\item Search for knowledge \alert{specific} to this domain
 			\item Apply reasoning procedure 
+		
 		\end{enumerate}
-		\end{itemize}
-	\end{itemize}   
+	\end{itemize}
+	\item  Categorization based on the \alert{content} of the Winograd sentence
+\end{itemize}   
 \end{frame}
 
-  \begin{frame}{Identified Categories}
-  	\resizebox{\textwidth}{!}{
 
+\begin{frame}{Identified Categories}
+\resizebox{11.8cm}{!}{
+	
 	\begin{tabular}{  l | l  }
-		\hline
+		
 		\textbf{Category}  & \textbf{Example} \\ \hline
 		1. Physical &\textbf{S:} John couldn't see the stage with Billy in front of him because he is so \textbf{[short/tall]}.\\&\textbf{Q:} Who is so [short/tall]? \\\hline
 		
-		2. Emotions &\textbf{S:}  Frank felt \textbf{[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
+		2. Emotional &\textbf{S:}  Frank felt \textbf{[vindicated/crushed]} when his longtime rival Bill\\&revealed that he was the winner of the competition.\\&\textbf{Q:} Who was the winner of the competition?\\\hline
 		
 		3. Interactions &\textbf{S:} Joan made sure to thank Susan for all the help she had \textbf{[given/received]}. \\&\textbf{Q:} Who had [given/received] help?\\ \hline
 		
@@ -242,88 +351,101 @@
 		
 		5. Causal &\textbf{S:} Pete envies Martin \textbf{[because/although]} he is very successful.\\&\textbf{Q:} Who is very successful? \\ \hline 
 		
-		6. Multiple knowledge &\textbf{S:}  
-		
-		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\ \hline
+		6. Multiple knowledge &\textbf{S:}  		
+		Sam and Amy are passionately in love, but Amy's parents are unhappy about it,\\& because they are \textbf{[snobs/fifteen]}.  \\&\textbf{Q:} Who are [snobs/fifteen]?\\
+	    
 	\end{tabular}
-	}
-  \end{frame}
+}
+\end{frame}
 
-\begin{frame}{Annotation of Winograd Schemas}
-	
+% \subsection{Overlays with lists}
+
+\begin{frame}[fragile]
+\frametitle{Annotation of Winograd Schemas}
 	\begin{itemize}
-		\normalsize
-		\item Strong agreement between the annotators \\
-		Cohen's kappa score 0.66
-		\item Annotation Results
-	\end{itemize}
-	\begin{table}
-		\centering
-		\input{categories.tex}
-	\end{table}		
-\end{frame}    
+	\normalsize
+	\item Strong agreement between the annotators \\
+	Cohen's kappa score 0.66
+	\item Annotation Results \\
+\end{itemize}
+\begin{table}
+	\centering
+	\input{categories.tex}
+\end{table}	
+\end{frame}
 
-\begin{frame}{Graph Representation for Physical Category}
-\onslide<1->\begin{enumerate}
-		\item The man couldn't lift his son because he was so weak. 
-		\item The trophy doesn't fit into the brown suitcase because it's too small.
-	\end{enumerate}
-		\centering
-\onslide<2->	\includegraphics[scale=0.4]{graph_1.png}  
-\onslide<2->	\includegraphics[scale=0.4]{graph_2.png} 
+\begin{frame}[fragile]
+
+\frametitle{Graph Representation for Physical Category}
+\onslide<1-> \begin{enumerate}	
+	\item The trophy doesn't fit into the brown suitcase because it's too small. 
+	\input{Files/graph_trophy/graph1.tex}
+
+
+\onslide<2-> \item The man couldn't lift his son because he was so weak. 
+ 			 \input{Files/graph_weak/graph11.tex}
+
+\end{enumerate}
 \end{frame}
 
 
-\begin{frame}{Reasoning}
+\begin{frame}[fragile] \frametitle{Reasoning}
+
 \onslide<1->	\begin{itemize}
-		\item Knowledge required for both examples is about \alert{physical features} 
-		\item Similar reasoning rules for categorizing the traits
-		\begin{enumerate}
-			\normalsize
-			\item weak(X) :- lift(X,Y), not lift(modifier, could).
-			\item small(Y) :- fit(X,Y), not fit(modifier, could).
-		\end{enumerate}
-\onslide<2->		\item Reasoning Algorithm
-\onslide<2->		\item Change of background knowledge
-\onslide<2->		\begin{itemize}
-			\normalsize
-			\item has\_k(weak,prevents,lift).
-		\end{itemize} 
-		
-	\end{itemize}
-\end{frame} 
+	\item Knowledge required for both examples is about \alert{physical features} 
+	\item Similar reasoning rules for categorizing the traits
+	
+\begin{lstlisting}[language = Prolog]
+has_k(small,is_trait_of,y) :- has_k(fit, recipient, y), 
+			     not has_k(fit,modifier,could).	
+has_k(weak,is_trait_of,y) :- has_k(lift, agent, y), 
+			     not has_k(lift,modifier,could).		
+\end{lstlisting}
 
-  
-\section{Conclusion}
+	\onslide<2->		\item Reasoning Algorithm
+	\onslide<2->		\item Change of background knowledge
  
-\begin{frame}{Contributions}
-    \begin{itemize}
-      \normalsize
-      \item Overview of different approaches towards WSC
-      \item None achieves close to ~90\% accuracy 
-      \item We \alert{analyzed} the entire WSC corpus and identified 6 categories
-      \item We identified a mistake in the Reasoning Algorithm \\and proposed a correction    
-    \end{itemize}
-  \end{frame}
+	
+\end{itemize}
+\end{frame}
 
-\begin{frame}{Future Work}
-	\begin{itemize}
-		\normalsize
-		\item Better Reasoning Algorithm
-		\item Knowledge Graphs (RDF) representation
-		\item Knowledge-injection neural networks
-	\end{itemize}
+\subsubsection{Conclusion}
 
+\begin{frame}[fragile] \frametitle{Contributions}
+  \begin{itemize}
+	\normalsize
+	\item Overview of different approaches towards WSC
+	\item None achieves close to ~90\% accuracy 
+	\item We \alert{analyzed} the entire WSC corpus and identified 6 categories
+	\item We identified a mistake in the Reasoning Algorithm \\and proposed a correction    
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{Future Work}
+ \begin{itemize}
+ 	\normalsize
+ 	\item Formalization of the characteristics for each category
+ 	\item Knowledge-enhanced neural networks
+\end{itemize}	
 \end{frame}
 
 
-  \begin{frame}[standout]
-    Thank you!
-  \end{frame}
+\begin{frame}
+	\vfill
+	\begin{LARGE}
+		\hfill Thank you! \hfill 
+	\end{LARGE}
+	\vfill
+\end{frame}
+\begin{frame}{References}
+	
+	\bibliographystyle{apalike}
+	\tiny{
+		\bibliography{lit}
+	}
+\end{frame}
 
-%\begin{frame}{References}
-	% This prints the bibliography on the slide
-%	\printbibliography
-%\end{frame}
+\subsection{Pause}
 
 \end{document}
